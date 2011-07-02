@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'PdfAnnotatorTests' target in the 'PdfAnnotatorTests' project
+//
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+#endif

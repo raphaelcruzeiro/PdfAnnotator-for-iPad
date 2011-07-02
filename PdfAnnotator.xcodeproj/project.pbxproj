@@ -1,0 +1,517 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A035598E13B6C405007AAD33 /* NSFileManagerExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = A035598D13B6C405007AAD33 /* NSFileManagerExtension.m */; };
+		A0AD30B113B59AC600FCC8F2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0AD30B013B59AC600FCC8F2 /* UIKit.framework */; };
+		A0AD30B313B59AC600FCC8F2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0AD30B213B59AC600FCC8F2 /* Foundation.framework */; };
+		A0AD30B513B59AC600FCC8F2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0AD30B413B59AC600FCC8F2 /* CoreGraphics.framework */; };
+		A0AD30BB13B59AC600FCC8F2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A0AD30B913B59AC600FCC8F2 /* InfoPlist.strings */; };
+		A0AD30BE13B59AC600FCC8F2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A0AD30BD13B59AC600FCC8F2 /* main.m */; };
+		A0AD30C113B59AC600FCC8F2 /* PdfAnnotatorAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A0AD30C013B59AC600FCC8F2 /* PdfAnnotatorAppDelegate.m */; };
+		A0AD30C413B59AC600FCC8F2 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0AD30C213B59AC600FCC8F2 /* MainWindow.xib */; };
+		A0AD30C713B59AC600FCC8F2 /* PdfAnnotatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0AD30C613B59AC600FCC8F2 /* PdfAnnotatorViewController.m */; };
+		A0AD30CA13B59AC600FCC8F2 /* PdfAnnotatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0AD30C813B59AC600FCC8F2 /* PdfAnnotatorViewController.xib */; };
+		A0AD30D113B59AC600FCC8F2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0AD30B013B59AC600FCC8F2 /* UIKit.framework */; };
+		A0AD30D213B59AC600FCC8F2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0AD30B213B59AC600FCC8F2 /* Foundation.framework */; };
+		A0AD30D313B59AC600FCC8F2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0AD30B413B59AC600FCC8F2 /* CoreGraphics.framework */; };
+		A0AD30DB13B59AC600FCC8F2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A0AD30D913B59AC600FCC8F2 /* InfoPlist.strings */; };
+		A0AD30DE13B59AC600FCC8F2 /* PdfAnnotatorTests.h in Resources */ = {isa = PBXBuildFile; fileRef = A0AD30DD13B59AC600FCC8F2 /* PdfAnnotatorTests.h */; };
+		A0AD30E013B59AC600FCC8F2 /* PdfAnnotatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A0AD30DF13B59AC600FCC8F2 /* PdfAnnotatorTests.m */; };
+		A0AD30ED13B59B4B00FCC8F2 /* LoadMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0AD30EC13B59B4B00FCC8F2 /* LoadMenuController.m */; };
+		A0AD30F413B5A65900FCC8F2 /* PDFDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = A0AD30F313B5A65900FCC8F2 /* PDFDocument.m */; };
+		A0AD30F613B5AFDA00FCC8F2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0AD30F513B5AFDA00FCC8F2 /* QuartzCore.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A0AD30D413B59AC600FCC8F2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A0AD30A313B59AC500FCC8F2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A0AD30AB13B59AC600FCC8F2;
+			remoteInfo = PdfAnnotator;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A035598C13B6C405007AAD33 /* NSFileManagerExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSFileManagerExtension.h; sourceTree = "<group>"; };
+		A035598D13B6C405007AAD33 /* NSFileManagerExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSFileManagerExtension.m; sourceTree = "<group>"; };
+		A0AD30AC13B59AC600FCC8F2 /* PdfAnnotator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PdfAnnotator.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0AD30B013B59AC600FCC8F2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		A0AD30B213B59AC600FCC8F2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A0AD30B413B59AC600FCC8F2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		A0AD30B813B59AC600FCC8F2 /* PdfAnnotator-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PdfAnnotator-Info.plist"; sourceTree = "<group>"; };
+		A0AD30BA13B59AC600FCC8F2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A0AD30BC13B59AC600FCC8F2 /* PdfAnnotator-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PdfAnnotator-Prefix.pch"; sourceTree = "<group>"; };
+		A0AD30BD13B59AC600FCC8F2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A0AD30BF13B59AC600FCC8F2 /* PdfAnnotatorAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PdfAnnotatorAppDelegate.h; sourceTree = "<group>"; };
+		A0AD30C013B59AC600FCC8F2 /* PdfAnnotatorAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PdfAnnotatorAppDelegate.m; sourceTree = "<group>"; };
+		A0AD30C313B59AC600FCC8F2 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		A0AD30C513B59AC600FCC8F2 /* PdfAnnotatorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PdfAnnotatorViewController.h; sourceTree = "<group>"; };
+		A0AD30C613B59AC600FCC8F2 /* PdfAnnotatorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PdfAnnotatorViewController.m; sourceTree = "<group>"; };
+		A0AD30C913B59AC600FCC8F2 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/PdfAnnotatorViewController.xib; sourceTree = "<group>"; };
+		A0AD30D013B59AC600FCC8F2 /* PdfAnnotatorTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PdfAnnotatorTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0AD30D813B59AC600FCC8F2 /* PdfAnnotatorTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PdfAnnotatorTests-Info.plist"; sourceTree = "<group>"; };
+		A0AD30DA13B59AC600FCC8F2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A0AD30DC13B59AC600FCC8F2 /* PdfAnnotatorTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PdfAnnotatorTests-Prefix.pch"; sourceTree = "<group>"; };
+		A0AD30DD13B59AC600FCC8F2 /* PdfAnnotatorTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PdfAnnotatorTests.h; sourceTree = "<group>"; };
+		A0AD30DF13B59AC600FCC8F2 /* PdfAnnotatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PdfAnnotatorTests.m; sourceTree = "<group>"; };
+		A0AD30EB13B59B4B00FCC8F2 /* LoadMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadMenuController.h; sourceTree = "<group>"; };
+		A0AD30EC13B59B4B00FCC8F2 /* LoadMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadMenuController.m; sourceTree = "<group>"; };
+		A0AD30F213B5A65900FCC8F2 /* PDFDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFDocument.h; sourceTree = "<group>"; };
+		A0AD30F313B5A65900FCC8F2 /* PDFDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFDocument.m; sourceTree = "<group>"; };
+		A0AD30F513B5AFDA00FCC8F2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A0AD30A913B59AC600FCC8F2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0AD30F613B5AFDA00FCC8F2 /* QuartzCore.framework in Frameworks */,
+				A0AD30B113B59AC600FCC8F2 /* UIKit.framework in Frameworks */,
+				A0AD30B313B59AC600FCC8F2 /* Foundation.framework in Frameworks */,
+				A0AD30B513B59AC600FCC8F2 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A0AD30CC13B59AC600FCC8F2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0AD30D113B59AC600FCC8F2 /* UIKit.framework in Frameworks */,
+				A0AD30D213B59AC600FCC8F2 /* Foundation.framework in Frameworks */,
+				A0AD30D313B59AC600FCC8F2 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A035598A13B6C3EB007AAD33 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A035598C13B6C405007AAD33 /* NSFileManagerExtension.h */,
+				A035598D13B6C405007AAD33 /* NSFileManagerExtension.m */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		A0AD30A113B59AC500FCC8F2 = {
+			isa = PBXGroup;
+			children = (
+				A0AD30B613B59AC600FCC8F2 /* PdfAnnotator */,
+				A0AD30D613B59AC600FCC8F2 /* PdfAnnotatorTests */,
+				A0AD30AF13B59AC600FCC8F2 /* Frameworks */,
+				A0AD30AD13B59AC600FCC8F2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A0AD30AD13B59AC600FCC8F2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A0AD30AC13B59AC600FCC8F2 /* PdfAnnotator.app */,
+				A0AD30D013B59AC600FCC8F2 /* PdfAnnotatorTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A0AD30AF13B59AC600FCC8F2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A0AD30F513B5AFDA00FCC8F2 /* QuartzCore.framework */,
+				A0AD30B013B59AC600FCC8F2 /* UIKit.framework */,
+				A0AD30B213B59AC600FCC8F2 /* Foundation.framework */,
+				A0AD30B413B59AC600FCC8F2 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A0AD30B613B59AC600FCC8F2 /* PdfAnnotator */ = {
+			isa = PBXGroup;
+			children = (
+				A035598A13B6C3EB007AAD33 /* Extensions */,
+				A0AD30EA13B59B2600FCC8F2 /* Menu */,
+				A0AD30E913B59ADE00FCC8F2 /* PDFControls */,
+				A0AD30BF13B59AC600FCC8F2 /* PdfAnnotatorAppDelegate.h */,
+				A0AD30C013B59AC600FCC8F2 /* PdfAnnotatorAppDelegate.m */,
+				A0AD30C213B59AC600FCC8F2 /* MainWindow.xib */,
+				A0AD30C513B59AC600FCC8F2 /* PdfAnnotatorViewController.h */,
+				A0AD30C613B59AC600FCC8F2 /* PdfAnnotatorViewController.m */,
+				A0AD30C813B59AC600FCC8F2 /* PdfAnnotatorViewController.xib */,
+				A0AD30B713B59AC600FCC8F2 /* Supporting Files */,
+			);
+			path = PdfAnnotator;
+			sourceTree = "<group>";
+		};
+		A0AD30B713B59AC600FCC8F2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A0AD30B813B59AC600FCC8F2 /* PdfAnnotator-Info.plist */,
+				A0AD30B913B59AC600FCC8F2 /* InfoPlist.strings */,
+				A0AD30BC13B59AC600FCC8F2 /* PdfAnnotator-Prefix.pch */,
+				A0AD30BD13B59AC600FCC8F2 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A0AD30D613B59AC600FCC8F2 /* PdfAnnotatorTests */ = {
+			isa = PBXGroup;
+			children = (
+				A0AD30DD13B59AC600FCC8F2 /* PdfAnnotatorTests.h */,
+				A0AD30DF13B59AC600FCC8F2 /* PdfAnnotatorTests.m */,
+				A0AD30D713B59AC600FCC8F2 /* Supporting Files */,
+			);
+			path = PdfAnnotatorTests;
+			sourceTree = "<group>";
+		};
+		A0AD30D713B59AC600FCC8F2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A0AD30D813B59AC600FCC8F2 /* PdfAnnotatorTests-Info.plist */,
+				A0AD30D913B59AC600FCC8F2 /* InfoPlist.strings */,
+				A0AD30DC13B59AC600FCC8F2 /* PdfAnnotatorTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A0AD30E913B59ADE00FCC8F2 /* PDFControls */ = {
+			isa = PBXGroup;
+			children = (
+				A0AD30F213B5A65900FCC8F2 /* PDFDocument.h */,
+				A0AD30F313B5A65900FCC8F2 /* PDFDocument.m */,
+			);
+			name = PDFControls;
+			sourceTree = "<group>";
+		};
+		A0AD30EA13B59B2600FCC8F2 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				A0AD30EB13B59B4B00FCC8F2 /* LoadMenuController.h */,
+				A0AD30EC13B59B4B00FCC8F2 /* LoadMenuController.m */,
+			);
+			name = Menu;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A0AD30AB13B59AC600FCC8F2 /* PdfAnnotator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A0AD30E313B59AC600FCC8F2 /* Build configuration list for PBXNativeTarget "PdfAnnotator" */;
+			buildPhases = (
+				A0AD30A813B59AC600FCC8F2 /* Sources */,
+				A0AD30A913B59AC600FCC8F2 /* Frameworks */,
+				A0AD30AA13B59AC600FCC8F2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PdfAnnotator;
+			productName = PdfAnnotator;
+			productReference = A0AD30AC13B59AC600FCC8F2 /* PdfAnnotator.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A0AD30CF13B59AC600FCC8F2 /* PdfAnnotatorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A0AD30E613B59AC600FCC8F2 /* Build configuration list for PBXNativeTarget "PdfAnnotatorTests" */;
+			buildPhases = (
+				A0AD30CB13B59AC600FCC8F2 /* Sources */,
+				A0AD30CC13B59AC600FCC8F2 /* Frameworks */,
+				A0AD30CD13B59AC600FCC8F2 /* Resources */,
+				A0AD30CE13B59AC600FCC8F2 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A0AD30D513B59AC600FCC8F2 /* PBXTargetDependency */,
+			);
+			name = PdfAnnotatorTests;
+			productName = PdfAnnotatorTests;
+			productReference = A0AD30D013B59AC600FCC8F2 /* PdfAnnotatorTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A0AD30A313B59AC500FCC8F2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "Inspira Tecnologia e Mkt";
+			};
+			buildConfigurationList = A0AD30A613B59AC500FCC8F2 /* Build configuration list for PBXProject "PdfAnnotator" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = A0AD30A113B59AC500FCC8F2;
+			productRefGroup = A0AD30AD13B59AC600FCC8F2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A0AD30AB13B59AC600FCC8F2 /* PdfAnnotator */,
+				A0AD30CF13B59AC600FCC8F2 /* PdfAnnotatorTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A0AD30AA13B59AC600FCC8F2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0AD30BB13B59AC600FCC8F2 /* InfoPlist.strings in Resources */,
+				A0AD30C413B59AC600FCC8F2 /* MainWindow.xib in Resources */,
+				A0AD30CA13B59AC600FCC8F2 /* PdfAnnotatorViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A0AD30CD13B59AC600FCC8F2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0AD30DB13B59AC600FCC8F2 /* InfoPlist.strings in Resources */,
+				A0AD30DE13B59AC600FCC8F2 /* PdfAnnotatorTests.h in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A0AD30CE13B59AC600FCC8F2 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A0AD30A813B59AC600FCC8F2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0AD30BE13B59AC600FCC8F2 /* main.m in Sources */,
+				A0AD30C113B59AC600FCC8F2 /* PdfAnnotatorAppDelegate.m in Sources */,
+				A0AD30C713B59AC600FCC8F2 /* PdfAnnotatorViewController.m in Sources */,
+				A0AD30ED13B59B4B00FCC8F2 /* LoadMenuController.m in Sources */,
+				A0AD30F413B5A65900FCC8F2 /* PDFDocument.m in Sources */,
+				A035598E13B6C405007AAD33 /* NSFileManagerExtension.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A0AD30CB13B59AC600FCC8F2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0AD30E013B59AC600FCC8F2 /* PdfAnnotatorTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A0AD30D513B59AC600FCC8F2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A0AD30AB13B59AC600FCC8F2 /* PdfAnnotator */;
+			targetProxy = A0AD30D413B59AC600FCC8F2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A0AD30B913B59AC600FCC8F2 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A0AD30BA13B59AC600FCC8F2 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A0AD30C213B59AC600FCC8F2 /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A0AD30C313B59AC600FCC8F2 /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		A0AD30C813B59AC600FCC8F2 /* PdfAnnotatorViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A0AD30C913B59AC600FCC8F2 /* en */,
+			);
+			name = PdfAnnotatorViewController.xib;
+			sourceTree = "<group>";
+		};
+		A0AD30D913B59AC600FCC8F2 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A0AD30DA13B59AC600FCC8F2 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A0AD30E113B59AC600FCC8F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		A0AD30E213B59AC600FCC8F2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Release;
+		};
+		A0AD30E413B59AC600FCC8F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Raphael Cruzeiro (36DG3S95Z4)";
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PdfAnnotator/PdfAnnotator-Prefix.pch";
+				INFOPLIST_FILE = "PdfAnnotator/PdfAnnotator-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "C11CEFFE-FB7D-4E7F-8A4C-1018902AC151";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		A0AD30E513B59AC600FCC8F2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Raphael Cruzeiro (36DG3S95Z4)";
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PdfAnnotator/PdfAnnotator-Prefix.pch";
+				INFOPLIST_FILE = "PdfAnnotator/PdfAnnotator-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "C11CEFFE-FB7D-4E7F-8A4C-1018902AC151";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		A0AD30E713B59AC600FCC8F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PdfAnnotator.app/PdfAnnotator";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PdfAnnotatorTests/PdfAnnotatorTests-Prefix.pch";
+				INFOPLIST_FILE = "PdfAnnotatorTests/PdfAnnotatorTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		A0AD30E813B59AC600FCC8F2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PdfAnnotator.app/PdfAnnotator";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PdfAnnotatorTests/PdfAnnotatorTests-Prefix.pch";
+				INFOPLIST_FILE = "PdfAnnotatorTests/PdfAnnotatorTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A0AD30A613B59AC500FCC8F2 /* Build configuration list for PBXProject "PdfAnnotator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A0AD30E113B59AC600FCC8F2 /* Debug */,
+				A0AD30E213B59AC600FCC8F2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A0AD30E313B59AC600FCC8F2 /* Build configuration list for PBXNativeTarget "PdfAnnotator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A0AD30E413B59AC600FCC8F2 /* Debug */,
+				A0AD30E513B59AC600FCC8F2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A0AD30E613B59AC600FCC8F2 /* Build configuration list for PBXNativeTarget "PdfAnnotatorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A0AD30E713B59AC600FCC8F2 /* Debug */,
+				A0AD30E813B59AC600FCC8F2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A0AD30A313B59AC500FCC8F2 /* Project object */;
+}
