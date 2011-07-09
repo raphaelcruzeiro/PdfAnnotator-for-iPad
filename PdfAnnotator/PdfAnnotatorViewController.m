@@ -9,6 +9,7 @@
 #import "PdfAnnotatorViewController.h"
 #import "LoadMenuController.h"
 #import "PDFDocument.h"
+#import "PDFPageViewController.h"
 
 #import <QuartzCore/QuartzCore.h>
 
@@ -24,6 +25,7 @@
 
 - (void)dealloc
 {
+    [pageViewController release];
     [super dealloc];
 }
 
@@ -84,47 +86,10 @@
     
     self.document = [[[PDFDocument alloc] initWithDocument:_document] autorelease];
     
-    CGRect pageRect = CGRectIntegral(CGPDFPageGetBoxRect(self.document.page, kCGPDFCropBox));
+    pageViewController = [[PDFPageViewController alloc] initWithNibName:Nil bundle:Nil];
+    [pageViewController loadDocument:self.document];
     
-    pageRect.origin.x = (self.documentView.frame.size.width / 2) - (pageRect.size.width / 2) - 35;
-    
-    CATiledLayer *tiledLayer = [CATiledLayer layer];
-    tiledLayer.delegate = self;
-    tiledLayer.tileSize = CGSizeMake(1024.0, 1024.0);
-    tiledLayer.levelsOfDetail = 1000;
-    tiledLayer.levelsOfDetailBias = 1000;
-    tiledLayer.frame = pageRect;
-    
-    contentView = [[UIView alloc] initWithFrame:pageRect];
-    [contentView.layer addSublayer:tiledLayer];
-    
-    CGRect viewFrame = self.documentView.frame;
-    viewFrame.origin = CGPointZero;
-    
-    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:viewFrame];
-    scrollView.delegate = self;
-    scrollView.contentSize = pageRect.size;
-    scrollView.maximumZoomScale = 1000;
-    [scrollView addSubview:contentView];
-    
-    [self.documentView addSubview:scrollView];
-}
-
-- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
-{
-    return contentView;
-}
-
-- (void)drawLayer:(CALayer *)layer inContext:(CGContextRef)ctx
-{
-    if(self.document != NULL) {
-        CGContextSetRGBFillColor(ctx, 1.0, 1.0, 1.0, 1.0);
-        CGContextFillRect(ctx, CGContextGetClipBoundingBox(ctx));
-        CGContextTranslateCTM(ctx, 0.0, layer.bounds.size.height);
-        CGContextScaleCTM(ctx, 1.0, -1.0);
-        CGContextConcatCTM(ctx, CGPDFPageGetDrawingTransform(self.document.page, kCGPDFCropBox, layer.bounds, 0, true));
-        CGContextDrawPDFPage(ctx, self.document.page);
-    }
+    [self.view addSubview:[pageViewController view]];
 }
 
 @end

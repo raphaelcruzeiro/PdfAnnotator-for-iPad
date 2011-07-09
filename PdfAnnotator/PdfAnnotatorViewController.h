@@ -12,7 +12,7 @@
 @class PDFDocument;
 @class PDFPageViewController;
 
-@interface PdfAnnotatorViewController : UIViewController <LoadMenuDelegate, UIScrollViewDelegate> {
+@interface PdfAnnotatorViewController : UIViewController <LoadMenuDelegate> {
     UIView *contentView;
 }
 
