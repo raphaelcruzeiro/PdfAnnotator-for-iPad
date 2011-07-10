@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		A035598E13B6C405007AAD33 /* NSFileManagerExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = A035598D13B6C405007AAD33 /* NSFileManagerExtension.m */; };
 		A079489013BFBC1200431BBF /* PDFPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A079488F13BFBC1200431BBF /* PDFPageViewController.m */; };
-		A079489413BFC06100431BBF /* PDFPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = A079489313BFC06100431BBF /* PDFPageView.m */; };
 		A0AD30B113B59AC600FCC8F2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0AD30B013B59AC600FCC8F2 /* UIKit.framework */; };
 		A0AD30B313B59AC600FCC8F2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0AD30B213B59AC600FCC8F2 /* Foundation.framework */; };
 		A0AD30B513B59AC600FCC8F2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0AD30B413B59AC600FCC8F2 /* CoreGraphics.framework */; };
@@ -29,6 +28,7 @@
 		A0AD30F413B5A65900FCC8F2 /* PDFDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = A0AD30F313B5A65900FCC8F2 /* PDFDocument.m */; };
 		A0AD30F613B5AFDA00FCC8F2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0AD30F513B5AFDA00FCC8F2 /* QuartzCore.framework */; };
 		A0E708AE13C973500002A8F0 /* PDFPagingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0E708AD13C973500002A8F0 /* PDFPagingViewController.m */; };
+		A0E708B213CA2E580002A8F0 /* PDFThumbnailFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = A0E708B113CA2E580002A8F0 /* PDFThumbnailFactory.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,8 +46,6 @@
 		A035598D13B6C405007AAD33 /* NSFileManagerExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSFileManagerExtension.m; sourceTree = "<group>"; };
 		A079488E13BFBC1200431BBF /* PDFPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFPageViewController.h; sourceTree = "<group>"; };
 		A079488F13BFBC1200431BBF /* PDFPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFPageViewController.m; sourceTree = "<group>"; };
-		A079489213BFC06100431BBF /* PDFPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFPageView.h; sourceTree = "<group>"; };
-		A079489313BFC06100431BBF /* PDFPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFPageView.m; sourceTree = "<group>"; };
 		A0AD30AC13B59AC600FCC8F2 /* PdfAnnotator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PdfAnnotator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0AD30B013B59AC600FCC8F2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A0AD30B213B59AC600FCC8F2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -75,6 +73,8 @@
 		A0AD30F513B5AFDA00FCC8F2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		A0E708AC13C973500002A8F0 /* PDFPagingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFPagingViewController.h; sourceTree = "<group>"; };
 		A0E708AD13C973500002A8F0 /* PDFPagingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFPagingViewController.m; sourceTree = "<group>"; };
+		A0E708B013CA2E570002A8F0 /* PDFThumbnailFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFThumbnailFactory.h; sourceTree = "<group>"; };
+		A0E708B113CA2E580002A8F0 /* PDFThumbnailFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFThumbnailFactory.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,10 +196,10 @@
 				A0AD30F313B5A65900FCC8F2 /* PDFDocument.m */,
 				A079488E13BFBC1200431BBF /* PDFPageViewController.h */,
 				A079488F13BFBC1200431BBF /* PDFPageViewController.m */,
-				A079489213BFC06100431BBF /* PDFPageView.h */,
-				A079489313BFC06100431BBF /* PDFPageView.m */,
 				A0E708AC13C973500002A8F0 /* PDFPagingViewController.h */,
 				A0E708AD13C973500002A8F0 /* PDFPagingViewController.m */,
+				A0E708B013CA2E570002A8F0 /* PDFThumbnailFactory.h */,
+				A0E708B113CA2E580002A8F0 /* PDFThumbnailFactory.m */,
 			);
 			name = PDFControls;
 			sourceTree = "<group>";
@@ -328,8 +328,8 @@
 				A0AD30F413B5A65900FCC8F2 /* PDFDocument.m in Sources */,
 				A035598E13B6C405007AAD33 /* NSFileManagerExtension.m in Sources */,
 				A079489013BFBC1200431BBF /* PDFPageViewController.m in Sources */,
-				A079489413BFC06100431BBF /* PDFPageView.m in Sources */,
 				A0E708AE13C973500002A8F0 /* PDFPagingViewController.m in Sources */,
+				A0E708B213CA2E580002A8F0 /* PDFThumbnailFactory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

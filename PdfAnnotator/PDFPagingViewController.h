@@ -8,15 +8,22 @@
 
 #import <UIKit/UIKit.h>
 
+@class PDFDocument;
+@class PDFThumbnailFactory;
+
 @interface PDFPagingViewController : UIViewController {
     BOOL expanded;
     CGRect expandedFrame;
     CGRect collapsedFrame;
 }
 
+@property (nonatomic, retain) PDFDocument *_document;
+
+@property (nonatomic, retain) PDFThumbnailFactory *thumbFactory;
+
 @property (nonatomic, retain) UIButton *collapseButton;
 
-- (id)init;
+- (id)initWithDocument:(PDFDocument*)document;
 - (void)expand;
 - (void)collapse;
 - (void) toggle;

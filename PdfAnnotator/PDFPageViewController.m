@@ -95,7 +95,7 @@
     
     [self.view addSubview:scrollView];   
     
-    pagingViewController = [[PDFPagingViewController alloc] init];
+    pagingViewController = [[PDFPagingViewController alloc] initWithDocument:self._document];
     [self.view addSubview:pagingViewController.view];
 }
 
