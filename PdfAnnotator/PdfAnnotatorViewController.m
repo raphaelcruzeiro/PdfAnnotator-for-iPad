@@ -17,7 +17,6 @@
 @implementation PdfAnnotatorViewController
 
 @synthesize pageViewController;
-@synthesize pagingViewController;
 @synthesize loadMenu;
 @synthesize popOver;
 @synthesize toolbar;
@@ -29,7 +28,6 @@
 - (void)dealloc
 {
     [pageViewController release];
-    [pagingViewController release];
     
     [super dealloc];
 }
@@ -96,9 +94,6 @@
     
     [self.view addSubview:[pageViewController view]];
     [self.view bringSubviewToFront:toolbar];
-    
-    pagingViewController = [[PDFPagingViewController alloc] init];
-    [self.view addSubview:pagingViewController.view];
 }
 
 @end

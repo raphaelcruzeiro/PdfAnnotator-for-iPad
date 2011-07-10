@@ -11,7 +11,6 @@
 
 @class PDFDocument;
 @class PDFPageViewController;
-@class PDFPagingViewController;
 
 @interface PdfAnnotatorViewController : UIViewController <LoadMenuDelegate> {
     UIView *contentView;
@@ -20,7 +19,6 @@
 - (void)loadClicked:(id)sender;
 
 @property (nonatomic, retain) PDFPageViewController *pageViewController;
-@property (nonatomic, retain) PDFPagingViewController *pagingViewController;
 @property (nonatomic, retain) LoadMenuController *loadMenu;
 @property (nonatomic, retain) UIPopoverController *popOver;
 @property (nonatomic, retain) IBOutlet UIToolbar *toolbar;

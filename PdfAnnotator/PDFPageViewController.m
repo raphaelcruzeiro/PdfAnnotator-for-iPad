@@ -9,10 +9,12 @@
 #import "PDFPageViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "PDFDocument.h"
+#import "PDFPagingViewController.h"
 
 @implementation PDFPageViewController
 
 @synthesize _document;
+@synthesize pagingViewController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -92,6 +94,9 @@
     [scrollView addSubview:contentView];
     
     [self.view addSubview:scrollView];   
+    
+    pagingViewController = [[PDFPagingViewController alloc] init];
+    [self.view addSubview:pagingViewController.view];
 }
 
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
@@ -112,6 +117,13 @@
         CGContextConcatCTM(ctx, CGPDFPageGetDrawingTransform(self._document.page, kCGPDFCropBox, layer.bounds, 0, true));
         CGContextDrawPDFPage(ctx, self._document.page);
     }
+}
+
+- (void)dealloc
+{
+    [pagingViewController release];
+    
+    [super dealloc];
 }
 
 @end

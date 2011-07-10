@@ -53,7 +53,7 @@
     [super viewDidLoad];
     
     expandedFrame = CGRectMake(0, 754, 768, 270);
-    collapsedFrame = CGRectMake(0, 966, 768, 270);
+    collapsedFrame = CGRectMake(0, 946, 768, 270);
     
     self.view.backgroundColor = [UIColor blackColor];
     self.view.alpha = 0.2;
@@ -72,8 +72,8 @@
 - (void)expand
 {
     [UIView animateWithDuration:0.5 
-                          delay:0 
-                        options:UIViewAnimationCurveEaseOut 
+                     delay:0 
+                     options:UIViewAnimationCurveEaseOut 
                      animations:^{
                          self.view.frame = expandedFrame;
                      } 
@@ -86,8 +86,8 @@
 - (void)collapse
 {
     [UIView animateWithDuration:0.5 
-                          delay:0
-                        options:UIViewAnimationCurveEaseOut 
+                     delay:0
+                     options:UIViewAnimationCurveEaseOut 
                      animations:^{
                          self.view.frame = collapsedFrame;
                      } 

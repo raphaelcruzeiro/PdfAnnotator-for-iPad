@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @class PDFDocument;
+@class PDFPagingViewController;
 
 @interface PDFPageViewController : UIViewController <UIScrollViewDelegate              >
 {
@@ -16,6 +17,8 @@
 }
 
 @property (nonatomic, retain) PDFDocument *_document;
+
+@property (nonatomic, retain) PDFPagingViewController *pagingViewController;
 
 - (void) loadDocument:(PDFDocument *)document;
 
