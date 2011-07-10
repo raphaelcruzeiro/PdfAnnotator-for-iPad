@@ -28,6 +28,7 @@
 		A0AD30ED13B59B4B00FCC8F2 /* LoadMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0AD30EC13B59B4B00FCC8F2 /* LoadMenuController.m */; };
 		A0AD30F413B5A65900FCC8F2 /* PDFDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = A0AD30F313B5A65900FCC8F2 /* PDFDocument.m */; };
 		A0AD30F613B5AFDA00FCC8F2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0AD30F513B5AFDA00FCC8F2 /* QuartzCore.framework */; };
+		A0E708AE13C973500002A8F0 /* PDFPagingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0E708AD13C973500002A8F0 /* PDFPagingViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,8 @@
 		A0AD30F213B5A65900FCC8F2 /* PDFDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFDocument.h; sourceTree = "<group>"; };
 		A0AD30F313B5A65900FCC8F2 /* PDFDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFDocument.m; sourceTree = "<group>"; };
 		A0AD30F513B5AFDA00FCC8F2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		A0E708AC13C973500002A8F0 /* PDFPagingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFPagingViewController.h; sourceTree = "<group>"; };
+		A0E708AD13C973500002A8F0 /* PDFPagingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFPagingViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +198,8 @@
 				A079488F13BFBC1200431BBF /* PDFPageViewController.m */,
 				A079489213BFC06100431BBF /* PDFPageView.h */,
 				A079489313BFC06100431BBF /* PDFPageView.m */,
+				A0E708AC13C973500002A8F0 /* PDFPagingViewController.h */,
+				A0E708AD13C973500002A8F0 /* PDFPagingViewController.m */,
 			);
 			name = PDFControls;
 			sourceTree = "<group>";
@@ -324,6 +329,7 @@
 				A035598E13B6C405007AAD33 /* NSFileManagerExtension.m in Sources */,
 				A079489013BFBC1200431BBF /* PDFPageViewController.m in Sources */,
 				A079489413BFC06100431BBF /* PDFPageView.m in Sources */,
+				A0E708AE13C973500002A8F0 /* PDFPagingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

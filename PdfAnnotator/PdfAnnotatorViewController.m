@@ -10,14 +10,17 @@
 #import "LoadMenuController.h"
 #import "PDFDocument.h"
 #import "PDFPageViewController.h"
+#import "PDFPagingViewController.h"
 
 #import <QuartzCore/QuartzCore.h>
 
 @implementation PdfAnnotatorViewController
 
 @synthesize pageViewController;
+@synthesize pagingViewController;
 @synthesize loadMenu;
 @synthesize popOver;
+@synthesize toolbar;
 @synthesize load;
 @synthesize document;
 
@@ -26,6 +29,8 @@
 - (void)dealloc
 {
     [pageViewController release];
+    [pagingViewController release];
+    
     [super dealloc];
 }
 
@@ -90,6 +95,10 @@
     [pageViewController loadDocument:self.document];
     
     [self.view addSubview:[pageViewController view]];
+    [self.view bringSubviewToFront:toolbar];
+    
+    pagingViewController = [[PDFPagingViewController alloc] init];
+    [self.view addSubview:pagingViewController.view];
 }
 
 @end
