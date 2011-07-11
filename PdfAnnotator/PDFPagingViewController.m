@@ -180,6 +180,8 @@
 
 - (void)dealloc
 {
+    NSLog(@"%s", "Cleaning paging view...");
+    
     [collapseButton release];
     
     for(UIImage *img in thumbs) {

@@ -37,11 +37,13 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "PdfAnnotator/PDFPageViewController.m"
-         timestampString = "332117679.449833"
+         timestampString = "332119887.330282"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "198"
-         endingLineNumber = "198">
+         startingLineNumber = "196"
+         endingLineNumber = "196"
+         landmarkName = "-refreshPage"
+         landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -49,11 +51,13 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "PdfAnnotator/PDFPageViewController.m"
-         timestampString = "332117679.449833"
+         timestampString = "332119887.330282"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "188"
-         endingLineNumber = "188">
+         startingLineNumber = "186"
+         endingLineNumber = "186"
+         landmarkName = "-refreshPage"
+         landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"

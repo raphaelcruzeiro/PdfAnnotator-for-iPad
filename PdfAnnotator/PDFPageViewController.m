@@ -69,18 +69,22 @@
 - (void)refreshPage
 {  
     if(contentView) {
+        [pagingViewController.view retain];
+        
         for(UIView *v in self.view.subviews) {
             [v removeFromSuperview];
             [v release];
         }
     }
     
+    if(!pagingViewController) {
+        pagingViewController = [[PDFPagingViewController alloc] initWithDocument:self._document AndObserver:self];
+    }
+    
     CGRect pageRect = CGRectIntegral(CGPDFPageGetBoxRect(self._document.page, kCGPDFCropBox));
      
     pageRect.origin.x = ((self.view.frame.size.width / 2) - (pageRect.size.width / 2)) / 2;
-    
-    NSLog(@"pageRect %f", pageRect.origin.x);
-    
+
     CATiledLayer *tiledLayer = [CATiledLayer layer];
     tiledLayer.delegate = self;
     tiledLayer.tileSize = CGSizeMake(1024.0, 1024.0);
@@ -108,12 +112,6 @@
     [scrollView addSubview:contentView];
     
     [self.view addSubview:scrollView];   
-    
-    if(!pagingViewController) {
-        pagingViewController = [[PDFPagingViewController alloc] initWithDocument:self._document AndObserver:self];
-    } else {
-        [pagingViewController.view removeFromSuperview];
-    }
     [self.view addSubview:pagingViewController.view];
 }
 
