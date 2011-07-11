@@ -9,7 +9,6 @@
 #import "PDFPageViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "PDFDocument.h"
-#import "PDFPagingViewController.h"
 
 @implementation PDFPageViewController
 
@@ -64,6 +63,18 @@
 - (void)loadDocument:(PDFDocument *)document
 {
     self._document = document;
+    [self refreshPage];
+}
+
+- (void)refreshPage
+{
+    
+    if(contentView) {
+        for(UIView *v in self.view.subviews) {
+            [v removeFromSuperview];
+            [v release];
+        }
+    }
     
     CGRect pageRect = CGRectIntegral(CGPDFPageGetBoxRect(self._document.page, kCGPDFCropBox));
     
@@ -95,7 +106,7 @@
     
     [self.view addSubview:scrollView];   
     
-    pagingViewController = [[PDFPagingViewController alloc] initWithDocument:self._document];
+    pagingViewController = [[PDFPagingViewController alloc] initWithDocument:self._document AndObserver:self];
     [self.view addSubview:pagingViewController.view];
 }
 
@@ -104,8 +115,11 @@
     return contentView;
 }
 
-- (void)drawLayer:inContext:(CGContextRef)ctx
-{}
+- (void)pageSelected:(NSInteger)page
+{
+    [self._document loadPage:page];
+    [self refreshPage];
+}
 
 - (void)drawLayer:(CALayer *)layer inContext:(CGContextRef)ctx
 {

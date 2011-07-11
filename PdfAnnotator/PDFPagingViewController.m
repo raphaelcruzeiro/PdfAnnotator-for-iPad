@@ -12,13 +12,15 @@
 
 @implementation PDFPagingViewController
 
+@synthesize delegate;
 @synthesize _document;
 @synthesize thumbFactory;
 @synthesize collapseButton;
 
-- (id)initWithDocument:(PDFDocument *)document
+- (id)initWithDocument:(PDFDocument *)document AndObserver:(id<PDFPagingViewProtocol>)observer
 {
     if(self = [super init]){
+        self.delegate = observer;
         expanded = false;
         self._document = document;
         self.thumbFactory = [[PDFThumbnailFactory alloc] initWithDocument:self._document];
@@ -156,6 +158,7 @@
 - (void)pageItemClicked:(id)sender
 {
     NSLog(@"Clicked %d", [((UIButton*)sender) tag]);
+    [delegate pageSelected:[((UIButton*)sender) tag]];
 }
 
 - (void)viewDidUnload

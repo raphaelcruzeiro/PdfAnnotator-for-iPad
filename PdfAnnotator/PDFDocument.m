@@ -32,6 +32,11 @@
     return CGPDFDocumentGetNumberOfPages(self.document);
 }
 
+- (void)loadPage:(NSInteger)number
+{
+    self.page = CGPDFPageRetain(CGPDFDocumentGetPage(document, number));
+}
+
 - (void)dealloc
 {
     NSLog(@"Cleaning doc...");
