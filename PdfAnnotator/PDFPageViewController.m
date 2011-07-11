@@ -67,8 +67,7 @@
 }
 
 - (void)refreshPage
-{
-    
+{  
     if(contentView) {
         for(UIView *v in self.view.subviews) {
             [v removeFromSuperview];
@@ -77,8 +76,10 @@
     }
     
     CGRect pageRect = CGRectIntegral(CGPDFPageGetBoxRect(self._document.page, kCGPDFCropBox));
+     
+    pageRect.origin.x = ((self.view.frame.size.width / 2) - (pageRect.size.width / 2)) / 2;
     
-    pageRect.origin.x = (((self.view.frame.size.width / 2) - (pageRect.size.width / 2)) / 2);
+    NSLog(@"pageRect %f", pageRect.origin.x);
     
     CATiledLayer *tiledLayer = [CATiledLayer layer];
     tiledLayer.delegate = self;
@@ -87,6 +88,9 @@
     tiledLayer.levelsOfDetailBias = 1000;
     tiledLayer.frame = pageRect;
     
+    pageRect.size.width += ((self.view.frame.size.width / 2) - (pageRect.size.width / 2)) * 2;
+    pageRect.size.height = ((self.view.frame.size.height / 2) - (pageRect.size.height / 2)) * 5;
+    
     contentView = [[UIView alloc] initWithFrame:pageRect];
     [contentView.layer addSublayer:tiledLayer];
     
@@ -94,6 +98,10 @@
     viewFrame.origin = CGPointZero;
     
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:viewFrame];
+    
+     //[scrollView setBackgroundColor:[UIColor cyanColor]];
+     //[contentView setBackgroundColor:[UIColor yellowColor]];
+    
     scrollView.delegate = self;
     scrollView.contentSize = pageRect.size;
     scrollView.maximumZoomScale = 1000;
@@ -101,7 +109,11 @@
     
     [self.view addSubview:scrollView];   
     
-    pagingViewController = [[PDFPagingViewController alloc] initWithDocument:self._document AndObserver:self];
+    if(!pagingViewController) {
+        pagingViewController = [[PDFPagingViewController alloc] initWithDocument:self._document AndObserver:self];
+    } else {
+        [pagingViewController.view removeFromSuperview];
+    }
     [self.view addSubview:pagingViewController.view];
 }
 
@@ -119,8 +131,15 @@
 - (void)drawLayer:(CALayer *)layer inContext:(CGContextRef)ctx
 {
     if(self._document) {
+        [layer setBackgroundColor:(CGColorRef)[UIColor redColor]];
+        
+        CGRect drawingRect = CGContextGetClipBoundingBox(ctx);
+        
+        NSLog(@"Drawing rect %f", drawingRect.origin.x);
+        NSLog(@"layer %f", layer.bounds.origin.x);
+        
         CGContextSetRGBFillColor(ctx, 1.0, 1.0, 1.0, 1.0);
-        CGContextFillRect(ctx, CGContextGetClipBoundingBox(ctx));
+        CGContextFillRect(ctx, drawingRect);
         CGContextTranslateCTM(ctx, 0.0, layer.bounds.size.height);
         CGContextScaleCTM(ctx, 1.0, -1.0);
         CGContextConcatCTM(ctx, CGPDFPageGetDrawingTransform(self._document.page, kCGPDFCropBox, layer.bounds, 0, true));

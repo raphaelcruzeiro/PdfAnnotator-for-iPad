@@ -153,7 +153,6 @@
 				A0AD30BF13B59AC600FCC8F2 /* PdfAnnotatorAppDelegate.h */,
 				A0AD30C013B59AC600FCC8F2 /* PdfAnnotatorAppDelegate.m */,
 				A0AD30C213B59AC600FCC8F2 /* MainWindow.xib */,
-				A0AD30C513B59AC600FCC8F2 /* PdfAnnotatorViewController.h */,
 				A0AD30C613B59AC600FCC8F2 /* PdfAnnotatorViewController.m */,
 				A0AD30C813B59AC600FCC8F2 /* PdfAnnotatorViewController.xib */,
 				A0AD30B713B59AC600FCC8F2 /* Supporting Files */,
@@ -203,6 +202,7 @@
 				A0E708AD13C973500002A8F0 /* PDFPagingViewController.m */,
 				A0E708B013CA2E570002A8F0 /* PDFThumbnailFactory.h */,
 				A0E708B113CA2E580002A8F0 /* PDFThumbnailFactory.m */,
+				A0AD30C513B59AC600FCC8F2 /* PdfAnnotatorViewController.h */,
 			);
 			name = PDFControls;
 			sourceTree = "<group>";
