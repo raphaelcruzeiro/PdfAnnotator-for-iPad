@@ -80,11 +80,6 @@
     
     pageRect.origin.x = (((self.view.frame.size.width / 2) - (pageRect.size.width / 2)) / 2);
     
-    NSLog(@"Page width: %f", pageRect.size.width);
-    NSLog(@"View width: %f", self.view.frame.size.width);
-    
-    NSLog(@"X: %f", pageRect.origin.x);
-    
     CATiledLayer *tiledLayer = [CATiledLayer layer];
     tiledLayer.delegate = self;
     tiledLayer.tileSize = CGSizeMake(1024.0, 1024.0);

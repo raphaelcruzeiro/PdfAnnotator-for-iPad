@@ -24,6 +24,7 @@
         expanded = false;
         self._document = document;
         self.thumbFactory = [[PDFThumbnailFactory alloc] initWithDocument:self._document];
+        thumbs = [[NSMutableArray alloc] init];
     }
     
     return self;
@@ -100,6 +101,9 @@
         }
         
         UIImage * thumb = [thumbFactory generateThumbnailForPage:i withSize:(CGSize){120, 160}];
+        
+        [thumbs addObject:thumb];
+        
         UIButton * thumbButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [thumbButton setBackgroundColor:[UIColor whiteColor]];
         [thumbButton setImage:thumb forState:UIControlStateNormal];
@@ -177,6 +181,10 @@
 - (void)dealloc
 {
     [collapseButton release];
+    
+    for(UIImage *img in thumbs) {
+        [img release];
+    }
     
     [super dealloc];
 }

@@ -16,6 +16,7 @@
     BOOL expanded;
     CGRect expandedFrame;
     CGRect collapsedFrame;
+    NSMutableArray *thumbs;
 }
 
 @property (nonatomic, retain) id<PDFPagingViewProtocol> delegate;
