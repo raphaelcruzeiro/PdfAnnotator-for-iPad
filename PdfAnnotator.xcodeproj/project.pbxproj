@@ -27,6 +27,7 @@
 		A0AD30ED13B59B4B00FCC8F2 /* LoadMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0AD30EC13B59B4B00FCC8F2 /* LoadMenuController.m */; };
 		A0AD30F413B5A65900FCC8F2 /* PDFDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = A0AD30F313B5A65900FCC8F2 /* PDFDocument.m */; };
 		A0AD30F613B5AFDA00FCC8F2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0AD30F513B5AFDA00FCC8F2 /* QuartzCore.framework */; };
+		A0BBCAC413CAA01C00522A1A /* progressIndicator_roller.gif in Resources */ = {isa = PBXBuildFile; fileRef = A0BBCAC313CAA01C00522A1A /* progressIndicator_roller.gif */; };
 		A0E708AE13C973500002A8F0 /* PDFPagingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0E708AD13C973500002A8F0 /* PDFPagingViewController.m */; };
 		A0E708B213CA2E580002A8F0 /* PDFThumbnailFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = A0E708B113CA2E580002A8F0 /* PDFThumbnailFactory.m */; };
 /* End PBXBuildFile section */
@@ -71,6 +72,7 @@
 		A0AD30F213B5A65900FCC8F2 /* PDFDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFDocument.h; sourceTree = "<group>"; };
 		A0AD30F313B5A65900FCC8F2 /* PDFDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFDocument.m; sourceTree = "<group>"; };
 		A0AD30F513B5AFDA00FCC8F2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		A0BBCAC313CAA01C00522A1A /* progressIndicator_roller.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = progressIndicator_roller.gif; sourceTree = "<group>"; };
 		A0E708AC13C973500002A8F0 /* PDFPagingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFPagingViewController.h; sourceTree = "<group>"; };
 		A0E708AD13C973500002A8F0 /* PDFPagingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFPagingViewController.m; sourceTree = "<group>"; };
 		A0E708B013CA2E570002A8F0 /* PDFThumbnailFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFThumbnailFactory.h; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 		A0AD30B613B59AC600FCC8F2 /* PdfAnnotator */ = {
 			isa = PBXGroup;
 			children = (
+				A0BBCABF13CA9FD300522A1A /* Resources */,
 				A035598A13B6C3EB007AAD33 /* Extensions */,
 				A0AD30EA13B59B2600FCC8F2 /* Menu */,
 				A0AD30E913B59ADE00FCC8F2 /* PDFControls */,
@@ -211,6 +214,14 @@
 				A0AD30EC13B59B4B00FCC8F2 /* LoadMenuController.m */,
 			);
 			name = Menu;
+			sourceTree = "<group>";
+		};
+		A0BBCABF13CA9FD300522A1A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A0BBCAC313CAA01C00522A1A /* progressIndicator_roller.gif */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,6 +297,7 @@
 				A0AD30BB13B59AC600FCC8F2 /* InfoPlist.strings in Resources */,
 				A0AD30C413B59AC600FCC8F2 /* MainWindow.xib in Resources */,
 				A0AD30CA13B59AC600FCC8F2 /* PdfAnnotatorViewController.xib in Resources */,
+				A0BBCAC413CAA01C00522A1A /* progressIndicator_roller.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

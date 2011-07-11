@@ -75,7 +75,28 @@
     
     CGFloat startingX = 10;
     
-    for(NSInteger i = 1 ; i <= [self._document pageCount] && i < 10 ; i++) {
+    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 50, 768, 170)];
+    scrollView.contentSize = CGSizeMake([self._document pageCount] * 130, 170);
+    
+    for(NSInteger i = 1 ; i <= [self._document pageCount] && i; i++) {
+        
+        if(i > 10) {
+            UIButton * thumbButton = [UIButton buttonWithType:UIButtonTypeCustom];
+            [thumbButton setBackgroundColor:[UIColor whiteColor]];
+            [thumbButton setImage:[UIImage imageNamed:@"progressIndicator_roller.gif"] forState:UIControlStateNormal];
+            [thumbButton setTag:i];
+            
+            [thumbButton addTarget:self action:@selector(pageItemClicked:) forControlEvents:UIControlEventTouchDown];
+            
+            [thumbButton setFrame:CGRectMake(startingX, 0, 120, 160)];
+            
+            [scrollView addSubview:thumbButton];
+            
+            startingX += 130;
+            
+            continue;
+        }
+        
         UIImage * thumb = [thumbFactory generateThumbnailForPage:i withSize:(CGSize){120, 160}];
         UIButton * thumbButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [thumbButton setBackgroundColor:[UIColor whiteColor]];
@@ -84,12 +105,14 @@
         
         [thumbButton addTarget:self action:@selector(pageItemClicked:) forControlEvents:UIControlEventTouchDown];
         
-        [thumbButton setFrame:CGRectMake(startingX, 50, thumb.size.width, thumb.size.height)];
+        [thumbButton setFrame:CGRectMake(startingX, 0, thumb.size.width, thumb.size.height)];
         
-        [self.view addSubview:thumbButton];
+        [scrollView addSubview:thumbButton];
         
         startingX += thumb.size.width + 10;
     }
+    
+    [self.view addSubview:scrollView];
     
     [self expand];
 }
