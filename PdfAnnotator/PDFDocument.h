@@ -15,6 +15,8 @@
 
 - (id)initWithDocument:(NSURL *)documentPath;
 
+- (NSInteger) pageCount;
+
 @property (readwrite, nonatomic, assign) CGPDFDocumentRef document;
 @property (readwrite, nonatomic, assign) CGPDFPageRef page;
 

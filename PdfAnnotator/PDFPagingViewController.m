@@ -73,12 +73,23 @@
     [collapseButton setAlpha:0.2];
     [self.view addSubview:collapseButton];
     
-    UIImage* thumb = [thumbFactory generateThumbnailForPage:1 withSize:(CGSize){150, 300}];
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:thumb];
+    CGFloat startingX = 10;
     
-    [imageView setFrame:CGRectMake(100, 25, thumb.size.width, thumb.size.height)];
-    
-    [self.view addSubview:imageView];
+    for(NSInteger i = 1 ; i <= [self._document pageCount] && i < 10 ; i++) {
+        UIImage * thumb = [thumbFactory generateThumbnailForPage:i withSize:(CGSize){120, 160}];
+        UIButton * thumbButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [thumbButton setBackgroundColor:[UIColor whiteColor]];
+        [thumbButton setImage:thumb forState:UIControlStateNormal];
+        [thumbButton setTag:i];
+        
+        [thumbButton addTarget:self action:@selector(pageItemClicked:) forControlEvents:UIControlEventTouchDown];
+        
+        [thumbButton setFrame:CGRectMake(startingX, 50, thumb.size.width, thumb.size.height)];
+        
+        [self.view addSubview:thumbButton];
+        
+        startingX += thumb.size.width + 10;
+    }
     
     [self expand];
 }
@@ -117,6 +128,11 @@
         [self collapse];
     else
         [self expand];
+}
+
+- (void)pageItemClicked:(id)sender
+{
+    NSLog(@"Clicked %d", [((UIButton*)sender) tag]);
 }
 
 - (void)viewDidUnload

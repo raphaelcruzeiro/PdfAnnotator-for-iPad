@@ -28,4 +28,6 @@
 - (void)collapse;
 - (void) toggle;
 
+- (void)pageItemClicked:(id)sender;
+
 @end
