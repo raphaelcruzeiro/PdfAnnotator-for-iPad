@@ -69,7 +69,7 @@
 - (void)refreshPage
 {  
     if(contentView) {
-        [pagingViewController.view retain];
+        [pagingViewController.view retain]; 
         
         for(UIView *v in self.view.subviews) {
             [v removeFromSuperview];

@@ -50,7 +50,9 @@
     self.load.target = self;
     self.load.action = @selector(loadClicked:);
     
-    self.documentView.backgroundColor = [UIColor blackColor];
+    [self.toolbar setBackgroundColor:[UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.5]];
+    
+    self.documentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundTile"]];
 }
 
 - (void)viewDidUnload
@@ -80,11 +82,8 @@
     [self.popOver dismissPopoverAnimated:YES];
     
     if(self.document != NULL) {
-        UIView * subView = [[self.documentView subviews] lastObject];
-        [subView removeFromSuperview];
-        [subView dealloc];
-        
-        self.document = NULL;
+        [pageViewController.view removeFromSuperview];
+        [pageViewController release];
     }
     
     self.document = [[[PDFDocument alloc] initWithDocument:_document] autorelease];
