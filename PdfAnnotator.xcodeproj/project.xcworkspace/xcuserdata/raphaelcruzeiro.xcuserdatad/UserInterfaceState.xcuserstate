@@ -2984,9 +2984,9 @@
 				</dict>
 			</array>
 		</dict>
-		<real>332274530.99382001</real>
-		<string>{850, 1774}</string>
-		<string>{2269, 0}</string>
+		<real>332278167.98873103</real>
+		<string>{850, 1800}</string>
+		<string>{2173, 0}</string>
 		<string>-documentChoosen:</string>
 		<string>PdfAnnotatorViewController.m</string>
 		<dict>
@@ -7268,9 +7268,9 @@
 				</dict>
 			</array>
 		</dict>
-		<real>332274530.99087799</real>
-		<string>{850, 1774}</string>
-		<string>{2269, 0}</string>
+		<real>332278167.986184</real>
+		<string>{850, 1800}</string>
+		<string>{2173, 0}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -10098,8 +10098,8 @@
 		</dict>
 		<string>IDEDeviceLocation</string>
 		<string>IDEDeviceArchitecture</string>
-		<string>dvtdevice-iphonesimulator:/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk-iPad</string>
-		<string>i386</string>
+		<string>dvtdevice-iphone:0de37a319d53c9daf992b70a7949cf08cf3d77d3</string>
+		<string>armv7</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -10410,7 +10410,7 @@
 				<integer>789</integer>
 			</dict>
 			<key>NS.time</key>
-			<real>332274525.98928398</real>
+			<real>332278166.33625197</real>
 		</dict>
 		<dict>
 			<key>$classes</key>
@@ -10421,7 +10421,7 @@
 			<key>$classname</key>
 			<string>NSDate</string>
 		</dict>
-		<string>Today at 3:28 PM</string>
+		<string>Today at 4:29 PM</string>
 		<integer>234</integer>
 		<dict>
 			<key>$class</key>
