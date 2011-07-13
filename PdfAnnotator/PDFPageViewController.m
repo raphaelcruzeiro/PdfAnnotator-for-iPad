@@ -133,9 +133,6 @@
         
         CGRect drawingRect = CGContextGetClipBoundingBox(ctx);
         
-        NSLog(@"Drawing rect %f", drawingRect.origin.x);
-        NSLog(@"layer %f", layer.bounds.origin.x);
-        
         CGContextSetRGBFillColor(ctx, 1.0, 1.0, 1.0, 1.0);
         CGContextFillRect(ctx, drawingRect);
         CGContextTranslateCTM(ctx, 0.0, layer.bounds.size.height);

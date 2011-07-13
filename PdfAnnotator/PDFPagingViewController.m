@@ -72,7 +72,7 @@
     [collapseButton setTitle:@"ˆ" forState:UIControlStateNormal];
     [collapseButton addTarget:self action:@selector(toggle) forControlEvents:UIControlEventTouchDown];
     
-    [collapseButton setFrame:CGRectMake(25, 10, 40, 20)];
+    [collapseButton setFrame:CGRectMake(25, 5, 40, 30)];
     [collapseButton setAlpha:0.2];
     [self.view addSubview:collapseButton];
     
