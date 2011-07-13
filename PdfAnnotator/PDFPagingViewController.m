@@ -90,7 +90,7 @@
         
         if(i > 10) {
             UIButton * thumbButton = [UIButton buttonWithType:UIButtonTypeCustom];
-            [thumbButton setBackgroundColor:[UIColor whiteColor]];
+            [thumbButton setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"pagePlaceholder.png"]]];
             [thumbButton setImage:[UIImage imageNamed:@"progressIndicator_roller.gif"] forState:UIControlStateNormal];
             [thumbButton setTag:i];
             
@@ -105,12 +105,12 @@
             continue;
         }
         
-        UIImage * thumb = [thumbFactory generateThumbnailForPage:i withSize:(CGSize){120, 160}];
+        UIImage * thumb = [thumbFactory generateThumbnailForPage:i withSize:(CGSize){116, 156}];
         
         [thumbs addObject:thumb];
         
         UIButton * thumbButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [thumbButton setBackgroundColor:[UIColor whiteColor]];
+        [thumbButton setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"pagePlaceholder.png"]]];
         [thumbButton setImage:thumb forState:UIControlStateNormal];
         [thumbButton setTag:i];
         
