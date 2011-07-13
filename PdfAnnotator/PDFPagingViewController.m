@@ -65,6 +65,11 @@
     collapsedFrame = CGRectMake(0, 946, 768, 270);
     
     self.view.backgroundColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.5];
+    UIView *gradient = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 768, 270)];
+    [gradient setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"gradient.png"]]];
+    [gradient setAlpha:0.5f];
+    [self.view addSubview:gradient];
+    
     // self.view.alpha = 0.2;
     self.view.frame = collapsedFrame;
     
@@ -72,7 +77,7 @@
     [collapseButton setTitle:@"ˆ" forState:UIControlStateNormal];
     [collapseButton addTarget:self action:@selector(toggle) forControlEvents:UIControlEventTouchDown];
     
-    [collapseButton setFrame:CGRectMake(25, 5, 40, 30)];
+    [collapseButton setFrame:CGRectMake(25, 7, 40, 30)];
     [collapseButton setAlpha:0.2];
     [self.view addSubview:collapseButton];
     
