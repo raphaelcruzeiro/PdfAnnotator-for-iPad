@@ -116,7 +116,7 @@
         
         [thumbButton addTarget:self action:@selector(pageItemClicked:) forControlEvents:UIControlEventTouchDown];
         
-        [thumbButton setFrame:CGRectMake(startingX, 0, thumb.size.width, thumb.size.height)];
+        [thumbButton setFrame:CGRectMake(startingX, 0, 120, 160)];
         
         [scrollView addSubview:thumbButton];
         
