@@ -16,6 +16,7 @@
 @synthesize _document;
 @synthesize thumbFactory;
 @synthesize collapseButton;
+@synthesize scrollView;
 
 - (id)initWithDocument:(PDFDocument *)document AndObserver:(id<PDFPagingViewProtocol>)observer
 {
@@ -23,6 +24,7 @@
         self.delegate = observer;
         expanded = false;
         self._document = document;
+        currentX = 0;
         self.thumbFactory = [[PDFThumbnailFactory alloc] initWithDocument:self._document];
         thumbs = [[NSMutableArray alloc] init];
     }
@@ -44,7 +46,6 @@
     // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
     
-    // Release any cached data, images, etc that aren't in use.
 }
 
 #pragma mark - View lifecycle
@@ -83,7 +84,8 @@
     
     CGFloat startingX = 10;
     
-    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 50, 768, 170)];
+    scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 50, 768, 170)];
+    scrollView.delegate = self;
     scrollView.contentSize = CGSizeMake([self._document pageCount] * 130, 170);
     
     for(NSInteger i = 1 ; i <= [self._document pageCount] && i; i++) {
@@ -168,6 +170,26 @@
 {
     NSLog(@"Clicked %d", [((UIButton*)sender) tag]);
     [delegate pageSelected:[((UIButton*)sender) tag]];
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)_scrollView
+{
+    CGFloat x = [scrollView contentOffset].x;
+    
+    if(x < 5) return;
+    
+    NSInteger startingPage = x / 130;
+    NSInteger endPage = startingPage +  7;
+    
+    for(NSInteger currentPage = startingPage ; currentPage <= endPage && currentPage > 0; currentPage++) {
+        UIButton *currentButton = [scrollView.subviews objectAtIndex:currentPage - 1];
+        
+        UIImage * thumb = [thumbFactory generateThumbnailForPage:currentPage withSize:(CGSize){116, 156}];
+        
+        [thumbs addObject:thumb];
+        [currentButton setImage:thumb forState:UIControlStateNormal];
+    }
+    
 }
 
 - (void)viewDidUnload

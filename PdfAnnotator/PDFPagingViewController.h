@@ -12,11 +12,12 @@
 @class PDFThumbnailFactory;
 @protocol PDFPagingViewProtocol;
 
-@interface PDFPagingViewController : UIViewController {
+@interface PDFPagingViewController : UIViewController <UIScrollViewDelegate> {
     BOOL expanded;
     CGRect expandedFrame;
     CGRect collapsedFrame;
     NSMutableArray *thumbs;
+    CGFloat currentX;
 }
 
 @property (nonatomic, retain) id<PDFPagingViewProtocol> delegate;
@@ -26,6 +27,8 @@
 @property (nonatomic, retain) PDFThumbnailFactory *thumbFactory;
 
 @property (nonatomic, retain) UIButton *collapseButton;
+
+@property (nonatomic, retain) UIScrollView *scrollView;
 
 - (id)initWithDocument:(PDFDocument*)document AndObserver:(id<PDFPagingViewProtocol>)observer;
 - (void)expand;
