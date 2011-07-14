@@ -11,18 +11,20 @@
 #import "PDFDocument.h"
 #import "PDFPageViewController.h"
 #import "PDFPagingViewController.h"
+#import "TextMarkerSelectorViewController.h"
 
 #import <QuartzCore/QuartzCore.h>
 
 @implementation PdfAnnotatorViewController
 
 @synthesize pageViewController;
+@synthesize textMarkerController;
 @synthesize loadMenu;
 @synthesize popOver;
 @synthesize toolbar;
 @synthesize load;
-@synthesize pen;
 @synthesize hand;
+@synthesize textMarker;
 @synthesize document;
 
 @synthesize documentView;
@@ -52,11 +54,11 @@
     self.load.target = self;
     self.load.action = @selector(loadClicked:);
     
-    self.pen.target = self;
-    self.pen.action = @selector(penClicked:);
-    
     self.hand.target = self;
     self.hand.action = @selector(handClicked:);
+    
+    self.textMarker.target = self;
+    self.textMarker.action = @selector(textMarkerClicked:);
     
     [self.toolbar setBackgroundColor:[UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.5]];
     
@@ -83,20 +85,33 @@
     [self.popOver presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
 }
 
-- (void)penClicked:(id)sender
-{
-    if(pageViewController) {
-        NSLog(@"Entering pen mode");
-        [pageViewController setPenMode:YES];
-    }
-}
-
 - (void)handClicked:(id)sender
 {
     if(pageViewController) {
         NSLog(@"Entering hand mode");
         [pageViewController setHandMode:YES];
     }
+}
+
+- (void)textMarkerClicked:(id)sender
+{
+    textMarkerController = [[TextMarkerSelectorViewController alloc] initWithObserver:self];
+    self.popOver = [[UIPopoverController alloc] initWithContentViewController:textMarkerController];
+    popOver.popoverContentSize = CGSizeMake(215, 46);
+        
+    [self.popOver presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+}
+
+- (void)brushSelected:(TextMarkerBrush)brush
+{
+    if(pageViewController) {
+        [pageViewController setBrush:brush];
+        [pageViewController setPenMode:YES];
+    }
+    
+    [self.popOver dismissPopoverAnimated:YES];
+    [self.popOver release];
+    [self.textMarkerController release];
 }
 
 - (void)documentChoosen:(NSURL *)_document

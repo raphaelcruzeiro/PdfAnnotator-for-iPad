@@ -81,8 +81,8 @@
 								<int key="IBUIStyle">1</int>
 								<reference key="IBUIToolbar" ref="595611173"/>
 							</object>
-							<object class="IBUIBarButtonItem" id="233580892">
-								<string key="IBUITitle">Pen</string>
+							<object class="IBUIBarButtonItem" id="472577669">
+								<string key="IBUITitle">Text Marker</string>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<int key="IBUIStyle">1</int>
 								<reference key="IBUIToolbar" ref="595611173"/>
@@ -149,11 +149,11 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">pen</string>
+						<string key="label">textMarker</string>
 						<reference key="source" ref="841351856"/>
-						<reference key="destination" ref="233580892"/>
+						<reference key="destination" ref="472577669"/>
 					</object>
-					<int key="connectionID">18</int>
+					<int key="connectionID">20</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -201,7 +201,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="501250508"/>
 							<reference ref="417445454"/>
-							<reference ref="233580892"/>
+							<reference ref="472577669"/>
 						</object>
 						<reference key="parent" ref="766721923"/>
 					</object>
@@ -216,8 +216,8 @@
 						<reference key="parent" ref="595611173"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">16</int>
-						<reference key="object" ref="233580892"/>
+						<int key="objectID">19</int>
+						<reference key="object" ref="472577669"/>
 						<reference key="parent" ref="595611173"/>
 					</object>
 				</object>
@@ -234,7 +234,7 @@
 					<string>11.IBPluginDependency</string>
 					<string>12.IBPluginDependency</string>
 					<string>15.IBPluginDependency</string>
-					<string>16.IBPluginDependency</string>
+					<string>19.IBPluginDependency</string>
 					<string>2.IBPluginDependency</string>
 					<string>7.IBPluginDependency</string>
 				</object>
@@ -269,7 +269,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">18</int>
+			<int key="maxID">20</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>

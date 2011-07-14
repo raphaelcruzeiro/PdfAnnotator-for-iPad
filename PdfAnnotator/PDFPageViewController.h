@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "PDFPagingViewController.h"
+#import "TextMarkerSelectorViewController.h"
 
 @class PDFDocument;
 @class PDFPagingViewController;
@@ -28,5 +29,7 @@
 - (void) refreshPage;
 - (void)setPenMode:(BOOL)enabled;
 - (void)setHandMode:(BOOL)enabled;
+
+- (void)setBrush:(TextMarkerBrush)brush;
 
 @end

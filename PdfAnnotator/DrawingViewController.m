@@ -16,6 +16,7 @@
 {
     if(self = [super init]) {
         drawable = NO;
+        firstTime = YES;
         viewFrame = frame;
     }
     
@@ -32,6 +33,8 @@
     if(drawable) {
         UITouch *touch = [touches anyObject];
         lastPoint = [touch locationInView:self.view];
+        
+        [self prepareBrush];
     }
 }
 
@@ -55,13 +58,35 @@
 
 - (void)prepareBrush
 {
-    UIGraphicsBeginImageContext(self.view.frame.size);
+    if(firstTime) {
+        UIGraphicsBeginImageContext(self.view.frame.size);
+        firstTime = NO;
+    }
     context = UIGraphicsGetCurrentContext();
     
-    CGContextSetStrokeColorWithColor(context, [UIColor colorWithRed:255 green:255 blue:0 alpha:0.4f].CGColor);
+    switch (_brush) {
+        case TextMarkerBrushYellow:
+            CGContextSetStrokeColorWithColor(context, [UIColor colorWithRed:255 green:255 blue:0 alpha:0.4f].CGColor);
+            break;
+        case TextMarkerBrushGreen:
+            CGContextSetStrokeColorWithColor(context, [UIColor colorWithRed:0 green:230 blue:0 alpha:0.4f].CGColor);
+            break;
+        case TextMarkerBrushRed:
+            CGContextSetStrokeColorWithColor(context, [UIColor colorWithRed:230 green:0 blue:0 alpha:0.4f].CGColor);
+            break;
+        case TextMarkerBrushBlue:
+            CGContextSetStrokeColorWithColor(context, [UIColor colorWithRed:0 green:0 blue:230 alpha:0.4f].CGColor);
+            break;
+    }
+    
 	CGContextSetLineWidth(context, 10.0);
     CGContextSetAllowsAntialiasing(context, YES);
     CGContextSetShouldAntialias(context, YES);
+}
+
+- (void)setBrush:(TextMarkerBrush)brush
+{
+    _brush = brush;
 }
 
 - (void)didReceiveMemoryWarning
@@ -95,8 +120,6 @@
     self.imageView = [[UIImageView alloc] initWithFrame:frame];
     
     [self.view addSubview:self.imageView];
-    
-    [self prepareBrush];
 }
 
 - (void)viewDidUnload

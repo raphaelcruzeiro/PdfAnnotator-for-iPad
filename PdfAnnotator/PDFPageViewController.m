@@ -168,6 +168,11 @@
     [drawingViewController setDrawable:!enabled];
 }
 
+- (void)setBrush:(TextMarkerBrush)brush
+{
+    [drawingViewController setBrush:brush];
+}
+
 - (void)dealloc
 {
     [pagingViewController release];

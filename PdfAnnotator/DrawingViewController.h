@@ -8,11 +8,22 @@
 
 #import <UIKit/UIKit.h>
 
+enum TextMarkerBrush {
+    TextMarkerBrushYellow,
+    TextMarkerBrushGreen,
+    TextMarkerBrushRed,
+    TextMarkerBrushBlue
+};
+
+typedef enum TextMarkerBrush TextMarkerBrush;
+
 @interface DrawingViewController : UIViewController {
     BOOL drawable;
     CGPoint lastPoint;
     CGContextRef context;
     CGRect viewFrame;
+    TextMarkerBrush _brush;
+    BOOL firstTime;
 }
 
 @property (nonatomic, retain) UIImageView *imageView;
@@ -20,5 +31,7 @@
 - (id)initWithFrame:(CGRect)frame;
 - (void)setDrawable:(BOOL)enabled;
 - (void)prepareBrush;
+
+- (void)setBrush:(TextMarkerBrush)brush;
 
 @end
