@@ -21,6 +21,8 @@
 @synthesize popOver;
 @synthesize toolbar;
 @synthesize load;
+@synthesize pen;
+@synthesize hand;
 @synthesize document;
 
 @synthesize documentView;
@@ -50,6 +52,12 @@
     self.load.target = self;
     self.load.action = @selector(loadClicked:);
     
+    self.pen.target = self;
+    self.pen.action = @selector(penClicked:);
+    
+    self.hand.target = self;
+    self.hand.action = @selector(handClicked:);
+    
     [self.toolbar setBackgroundColor:[UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.5]];
     
     self.documentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundTile"]];
@@ -73,6 +81,22 @@
     self.popOver = [[UIPopoverController alloc] initWithContentViewController:loadMenu];
     
     [self.popOver presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+}
+
+- (void)penClicked:(id)sender
+{
+    if(pageViewController) {
+        NSLog(@"Entering pen mode");
+        [pageViewController setPenMode:YES];
+    }
+}
+
+- (void)handClicked:(id)sender
+{
+    if(pageViewController) {
+        NSLog(@"Entering hand mode");
+        [pageViewController setHandMode:YES];
+    }
 }
 
 - (void)documentChoosen:(NSURL *)_document

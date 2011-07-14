@@ -11,17 +11,22 @@
 
 @class PDFDocument;
 @class PDFPagingViewController;
+@class DrawingViewController;
 
 @interface PDFPageViewController : UIViewController <UIScrollViewDelegate, PDFPagingViewProtocol>
 {
+    UIScrollView *scrollView;
     UIView *contentView;
 }
 
 @property (nonatomic, retain) PDFDocument *_document;
 
 @property (nonatomic, retain) PDFPagingViewController *pagingViewController;
+@property (nonatomic, retain) DrawingViewController *drawingViewController;
 
 - (void) loadDocument:(PDFDocument *)document;
 - (void) refreshPage;
+- (void)setPenMode:(BOOL)enabled;
+- (void)setHandMode:(BOOL)enabled;
 
 @end

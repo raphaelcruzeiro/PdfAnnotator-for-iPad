@@ -9,11 +9,13 @@
 #import "PDFPageViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "PDFDocument.h"
+#import "DrawingViewController.h"
 
 @implementation PDFPageViewController
 
 @synthesize _document;
 @synthesize pagingViewController;
+@synthesize drawingViewController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -77,11 +79,20 @@
         }
     }
     
+    if(drawingViewController) {
+        [drawingViewController release];
+    }
+    
     if(!pagingViewController) {
         pagingViewController = [[PDFPagingViewController alloc] initWithDocument:self._document AndObserver:self];
     }
     
     CGRect pageRect = CGRectIntegral(CGPDFPageGetBoxRect(self._document.page, kCGPDFCropBox));
+    
+    pageRect.origin.x = 0;
+    pageRect.origin.y = 0;
+    
+    self.drawingViewController = [[DrawingViewController alloc] initWithFrame:pageRect];
     
     pageRect.origin.x = 1;
     pageRect.origin.y = 1;
@@ -104,10 +115,12 @@
     contentView = [[UIView alloc] initWithFrame:pageRect];
     [contentView.layer addSublayer:tiledLayer];
     
+    [contentView addSubview:self.drawingViewController.view];
+    
     CGRect viewFrame = self.view.frame;
     viewFrame.origin = CGPointZero;
     
-    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:viewFrame];
+    scrollView = [[UIScrollView alloc] initWithFrame:viewFrame];
     
     [contentView setBackgroundColor:[UIColor darkGrayColor]];
     
@@ -141,6 +154,18 @@
         CGContextConcatCTM(ctx, CGPDFPageGetDrawingTransform(self._document.page, kCGPDFCropBox, layer.bounds, 0, true));
         CGContextDrawPDFPage(ctx, self._document.page);
     }
+}
+
+- (void)setPenMode:(BOOL)enabled
+{
+    [scrollView setScrollEnabled:!enabled];
+    [drawingViewController setDrawable:enabled];
+}
+
+- (void)setHandMode:(BOOL)enabled
+{
+    [scrollView setScrollEnabled:enabled];
+    [drawingViewController setDrawable:!enabled];
 }
 
 - (void)dealloc

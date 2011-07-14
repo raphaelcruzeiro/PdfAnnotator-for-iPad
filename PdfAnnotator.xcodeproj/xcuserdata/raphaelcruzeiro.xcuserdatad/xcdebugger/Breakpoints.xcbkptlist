@@ -37,11 +37,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "PdfAnnotator/PDFPageViewController.m"
-         timestampString = "332308924.595666"
+         timestampString = "332314205.660018"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "194"
-         endingLineNumber = "194">
+         startingLineNumber = "219"
+         endingLineNumber = "219">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -49,11 +49,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "PdfAnnotator/PDFPageViewController.m"
-         timestampString = "332308924.595666"
+         timestampString = "332314205.660018"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "184"
-         endingLineNumber = "184">
+         startingLineNumber = "209"
+         endingLineNumber = "209">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
@@ -89,11 +89,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "PdfAnnotator/PdfAnnotatorViewController.m"
-         timestampString = "332278170.056069"
+         timestampString = "332310950.543999"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "98"
-         endingLineNumber = "98"
+         startingLineNumber = "122"
+         endingLineNumber = "122"
          landmarkName = "-documentChoosen:"
          landmarkType = "5">
       </FileBreakpoint>
