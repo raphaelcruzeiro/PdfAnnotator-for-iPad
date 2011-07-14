@@ -127,6 +127,7 @@
     scrollView.delegate = self;
     scrollView.contentSize = pageRect.size;
     scrollView.maximumZoomScale = 1000;
+    [scrollView setMaximumZoomScale:4];
     [scrollView addSubview:contentView];
     
     [self.view addSubview:scrollView];   
