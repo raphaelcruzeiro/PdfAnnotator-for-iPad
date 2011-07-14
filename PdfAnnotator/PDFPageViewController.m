@@ -82,8 +82,9 @@
     }
     
     CGRect pageRect = CGRectIntegral(CGPDFPageGetBoxRect(self._document.page, kCGPDFCropBox));
-     
-    pageRect.origin.x = ((self.view.frame.size.width / 2) - (pageRect.size.width / 2)) / 2;
+    
+    pageRect.origin.x = 0;
+    pageRect.origin.y = 0;
 
     CATiledLayer *tiledLayer = [CATiledLayer layer];
     tiledLayer.delegate = self;
@@ -92,8 +93,8 @@
     tiledLayer.levelsOfDetailBias = 1000;
     tiledLayer.frame = pageRect;
     
-    pageRect.size.width += ((self.view.frame.size.width / 2) - (pageRect.size.width / 2)) * 2;
-    pageRect.size.height = ((self.view.frame.size.height / 2) - (pageRect.size.height / 2)) * 5;
+    pageRect.origin.y = 30;
+    pageRect.origin.x = ((self.view.frame.size.width / 2) - (pageRect.size.width / 2));
     
     contentView = [[UIView alloc] initWithFrame:pageRect];
     [contentView.layer addSublayer:tiledLayer];
@@ -103,8 +104,7 @@
     
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:viewFrame];
     
-     //[scrollView setBackgroundColor:[UIColor cyanColor]];
-     //[contentView setBackgroundColor:[UIColor yellowColor]];
+    [contentView setBackgroundColor:[UIColor darkGrayColor]];
     
     scrollView.delegate = self;
     scrollView.contentSize = pageRect.size;
@@ -129,12 +129,8 @@
 - (void)drawLayer:(CALayer *)layer inContext:(CGContextRef)ctx
 {
     if(self._document) {
-        [layer setBackgroundColor:(CGColorRef)[UIColor redColor]];
-        
-        CGRect drawingRect = CGContextGetClipBoundingBox(ctx);
-        
         CGContextSetRGBFillColor(ctx, 1.0, 1.0, 1.0, 1.0);
-        CGContextFillRect(ctx, drawingRect);
+        CGContextFillRect(ctx, CGContextGetClipBoundingBox(ctx));
         CGContextTranslateCTM(ctx, 0.0, layer.bounds.size.height);
         CGContextScaleCTM(ctx, 1.0, -1.0);
         CGContextConcatCTM(ctx, CGPDFPageGetDrawingTransform(self._document.page, kCGPDFCropBox, layer.bounds, 0, true));
