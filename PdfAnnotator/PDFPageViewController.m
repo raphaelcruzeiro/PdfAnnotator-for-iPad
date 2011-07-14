@@ -83,8 +83,8 @@
     
     CGRect pageRect = CGRectIntegral(CGPDFPageGetBoxRect(self._document.page, kCGPDFCropBox));
     
-    pageRect.origin.x = 0;
-    pageRect.origin.y = 0;
+    pageRect.origin.x = 1;
+    pageRect.origin.y = 1;
 
     CATiledLayer *tiledLayer = [CATiledLayer layer];
     tiledLayer.delegate = self;
@@ -93,8 +93,13 @@
     tiledLayer.levelsOfDetailBias = 1000;
     tiledLayer.frame = pageRect;
     
+    pageRect.origin.x = 0;
+    
     pageRect.origin.y = 30;
-    pageRect.origin.x = ((self.view.frame.size.width / 2) - (pageRect.size.width / 2));
+    pageRect.origin.x = ((self.view.frame.size.width / 2) - ((pageRect.size.width + 2) / 2));
+    
+    pageRect.size.width += 2;
+    pageRect.size.height += 2;
     
     contentView = [[UIView alloc] initWithFrame:pageRect];
     [contentView.layer addSublayer:tiledLayer];
