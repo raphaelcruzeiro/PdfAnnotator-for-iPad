@@ -63,7 +63,7 @@
     [super viewDidLoad];
     
     expandedFrame = CGRectMake(0, 754, 768, 270);
-    collapsedFrame = CGRectMake(0, 946, 768, 270);
+    collapsedFrame = CGRectMake(0, 962, 768, 270);
     
     self.view.backgroundColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.5];
     UIView *gradient = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 768, 270)];
