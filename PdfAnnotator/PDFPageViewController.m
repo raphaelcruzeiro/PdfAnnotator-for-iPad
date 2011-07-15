@@ -47,6 +47,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self.view setFrame:CGRectMake(0, 0, 768, 1024)];
 }
 
 - (void)viewDidUnload
@@ -106,7 +108,7 @@
     
     pageRect.origin.x = 0;
     
-    pageRect.origin.y = 30;
+    pageRect.origin.y = 60;
     pageRect.origin.x = ((self.view.frame.size.width / 2) - ((pageRect.size.width + 2) / 2));
     
     pageRect.size.width += 2;
