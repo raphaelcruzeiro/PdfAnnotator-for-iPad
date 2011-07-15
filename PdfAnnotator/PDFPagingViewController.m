@@ -226,6 +226,8 @@
         [img release];
     }
     
+    [thumbs release];
+    
     [super dealloc];
 }
 @end

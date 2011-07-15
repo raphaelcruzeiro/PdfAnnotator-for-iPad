@@ -18,6 +18,7 @@
 {
     UIScrollView *scrollView;
     UIView *contentView;
+    CGFloat maximumZoomScale, minimumZoomScale;
 }
 
 @property (nonatomic, retain) PDFDocument *_document;

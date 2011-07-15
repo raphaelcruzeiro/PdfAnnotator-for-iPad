@@ -36,12 +36,8 @@
             }
         }
         
-        NSArray *allUrls = [NSArray array];
-        
-        
-        allUrls = [fileManager contentsOfDirectoryAtURL:documents includingPropertiesForKeys:NULL options:0 error:NULL];
-              
-        self.files = allUrls;
+        self.files = [fileManager contentsOfDirectoryAtURL:documents includingPropertiesForKeys:NULL options:0 error:NULL];
+            
         count = [self.files count];
         
         NSLog(@"Got %d files.", count);
