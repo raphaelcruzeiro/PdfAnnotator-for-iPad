@@ -33,7 +33,8 @@
 - (id)initWithDocument:(PDFDocument*)document AndObserver:(id<PDFPagingViewProtocol>)observer;
 - (void)expand;
 - (void)collapse;
-- (void) toggle;
+- (void)toggle;
+- (void)loadThumbs;
 
 - (void)pageItemClicked:(id)sender;
 

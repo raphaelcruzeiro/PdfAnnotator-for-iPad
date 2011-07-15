@@ -172,11 +172,22 @@
     [delegate pageSelected:[((UIButton*)sender) tag]];
 }
 
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)_scrollView
+- (void)scrollViewDidEndDragging:(UIScrollView *)_scrollView willDecelerate:(BOOL)decelerate
+{
+        if(!decelerate)
+            [self loadThumbs];
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    [self loadThumbs];
+}
+
+- (void)loadThumbs
 {
     CGFloat x = [scrollView contentOffset].x;
     
-    if(x < 5) return;
+    if(x < 900) return;
     
     NSInteger startingPage = x / 130;
     NSInteger endPage = startingPage +  7;
@@ -189,7 +200,7 @@
         [thumbs addObject:thumb];
         [currentButton setImage:thumb forState:UIControlStateNormal];
     }
-    
+
 }
 
 - (void)viewDidUnload
