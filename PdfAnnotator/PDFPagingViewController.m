@@ -192,13 +192,19 @@
     NSInteger startingPage = x / 130;
     NSInteger endPage = startingPage +  7;
     
-    for(NSInteger currentPage = startingPage ; currentPage <= endPage && currentPage > 0; currentPage++) {
+    NSLog(@"%d %d", [scrollView.subviews count], [thumbs count]);
+    
+    for(NSInteger currentPage = startingPage ; currentPage <= endPage && currentPage > 0 && (currentPage - 2) < [scrollView.subviews count]; currentPage++) {
         UIButton *currentButton = [scrollView.subviews objectAtIndex:currentPage - 1];
         
-        UIImage * thumb = [thumbFactory generateThumbnailForPage:currentPage withSize:(CGSize){116, 156}];
+        if([currentButton isKindOfClass:[UIButton class]]) {
+            
+            UIImage * thumb = [thumbFactory generateThumbnailForPage:currentPage withSize:(CGSize){116, 156}];
+            
+            [thumbs addObject:thumb];
+            [currentButton setImage:thumb forState:UIControlStateNormal];
+        }
         
-        [thumbs addObject:thumb];
-        [currentButton setImage:thumb forState:UIControlStateNormal];
     }
 
 }
