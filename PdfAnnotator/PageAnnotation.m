@@ -29,4 +29,11 @@
     return _pageNumber;
 }
 
+-(void)dealloc
+{
+    [super dealloc];
+    
+    [_paths release];
+}
+
 @end

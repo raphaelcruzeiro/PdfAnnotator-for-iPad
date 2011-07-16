@@ -41,6 +41,8 @@
 - (void)dealloc
 {
     [super dealloc];
+    
+    CGPathRelease(_path);
 }
 
 @end

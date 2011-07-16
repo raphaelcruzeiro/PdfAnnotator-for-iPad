@@ -226,7 +226,15 @@
 {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+
+    for(UIButton *btn in scrollView.subviews) {
+        if([btn isKindOfClass:[UIButton class]]) {
+            [btn release];
+        }
+    }
+    
+    [scrollView release];
+    [collapseButton release];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -238,8 +246,6 @@
 - (void)dealloc
 {
     NSLog(@"%s", "Cleaning paging view...");
-    
-    [collapseButton release];
     
     [super dealloc];
 }

@@ -33,4 +33,11 @@
     return Nil;
 }
 
+- (void)dealloc
+{
+    [super dealloc];
+    
+    [_pageAnnotations release];
+}
+
 @end
