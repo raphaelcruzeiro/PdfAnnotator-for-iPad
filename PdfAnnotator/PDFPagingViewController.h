@@ -16,7 +16,6 @@
     BOOL expanded;
     CGRect expandedFrame;
     CGRect collapsedFrame;
-    NSMutableArray *thumbs;
     CGFloat currentX;
 }
 
@@ -29,6 +28,9 @@
 @property (nonatomic, retain) UIButton *collapseButton;
 
 @property (nonatomic, retain) UIScrollView *scrollView;
+
+@property (nonatomic, retain) UIImage *pagePlaceholder;
+@property (nonatomic, retain) UIImage *loading;
 
 - (id)initWithDocument:(PDFDocument*)document AndObserver:(id<PDFPagingViewProtocol>)observer;
 - (void)expand;

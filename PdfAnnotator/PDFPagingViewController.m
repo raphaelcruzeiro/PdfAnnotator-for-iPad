@@ -17,16 +17,17 @@
 @synthesize thumbFactory;
 @synthesize collapseButton;
 @synthesize scrollView;
+@synthesize pagePlaceholder;
+@synthesize loading;
 
 - (id)initWithDocument:(PDFDocument *)document AndObserver:(id<PDFPagingViewProtocol>)observer
 {
-    if(self = [super init]){
+    if((self = [super init])){
         self.delegate = observer;
         expanded = false;
         self._document = document;
         currentX = 0;
         self.thumbFactory = [[PDFThumbnailFactory alloc] initWithDocument:self._document];
-        thumbs = [[NSMutableArray alloc] init];
     }
     
     return self;
@@ -46,6 +47,13 @@
     // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
     
+    for(UIButton *btn in scrollView.subviews) {
+        if([btn isKindOfClass:[UIButton class]]){
+            [btn setImage:loading forState:UIControlStateNormal];
+        }
+    }
+    
+    [self loadThumbs];
 }
 
 #pragma mark - View lifecycle
@@ -88,12 +96,18 @@
     scrollView.delegate = self;
     scrollView.contentSize = CGSizeMake([self._document pageCount] * 130, 170);
     
+    if(!pagePlaceholder)
+        pagePlaceholder = [UIImage imageNamed:@"pagePlaceholder.png"];
+    
+    if(!loading)
+        loading = [UIImage imageNamed:@"progressIndicator_roller.gif"];
+    
     for(NSInteger i = 1 ; i <= [self._document pageCount] && i; i++) {
         
         if(i > 10) {
             UIButton * thumbButton = [UIButton buttonWithType:UIButtonTypeCustom];
-            [thumbButton setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"pagePlaceholder.png"]]];
-            [thumbButton setImage:[UIImage imageNamed:@"progressIndicator_roller.gif"] forState:UIControlStateNormal];
+            [thumbButton setBackgroundColor:[UIColor colorWithPatternImage:pagePlaceholder]];
+            [thumbButton setImage:loading forState:UIControlStateNormal];
             [thumbButton setTag:i];
             
             [thumbButton addTarget:self action:@selector(pageItemClicked:) forControlEvents:UIControlEventTouchDown];
@@ -109,10 +123,8 @@
         
         UIImage * thumb = [thumbFactory generateThumbnailForPage:i withSize:(CGSize){116, 156}];
         
-        [thumbs addObject:thumb];
-        
         UIButton * thumbButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [thumbButton setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"pagePlaceholder.png"]]];
+        [thumbButton setBackgroundColor:[UIColor colorWithPatternImage:pagePlaceholder]];
         [thumbButton setImage:thumb forState:UIControlStateNormal];
         [thumbButton setTag:i];
         
@@ -187,12 +199,13 @@
 {
     CGFloat x = [scrollView contentOffset].x;
     
-    if(x < 900) return; // If x is lower than 900 we already have these thumbs loaded so there's nothing to do
-    
     NSInteger startingPage = x / 130;
-    NSInteger endPage = startingPage +  7;
     
-    for(NSInteger currentPage = startingPage ; currentPage <= endPage && currentPage > 0 && (currentPage - 2) < [scrollView.subviews count]; currentPage++) {
+    if(startingPage < 1) startingPage = 1;
+    
+    NSInteger endPage = startingPage +  7;
+
+    for(NSInteger currentPage = startingPage ; currentPage <= endPage ;) {
         UIButton *currentButton = [scrollView.subviews objectAtIndex:currentPage - 1];
         
         // Since we're interating on the subviews we HAVE to check the class of the subview to ensure we're dealing with a button
@@ -200,8 +213,9 @@
             
             UIImage * thumb = [thumbFactory generateThumbnailForPage:currentPage withSize:(CGSize){116, 156}];
             
-            [thumbs addObject:thumb];
             [currentButton setImage:thumb forState:UIControlStateNormal];
+            
+            currentPage++;
         }
         
     }
@@ -226,12 +240,6 @@
     NSLog(@"%s", "Cleaning paging view...");
     
     [collapseButton release];
-    
-    for(UIImage *img in thumbs) {
-        [img release];
-    }
-    
-    [thumbs release];
     
     [super dealloc];
 }
