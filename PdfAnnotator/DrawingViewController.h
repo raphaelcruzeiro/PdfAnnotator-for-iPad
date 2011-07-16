@@ -3,19 +3,11 @@
 //  PdfAnnotator
 //
 //  Created by Raphael Cruzeiro on 7/14/11.
-//  Copyright 2011 Inspira Tecnologia e Mkt. All rights reserved.
+//  Copyright 2011 Raphael Cruzeiro. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-
-enum TextMarkerBrush {
-    TextMarkerBrushYellow,
-    TextMarkerBrushGreen,
-    TextMarkerBrushRed,
-    TextMarkerBrushBlue
-};
-
-typedef enum TextMarkerBrush TextMarkerBrush;
+#import "MarkerPath.h"
 
 @interface DrawingViewController : UIViewController {
     BOOL drawable;
@@ -24,11 +16,13 @@ typedef enum TextMarkerBrush TextMarkerBrush;
     CGRect viewFrame;
     TextMarkerBrush _brush;
     BOOL firstTime;
+    MarkerPath *currentPath;
 }
 
 @property (nonatomic, retain) UIImageView *imageView;
+@property (nonatomic, retain) NSMutableArray *_paths;
 
-- (id)initWithFrame:(CGRect)frame;
+- (id)initWithFrame:(CGRect)frame AndPaths:(NSMutableArray*)paths;
 - (void)setDrawable:(BOOL)enabled;
 - (void)prepareBrush;
 

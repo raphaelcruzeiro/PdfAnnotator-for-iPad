@@ -3,7 +3,7 @@
 //  PdfAnnotator
 //
 //  Created by Raphael Cruzeiro on 7/10/11.
-//  Copyright 2011 Inspira Tecnologia e Mkt. All rights reserved.
+//  Copyright 2011 Raphael Cruzeiro. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

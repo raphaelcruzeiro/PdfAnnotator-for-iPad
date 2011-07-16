@@ -7,12 +7,14 @@
 //
 
 #import "PDFDocument.h"
+#import "Annotation.h"
 
 
 @implementation PDFDocument
 
 @synthesize document;
 @synthesize page;
+@synthesize annotation;
 
 - (id)initWithDocument:(NSURL *)documentPath
 {
@@ -22,6 +24,8 @@
         self.document = CGPDFDocumentCreateWithURL((CFURLRef)documentPath);
         
         self.page = CGPDFPageRetain(CGPDFDocumentGetPage(document, 1));
+        
+        self.annotation = [[Annotation alloc] init];
     }
     
     return self;

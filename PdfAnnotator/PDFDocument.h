@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+@class Annotation;
 
 @interface PDFDocument : NSObject {
     
@@ -20,5 +21,7 @@
 
 @property (readwrite, nonatomic, assign) CGPDFDocumentRef document;
 @property (readwrite, nonatomic, assign) CGPDFPageRef page;
+
+@property (nonatomic, retain) Annotation *annotation;
 
 @end

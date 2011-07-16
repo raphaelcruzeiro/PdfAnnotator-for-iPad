@@ -3,13 +3,15 @@
 //  PdfAnnotator
 //
 //  Created by Raphael Cruzeiro on 7/2/11.
-//  Copyright 2011 Inspira Tecnologia e Mkt. All rights reserved.
+//  Copyright 2011 Raphael Cruzeiro. All rights reserved.
 //
 
 #import "PDFPageViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "PDFDocument.h"
 #import "DrawingViewController.h"
+#import "Annotation.h"
+#import "PageAnnotation.h"
 
 @implementation PDFPageViewController
 
@@ -94,7 +96,16 @@
     pageRect.origin.x = 0;
     pageRect.origin.y = 0;
     
-    self.drawingViewController = [[DrawingViewController alloc] initWithFrame:pageRect];
+    NSInteger pageNumber = CGPDFPageGetPageNumber(_document.page);
+    
+    PageAnnotation *pageAnnotation = [self._document.annotation annotationForPage:pageNumber];
+    
+    if(!pageAnnotation) {
+        pageAnnotation = [[PageAnnotation alloc] initWithPageNumber:pageNumber];
+        [self._document.annotation._pageAnnotations addObject:pageAnnotation];
+    }
+    
+    self.drawingViewController = [[DrawingViewController alloc] initWithFrame:pageRect AndPaths:pageAnnotation._paths];
     
     pageRect.origin.x = 1;
     pageRect.origin.y = 1;

@@ -37,6 +37,9 @@
 		A0BBCAC413CAA01C00522A1A /* progressIndicator_roller.gif in Resources */ = {isa = PBXBuildFile; fileRef = A0BBCAC313CAA01C00522A1A /* progressIndicator_roller.gif */; };
 		A0C3834313CE4E8D00C6D329 /* gradient.png in Resources */ = {isa = PBXBuildFile; fileRef = A0C3834213CE4E8D00C6D329 /* gradient.png */; };
 		A0C3834513CE561100C6D329 /* pagePlaceholder.png in Resources */ = {isa = PBXBuildFile; fileRef = A0C3834413CE561100C6D329 /* pagePlaceholder.png */; };
+		A0E0454E13D14FF900A4ADBE /* MarkerPath.m in Sources */ = {isa = PBXBuildFile; fileRef = A0E0454D13D14FF900A4ADBE /* MarkerPath.m */; };
+		A0E0455213D1556200A4ADBE /* Annotation.m in Sources */ = {isa = PBXBuildFile; fileRef = A0E0455113D1556200A4ADBE /* Annotation.m */; };
+		A0E0455513D156C100A4ADBE /* PageAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = A0E0455413D156C100A4ADBE /* PageAnnotation.m */; };
 		A0E708AE13C973500002A8F0 /* PDFPagingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0E708AD13C973500002A8F0 /* PDFPagingViewController.m */; };
 		A0E708B213CA2E580002A8F0 /* PDFThumbnailFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = A0E708B113CA2E580002A8F0 /* PDFThumbnailFactory.m */; };
 /* End PBXBuildFile section */
@@ -93,6 +96,12 @@
 		A0BBCAC313CAA01C00522A1A /* progressIndicator_roller.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = progressIndicator_roller.gif; sourceTree = "<group>"; };
 		A0C3834213CE4E8D00C6D329 /* gradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gradient.png; sourceTree = "<group>"; };
 		A0C3834413CE561100C6D329 /* pagePlaceholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pagePlaceholder.png; sourceTree = "<group>"; };
+		A0E0454C13D14FF900A4ADBE /* MarkerPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarkerPath.h; sourceTree = "<group>"; };
+		A0E0454D13D14FF900A4ADBE /* MarkerPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarkerPath.m; sourceTree = "<group>"; };
+		A0E0455013D1556200A4ADBE /* Annotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Annotation.h; sourceTree = "<group>"; };
+		A0E0455113D1556200A4ADBE /* Annotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Annotation.m; sourceTree = "<group>"; };
+		A0E0455313D156C100A4ADBE /* PageAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageAnnotation.h; sourceTree = "<group>"; };
+		A0E0455413D156C100A4ADBE /* PageAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageAnnotation.m; sourceTree = "<group>"; };
 		A0E708AC13C973500002A8F0 /* PDFPagingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFPagingViewController.h; sourceTree = "<group>"; };
 		A0E708AD13C973500002A8F0 /* PDFPagingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFPagingViewController.m; sourceTree = "<group>"; };
 		A0E708B013CA2E570002A8F0 /* PDFThumbnailFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFThumbnailFactory.h; sourceTree = "<group>"; };
@@ -140,6 +149,12 @@
 				A03DFC1613CEAAA8006680DF /* DrawingViewController.m */,
 				A0675D0B13CEC5590006D4EC /* TextMarkerSelectorViewController.h */,
 				A0675D0C13CEC5590006D4EC /* TextMarkerSelectorViewController.m */,
+				A0E0454C13D14FF900A4ADBE /* MarkerPath.h */,
+				A0E0454D13D14FF900A4ADBE /* MarkerPath.m */,
+				A0E0455013D1556200A4ADBE /* Annotation.h */,
+				A0E0455113D1556200A4ADBE /* Annotation.m */,
+				A0E0455313D156C100A4ADBE /* PageAnnotation.h */,
+				A0E0455413D156C100A4ADBE /* PageAnnotation.m */,
 			);
 			name = DrawingControls;
 			sourceTree = "<group>";
@@ -390,6 +405,9 @@
 				A0E708B213CA2E580002A8F0 /* PDFThumbnailFactory.m in Sources */,
 				A03DFC1713CEAAA8006680DF /* DrawingViewController.m in Sources */,
 				A0675D0D13CEC5590006D4EC /* TextMarkerSelectorViewController.m in Sources */,
+				A0E0454E13D14FF900A4ADBE /* MarkerPath.m in Sources */,
+				A0E0455213D1556200A4ADBE /* Annotation.m in Sources */,
+				A0E0455513D156C100A4ADBE /* PageAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

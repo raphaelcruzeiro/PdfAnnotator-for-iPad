@@ -3,7 +3,7 @@
 //  PdfAnnotator
 //
 //  Created by Raphael Cruzeiro on 7/14/11.
-//  Copyright 2011 Inspira Tecnologia e Mkt. All rights reserved.
+//  Copyright 2011 Raphael Cruzeiro. All rights reserved.
 //
 
 #import "DrawingViewController.h"
@@ -11,13 +11,19 @@
 @implementation DrawingViewController
 
 @synthesize imageView;
+@synthesize _paths;
 
-- (id)initWithFrame:(CGRect)frame
+- (id)initWithFrame:(CGRect)frame AndPaths:(NSMutableArray*)paths
 {
     if(self = [super init]) {
         drawable = NO;
         firstTime = YES;
         viewFrame = frame;
+        if(paths) {
+            self._paths = paths;
+        }
+        else
+            self._paths = [[NSMutableArray alloc] init];
     }
     
     return self;
@@ -33,6 +39,11 @@
     if(drawable) {
         UITouch *touch = [touches anyObject];
         lastPoint = [touch locationInView:self.view];
+        
+        NSLog(@"Writing paths on path array with count%d", [self._paths count]);
+        
+        currentPath = [[MarkerPath alloc] initWithPoint:lastPoint AndBrush:_brush];
+        [self._paths addObject:currentPath];
         
         [self prepareBrush];
     }
@@ -51,6 +62,8 @@
         CGContextFillPath(context);
         
         self.imageView.image = UIGraphicsGetImageFromCurrentImageContext();
+        
+        [currentPath addPoint:currentPoint];
         
         lastPoint = currentPoint;
     }
@@ -113,13 +126,25 @@
     
     [self.view setFrame:viewFrame];
     
-    CGRect frame = self.view.frame;
+    CGRect frame = self.view.frame; 
     frame.origin.x = 0;
     frame.origin.y = 0;
     
     self.imageView = [[UIImageView alloc] initWithFrame:frame];
     
     [self.view addSubview:self.imageView];
+    
+    for(MarkerPath *path in self._paths) {
+        _brush = [path getBrush];
+        [self prepareBrush];
+        
+        CGContextAddPath(context, [path getPath]);
+        
+        CGContextStrokePath(context);
+        CGContextFillPath(context);
+        
+        self.imageView.image = UIGraphicsGetImageFromCurrentImageContext();
+    }
 }
 
 - (void)viewDidUnload
@@ -133,6 +158,11 @@
 {
     // Return YES for supported orientations
 	return YES;
+}
+
+- (void)dealloc
+{
+    [super dealloc];
 }
 
 @end
