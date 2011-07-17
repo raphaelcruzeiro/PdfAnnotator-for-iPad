@@ -78,6 +78,7 @@
     NSArray *row = [result objectAtIndex:0];
     
     NSLog(@"%@ %@ %@", [row objectAtIndex:0], [row objectAtIndex:1], [row objectAtIndex:2]);
+    NSLog(@"Last id: %d", [db getLastIdFromTable:@"Test"]);
 }
 
 - (void)viewDidUnload

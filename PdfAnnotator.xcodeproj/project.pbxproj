@@ -17,6 +17,7 @@
 		A0675D1513CECD510006D4EC /* greenMarker.png in Resources */ = {isa = PBXBuildFile; fileRef = A0675D1213CECD510006D4EC /* greenMarker.png */; };
 		A0675D1613CECD510006D4EC /* redMarker.png in Resources */ = {isa = PBXBuildFile; fileRef = A0675D1313CECD510006D4EC /* redMarker.png */; };
 		A079489013BFBC1200431BBF /* PDFPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A079488F13BFBC1200431BBF /* PDFPageViewController.m */; };
+		A07DECFC13D2C65F00EB2763 /* DBSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = A07DECFB13D2C65F00EB2763 /* DBSerializer.m */; };
 		A092D36713CBCD4700E8F4AD /* backgroundTile.png in Resources */ = {isa = PBXBuildFile; fileRef = A092D36613CBCD4700E8F4AD /* backgroundTile.png */; };
 		A0AD30B113B59AC600FCC8F2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0AD30B013B59AC600FCC8F2 /* UIKit.framework */; };
 		A0AD30B313B59AC600FCC8F2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0AD30B213B59AC600FCC8F2 /* Foundation.framework */; };
@@ -72,6 +73,8 @@
 		A0675D1313CECD510006D4EC /* redMarker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redMarker.png; sourceTree = "<group>"; };
 		A079488E13BFBC1200431BBF /* PDFPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFPageViewController.h; sourceTree = "<group>"; };
 		A079488F13BFBC1200431BBF /* PDFPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFPageViewController.m; sourceTree = "<group>"; };
+		A07DECFA13D2C65F00EB2763 /* DBSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBSerializer.h; sourceTree = "<group>"; };
+		A07DECFB13D2C65F00EB2763 /* DBSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBSerializer.m; sourceTree = "<group>"; };
 		A092D36613CBCD4700E8F4AD /* backgroundTile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backgroundTile.png; sourceTree = "<group>"; };
 		A0AD30AC13B59AC600FCC8F2 /* PdfAnnotator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PdfAnnotator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0AD30B013B59AC600FCC8F2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -170,6 +173,8 @@
 			children = (
 				A04B468313D29BB70060C3B3 /* Database.h */,
 				A04B468413D29BB70060C3B3 /* Database.m */,
+				A07DECFA13D2C65F00EB2763 /* DBSerializer.h */,
+				A07DECFB13D2C65F00EB2763 /* DBSerializer.m */,
 			);
 			name = Persistance;
 			sourceTree = "<group>";
@@ -177,7 +182,6 @@
 		A0AD30A113B59AC500FCC8F2 = {
 			isa = PBXGroup;
 			children = (
-				A04B468613D29BD30060C3B3 /* libsqlite3.dylib */,
 				A0AD30B613B59AC600FCC8F2 /* PdfAnnotator */,
 				A0AD30D613B59AC600FCC8F2 /* PdfAnnotatorTests */,
 				A0AD30AF13B59AC600FCC8F2 /* Frameworks */,
@@ -197,6 +201,7 @@
 		A0AD30AF13B59AC600FCC8F2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A04B468613D29BD30060C3B3 /* libsqlite3.dylib */,
 				A0AD30F513B5AFDA00FCC8F2 /* QuartzCore.framework */,
 				A0AD30B013B59AC600FCC8F2 /* UIKit.framework */,
 				A0AD30B213B59AC600FCC8F2 /* Foundation.framework */,
@@ -426,6 +431,7 @@
 				A0E0455213D1556200A4ADBE /* Annotation.m in Sources */,
 				A0E0455513D156C100A4ADBE /* PageAnnotation.m in Sources */,
 				A04B468513D29BB70060C3B3 /* Database.m in Sources */,
+				A07DECFC13D2C65F00EB2763 /* DBSerializer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

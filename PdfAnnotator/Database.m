@@ -120,4 +120,25 @@
     return nil;
 }
 
+- (NSInteger)getLastIdFromTable:(NSString *)table
+{
+    NSString *cmd = [NSString stringWithFormat:@"SELECT ID FROM %@ LIMIT 1", table];
+    
+    sqlite3_stmt *stmt;
+    
+    if(sqlite3_prepare_v2(db, [cmd UTF8String], -1, &stmt, NULL) == SQLITE_OK) {
+        if(sqlite3_step(stmt)){
+            char *id = (char*) sqlite3_column_text(stmt, 0);
+            int ret =  strtol(id, NULL, 10);
+            return ret;
+        }
+        
+        return 0;
+    }
+    
+    NSLog(@"Error reading last ID from database.");
+    
+    return -1;
+}
+
 @end

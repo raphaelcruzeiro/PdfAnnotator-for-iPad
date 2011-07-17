@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @class Annotation;
+@class DBSerializer;
 
 @interface PDFDocument : NSObject {
     
@@ -19,9 +20,12 @@
 - (NSInteger) pageCount;
 - (void) loadPage:(NSInteger)number;
 
+@property (nonatomic, retain) NSString *name;
 @property (readwrite, nonatomic, assign) CGPDFDocumentRef document;
 @property (readwrite, nonatomic, assign) CGPDFPageRef page;
 
 @property (nonatomic, retain) Annotation *annotation;
+
+@property (nonatomic,retain) DBSerializer* db;
 
 @end

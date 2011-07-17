@@ -19,5 +19,6 @@
 - (void)createTable:(NSString*)name WithFields:(NSArray*)fields;
 - (void)insertInto:(NSString*)tableName Fields:(NSArray*)fields Values:(NSArray*)values;
 - (NSArray*)selectFrom:(NSString*)table;
+- (NSInteger)getLastIdFromTable:(NSString*)table;
 
 @end
