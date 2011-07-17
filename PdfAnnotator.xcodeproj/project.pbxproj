@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		A035598E13B6C405007AAD33 /* NSFileManagerExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = A035598D13B6C405007AAD33 /* NSFileManagerExtension.m */; };
 		A03DFC1713CEAAA8006680DF /* DrawingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A03DFC1613CEAAA8006680DF /* DrawingViewController.m */; };
+		A04B468513D29BB70060C3B3 /* Database.m in Sources */ = {isa = PBXBuildFile; fileRef = A04B468413D29BB70060C3B3 /* Database.m */; };
+		A04B468713D29BD30060C3B3 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A04B468613D29BD30060C3B3 /* libsqlite3.dylib */; };
 		A0675D0D13CEC5590006D4EC /* TextMarkerSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0675D0C13CEC5590006D4EC /* TextMarkerSelectorViewController.m */; };
 		A0675D1013CEC91A0006D4EC /* yellowMarker.png in Resources */ = {isa = PBXBuildFile; fileRef = A0675D0F13CEC91A0006D4EC /* yellowMarker.png */; };
 		A0675D1413CECD510006D4EC /* blueMarker.png in Resources */ = {isa = PBXBuildFile; fileRef = A0675D1113CECD510006D4EC /* blueMarker.png */; };
@@ -59,6 +61,9 @@
 		A035598D13B6C405007AAD33 /* NSFileManagerExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSFileManagerExtension.m; sourceTree = "<group>"; };
 		A03DFC1513CEAAA8006680DF /* DrawingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawingViewController.h; sourceTree = "<group>"; };
 		A03DFC1613CEAAA8006680DF /* DrawingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawingViewController.m; sourceTree = "<group>"; };
+		A04B468313D29BB70060C3B3 /* Database.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Database.h; sourceTree = "<group>"; };
+		A04B468413D29BB70060C3B3 /* Database.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Database.m; sourceTree = "<group>"; };
+		A04B468613D29BD30060C3B3 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		A0675D0B13CEC5590006D4EC /* TextMarkerSelectorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextMarkerSelectorViewController.h; sourceTree = "<group>"; };
 		A0675D0C13CEC5590006D4EC /* TextMarkerSelectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextMarkerSelectorViewController.m; sourceTree = "<group>"; };
 		A0675D0F13CEC91A0006D4EC /* yellowMarker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yellowMarker.png; sourceTree = "<group>"; };
@@ -113,6 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A04B468713D29BD30060C3B3 /* libsqlite3.dylib in Frameworks */,
 				A0AD30F613B5AFDA00FCC8F2 /* QuartzCore.framework in Frameworks */,
 				A0AD30B113B59AC600FCC8F2 /* UIKit.framework in Frameworks */,
 				A0AD30B313B59AC600FCC8F2 /* Foundation.framework in Frameworks */,
@@ -159,9 +165,19 @@
 			name = DrawingControls;
 			sourceTree = "<group>";
 		};
+		A04B468113D29B9D0060C3B3 /* Persistance */ = {
+			isa = PBXGroup;
+			children = (
+				A04B468313D29BB70060C3B3 /* Database.h */,
+				A04B468413D29BB70060C3B3 /* Database.m */,
+			);
+			name = Persistance;
+			sourceTree = "<group>";
+		};
 		A0AD30A113B59AC500FCC8F2 = {
 			isa = PBXGroup;
 			children = (
+				A04B468613D29BD30060C3B3 /* libsqlite3.dylib */,
 				A0AD30B613B59AC600FCC8F2 /* PdfAnnotator */,
 				A0AD30D613B59AC600FCC8F2 /* PdfAnnotatorTests */,
 				A0AD30AF13B59AC600FCC8F2 /* Frameworks */,
@@ -192,6 +208,7 @@
 		A0AD30B613B59AC600FCC8F2 /* PdfAnnotator */ = {
 			isa = PBXGroup;
 			children = (
+				A04B468113D29B9D0060C3B3 /* Persistance */,
 				A03DFC1313CEAA8F006680DF /* DrawingControls */,
 				A0BBCABF13CA9FD300522A1A /* Resources */,
 				A035598A13B6C3EB007AAD33 /* Extensions */,
@@ -408,6 +425,7 @@
 				A0E0454E13D14FF900A4ADBE /* MarkerPath.m in Sources */,
 				A0E0455213D1556200A4ADBE /* Annotation.m in Sources */,
 				A0E0455513D156C100A4ADBE /* PageAnnotation.m in Sources */,
+				A04B468513D29BB70060C3B3 /* Database.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

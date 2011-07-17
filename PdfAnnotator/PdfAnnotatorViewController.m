@@ -13,6 +13,9 @@
 #import "PDFPagingViewController.h"
 #import "TextMarkerSelectorViewController.h"
 
+// Test
+#import "Database.h"
+
 #import <QuartzCore/QuartzCore.h>
 
 @implementation PdfAnnotatorViewController
@@ -63,6 +66,18 @@
     [self.toolbar setBackgroundColor:[UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.5]];
     
     self.documentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundTile"]];
+    
+    
+    // Tests
+    Database *db = [[Database alloc] init];
+    [db open];
+    [db createTable:@"Test" WithFields:[NSArray arrayWithObjects:@"ID", @"Field1", @"Field2", nil]];
+    [db insertInto:@"Test" Fields:[NSArray arrayWithObjects:@"ID", @"Field1", @"Field2", nil] Values:[NSArray arrayWithObjects:@"1", @"Blah", @"Bleh", nil]];
+    
+    NSArray *result = [db selectFrom:@"Test"];
+    NSArray *row = [result objectAtIndex:0];
+    
+    NSLog(@"%@ %@ %@", [row objectAtIndex:0], [row objectAtIndex:1], [row objectAtIndex:2]);
 }
 
 - (void)viewDidUnload

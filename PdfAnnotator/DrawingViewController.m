@@ -15,7 +15,7 @@
 
 - (id)initWithFrame:(CGRect)frame AndPaths:(NSMutableArray*)paths
 {
-    if(self = [super init]) {
+    if((self = [super init])) {
         drawable = NO;
         firstTime = YES;
         viewFrame = frame;
@@ -159,7 +159,7 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
-	return YES;
+	return interfaceOrientation == UIInterfaceOrientationPortrait;
 }
 
 - (void)dealloc
