@@ -89,11 +89,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "PdfAnnotator/PdfAnnotatorViewController.m"
-         timestampString = "332582788.152513"
+         timestampString = "332586169.989186"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "153"
-         endingLineNumber = "153"
+         startingLineNumber = "137"
+         endingLineNumber = "137"
          landmarkName = "-documentChoosen:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -109,6 +109,20 @@
          startingLineNumber = "28"
          endingLineNumber = "28"
          landmarkName = "-annotationForPage:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "PdfAnnotator/Database.m"
+         timestampString = "332585630.924648"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "57"
+         endingLineNumber = "57"
+         landmarkName = "-insertInto:Fields:Values:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

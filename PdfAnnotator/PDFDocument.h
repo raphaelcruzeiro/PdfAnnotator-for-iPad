@@ -9,10 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @class Annotation;
-@class DBSerializer;
 
 @interface PDFDocument : NSObject {
-    
 }
 
 - (id)initWithDocument:(NSURL *)documentPath;
@@ -25,7 +23,5 @@
 @property (readwrite, nonatomic, assign) CGPDFPageRef page;
 
 @property (nonatomic, retain) Annotation *annotation;
-
-@property (nonatomic,retain) DBSerializer* db;
 
 @end

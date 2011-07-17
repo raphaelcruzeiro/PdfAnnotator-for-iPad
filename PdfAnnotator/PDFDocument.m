@@ -8,7 +8,6 @@
 
 #import "PDFDocument.h"
 #import "Annotation.h"
-#import "DBSerializer.h"
 
 
 @implementation PDFDocument
@@ -17,7 +16,6 @@
 @synthesize page;
 @synthesize annotation;
 @synthesize name;
-@synthesize db;
 
 - (id)initWithDocument:(NSURL *)documentPath
 {
@@ -31,10 +29,6 @@
         self.page = CGPDFPageRetain(CGPDFDocumentGetPage(document, 1));
         
         self.annotation = [[Annotation alloc] init];
-        
-        self.db = [[DBSerializer alloc] init];
-        
-        [self.db insertPDFDocument:self];
     }
     
     return self;
