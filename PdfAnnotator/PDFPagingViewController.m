@@ -205,7 +205,7 @@
     
     NSInteger endPage = startingPage +  7;
 
-    for(NSInteger currentPage = startingPage ; currentPage <= endPage ;) {
+    for(NSInteger currentPage = startingPage ; currentPage <= endPage && (currentPage - 1) < [scrollView.subviews count] ;) {
         UIButton *currentButton = [scrollView.subviews objectAtIndex:currentPage - 1];
         
         // Since we're interating on the subviews we HAVE to check the class of the subview to ensure we're dealing with a button
