@@ -26,6 +26,8 @@
 - (void)setDrawable:(BOOL)enabled;
 - (void)prepareBrush;
 
+- (void)drawPaths;
+
 - (void)setBrush:(TextMarkerBrush)brush;
 
 @end

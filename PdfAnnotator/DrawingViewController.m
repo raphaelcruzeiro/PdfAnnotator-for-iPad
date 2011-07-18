@@ -69,6 +69,29 @@
     }
 }
 
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    if(drawable) {
+        firstTime = YES;
+        [self drawPaths];
+    }
+}
+
+- (void)drawPaths
+{
+    for(MarkerPath *path in self._paths) {
+        _brush = [path getBrush];
+        [self prepareBrush];
+        
+        CGContextAddPath(context, [path getPath]);
+        
+        CGContextStrokePath(context);
+        CGContextFillPath(context);
+        
+        self.imageView.image = UIGraphicsGetImageFromCurrentImageContext();
+    }
+}
+
 - (void)prepareBrush
 {
     if(firstTime) {
@@ -133,18 +156,8 @@
     self.imageView = [[UIImageView alloc] initWithFrame:frame];
     
     [self.view addSubview:self.imageView];
-    
-    for(MarkerPath *path in self._paths) {
-        _brush = [path getBrush];
-        [self prepareBrush];
-        
-        CGContextAddPath(context, [path getPath]);
-        
-        CGContextStrokePath(context);
-        CGContextFillPath(context);
-        
-        self.imageView.image = UIGraphicsGetImageFromCurrentImageContext();
-    }
+   
+    [self drawPaths];
 }
 
 - (void)viewDidUnload
