@@ -8,6 +8,7 @@
 
 #import "PDFDocument.h"
 #import "Annotation.h"
+#import "HashExtensions.h"
 
 
 @implementation PDFDocument

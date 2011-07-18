@@ -42,6 +42,7 @@
 		A0E0455513D156C100A4ADBE /* PageAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = A0E0455413D156C100A4ADBE /* PageAnnotation.m */; };
 		A0E708AE13C973500002A8F0 /* PDFPagingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0E708AD13C973500002A8F0 /* PDFPagingViewController.m */; };
 		A0E708B213CA2E580002A8F0 /* PDFThumbnailFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = A0E708B113CA2E580002A8F0 /* PDFThumbnailFactory.m */; };
+		A0F93B6413D4A798001C7694 /* HashExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A0F93B6313D4A798001C7694 /* HashExtensions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +107,8 @@
 		A0E708AD13C973500002A8F0 /* PDFPagingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFPagingViewController.m; sourceTree = "<group>"; };
 		A0E708B013CA2E570002A8F0 /* PDFThumbnailFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFThumbnailFactory.h; sourceTree = "<group>"; };
 		A0E708B113CA2E580002A8F0 /* PDFThumbnailFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFThumbnailFactory.m; sourceTree = "<group>"; };
+		A0F93B6213D4A798001C7694 /* HashExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HashExtensions.h; sourceTree = "<group>"; };
+		A0F93B6313D4A798001C7694 /* HashExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HashExtensions.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +195,7 @@
 		A0AD30B613B59AC600FCC8F2 /* PdfAnnotator */ = {
 			isa = PBXGroup;
 			children = (
+				A0F93B6013D4A77F001C7694 /* Extensions */,
 				A03DFC1313CEAA8F006680DF /* DrawingControls */,
 				A0BBCABF13CA9FD300522A1A /* Resources */,
 				A035598A13B6C3EB007AAD33 /* Extensions */,
@@ -276,6 +280,15 @@
 				A0BBCAC313CAA01C00522A1A /* progressIndicator_roller.gif */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		A0F93B6013D4A77F001C7694 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A0F93B6213D4A798001C7694 /* HashExtensions.h */,
+				A0F93B6313D4A798001C7694 /* HashExtensions.m */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -408,6 +421,7 @@
 				A0E0454E13D14FF900A4ADBE /* MarkerPath.m in Sources */,
 				A0E0455213D1556200A4ADBE /* Annotation.m in Sources */,
 				A0E0455513D156C100A4ADBE /* PageAnnotation.m in Sources */,
+				A0F93B6413D4A798001C7694 /* HashExtensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
