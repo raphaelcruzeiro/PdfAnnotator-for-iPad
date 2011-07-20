@@ -16,6 +16,9 @@
 		A0675D1613CECD510006D4EC /* redMarker.png in Resources */ = {isa = PBXBuildFile; fileRef = A0675D1313CECD510006D4EC /* redMarker.png */; };
 		A079489013BFBC1200431BBF /* PDFPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A079488F13BFBC1200431BBF /* PDFPageViewController.m */; };
 		A092D36713CBCD4700E8F4AD /* backgroundTile.png in Resources */ = {isa = PBXBuildFile; fileRef = A092D36613CBCD4700E8F4AD /* backgroundTile.png */; };
+		A0A6D59313D61EA800473462 /* DocumentSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A6D59213D61EA800473462 /* DocumentSerializer.m */; };
+		A0A6D59513D6200500473462 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A0A6D59413D6200500473462 /* libxml2.dylib */; };
+		A0A6D59913D621D700473462 /* DocumentDeserializer.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A6D59813D621D700473462 /* DocumentDeserializer.m */; };
 		A0AD30B113B59AC600FCC8F2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0AD30B013B59AC600FCC8F2 /* UIKit.framework */; };
 		A0AD30B313B59AC600FCC8F2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0AD30B213B59AC600FCC8F2 /* Foundation.framework */; };
 		A0AD30B513B59AC600FCC8F2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0AD30B413B59AC600FCC8F2 /* CoreGraphics.framework */; };
@@ -69,6 +72,11 @@
 		A079488E13BFBC1200431BBF /* PDFPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFPageViewController.h; sourceTree = "<group>"; };
 		A079488F13BFBC1200431BBF /* PDFPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFPageViewController.m; sourceTree = "<group>"; };
 		A092D36613CBCD4700E8F4AD /* backgroundTile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backgroundTile.png; sourceTree = "<group>"; };
+		A0A6D59113D61EA800473462 /* DocumentSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocumentSerializer.h; sourceTree = "<group>"; };
+		A0A6D59213D61EA800473462 /* DocumentSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocumentSerializer.m; sourceTree = "<group>"; };
+		A0A6D59413D6200500473462 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		A0A6D59713D621D700473462 /* DocumentDeserializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocumentDeserializer.h; sourceTree = "<group>"; };
+		A0A6D59813D621D700473462 /* DocumentDeserializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocumentDeserializer.m; sourceTree = "<group>"; };
 		A0AD30AC13B59AC600FCC8F2 /* PdfAnnotator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PdfAnnotator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0AD30B013B59AC600FCC8F2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A0AD30B213B59AC600FCC8F2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -116,6 +124,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0A6D59513D6200500473462 /* libxml2.dylib in Frameworks */,
 				A0AD30F613B5AFDA00FCC8F2 /* QuartzCore.framework in Frameworks */,
 				A0AD30B113B59AC600FCC8F2 /* UIKit.framework in Frameworks */,
 				A0AD30B313B59AC600FCC8F2 /* Foundation.framework in Frameworks */,
@@ -162,9 +171,29 @@
 			name = DrawingControls;
 			sourceTree = "<group>";
 		};
+		A0A6D58F13D61E7200473462 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				A0A6D59113D61EA800473462 /* DocumentSerializer.h */,
+				A0A6D59213D61EA800473462 /* DocumentSerializer.m */,
+				A0A6D59713D621D700473462 /* DocumentDeserializer.h */,
+				A0A6D59813D621D700473462 /* DocumentDeserializer.m */,
+			);
+			name = Persistence;
+			sourceTree = "<group>";
+		};
+		A0A6D59613D6201C00473462 /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				A0A6D59413D6200500473462 /* libxml2.dylib */,
+			);
+			name = Libs;
+			sourceTree = "<group>";
+		};
 		A0AD30A113B59AC500FCC8F2 = {
 			isa = PBXGroup;
 			children = (
+				A0A6D59613D6201C00473462 /* Libs */,
 				A0AD30B613B59AC600FCC8F2 /* PdfAnnotator */,
 				A0AD30D613B59AC600FCC8F2 /* PdfAnnotatorTests */,
 				A0AD30AF13B59AC600FCC8F2 /* Frameworks */,
@@ -195,6 +224,7 @@
 		A0AD30B613B59AC600FCC8F2 /* PdfAnnotator */ = {
 			isa = PBXGroup;
 			children = (
+				A0A6D58F13D61E7200473462 /* Persistence */,
 				A0F93B6013D4A77F001C7694 /* Extensions */,
 				A03DFC1313CEAA8F006680DF /* DrawingControls */,
 				A0BBCABF13CA9FD300522A1A /* Resources */,
@@ -422,6 +452,8 @@
 				A0E0455213D1556200A4ADBE /* Annotation.m in Sources */,
 				A0E0455513D156C100A4ADBE /* PageAnnotation.m in Sources */,
 				A0F93B6413D4A798001C7694 /* HashExtensions.m in Sources */,
+				A0A6D59313D61EA800473462 /* DocumentSerializer.m in Sources */,
+				A0A6D59913D621D700473462 /* DocumentDeserializer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -522,6 +554,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PdfAnnotator/PdfAnnotator-Prefix.pch";
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = "PdfAnnotator/PdfAnnotator-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "C11CEFFE-FB7D-4E7F-8A4C-1018902AC151";
@@ -537,6 +570,7 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PdfAnnotator/PdfAnnotator-Prefix.pch";
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = "PdfAnnotator/PdfAnnotator-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "C11CEFFE-FB7D-4E7F-8A4C-1018902AC151";

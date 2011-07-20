@@ -19,6 +19,7 @@
 - (void) loadPage:(NSInteger)number;
 
 @property (nonatomic, retain) NSString *name;
+@property (nonatomic, retain) NSString *hash;
 @property (readwrite, nonatomic, assign) CGPDFDocumentRef document;
 @property (readwrite, nonatomic, assign) CGPDFPageRef page;
 

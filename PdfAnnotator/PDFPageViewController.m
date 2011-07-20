@@ -12,6 +12,7 @@
 #import "DrawingViewController.h"
 #import "Annotation.h"
 #import "PageAnnotation.h"
+#import "DocumentSerializer.h"
 
 @implementation PDFPageViewController
 
@@ -91,6 +92,11 @@
     
     if(!pagingViewController) {
         pagingViewController = [[PDFPagingViewController alloc] initWithDocument:self._document AndObserver:self];
+    }
+    
+    if(self._document) {
+        DocumentSerializer *serializer = [[[DocumentSerializer alloc] init] autorelease];
+        [serializer serialize:self._document];
     }
     
     CGRect pageRect = CGRectIntegral(CGPDFPageGetBoxRect(self._document.page, kCGPDFCropBox));

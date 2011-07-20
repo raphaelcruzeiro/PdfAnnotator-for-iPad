@@ -17,6 +17,7 @@
 @synthesize page;
 @synthesize annotation;
 @synthesize name;
+@synthesize hash;
 
 - (id)initWithDocument:(NSURL *)documentPath
 {

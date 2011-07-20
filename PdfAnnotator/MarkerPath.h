@@ -15,12 +15,25 @@ enum TextMarkerBrush {
     TextMarkerBrushBlue
 };
 
+@interface MrkPoint : NSObject {
+
+}
+
+- (id)initWith:(CGFloat)x And:(CGFloat)y;
+
+@property (nonatomic, assign) CGFloat x;
+@property (nonatomic, assign) CGFloat y;
+
+@end
+
 typedef enum TextMarkerBrush TextMarkerBrush;
 
 @interface MarkerPath : NSObject {
     TextMarkerBrush _brush;
     CGMutablePathRef _path;
 }
+
+@property (nonatomic, retain) NSMutableArray *points;
 
 - (id)initWithPoint:(CGPoint)point AndBrush:(TextMarkerBrush)brush;
 
