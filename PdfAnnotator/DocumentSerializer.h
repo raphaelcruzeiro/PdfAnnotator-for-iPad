@@ -15,5 +15,6 @@
 }
 
 - (void)serialize:(PDFDocument*)document;
+- (NSString*)documentsPath;
 
 @end

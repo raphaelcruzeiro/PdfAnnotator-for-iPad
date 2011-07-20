@@ -33,9 +33,7 @@
             NSString *points = @"";
             
             for(MrkPoint *pt in path.points) {
-                CGFloat x = pt.x;
-                CGFloat y = pt.y;
-                NSString *mrkPoint = [NSString stringWithFormat:@"<Point x=\"%f\" y=\"%f\"/>", x, y];
+                NSString *mrkPoint = [NSString stringWithFormat:@"<Point x=\"%f\" y=\"%f\"/>", pt.x, pt.y];
                 points = [points stringByAppendingFormat:@"%@\n%@", mrkPoint, @"\n"];
             }
             
@@ -55,8 +53,19 @@
     documentNode = [NSString stringWithFormat:@"<Document>\n%@\n</Document>", documentBody];
     
     xmlDoc = [NSString stringWithFormat:xmlDoc, documentNode];
+        
+    NSString *filePath = [[self documentsPath] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.mrk", [document.name stringByDeletingPathExtension]]];
     
-    NSLog(@"%@", xmlDoc);
+    if([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
+        [[NSFileManager defaultManager] removeItemAtPath:filePath error:nil];
+    }
+
+    [xmlDoc writeToFile:filePath atomically:YES encoding:NSStringEncodingConversionAllowLossy error:nil];
+}
+
+- (NSString*)documentsPath
+{
+    return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
 }
 
 @end
