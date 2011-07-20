@@ -36,6 +36,7 @@ typedef enum TextMarkerBrush TextMarkerBrush;
 @property (nonatomic, retain) NSMutableArray *points;
 
 - (id)initWithPoint:(CGPoint)point AndBrush:(TextMarkerBrush)brush;
+- (id)initWithBrush:(TextMarkerBrush)brush;
 
 - (void)addPoint:(CGPoint)point;
 

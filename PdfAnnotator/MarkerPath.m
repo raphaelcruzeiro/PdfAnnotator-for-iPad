@@ -42,8 +42,24 @@
     return self;
 }
 
+- (id)initWithBrush:(TextMarkerBrush)brush
+{
+    self = [super init];
+    if(self) {
+        _brush = brush;
+        _path = CGPathCreateMutable();
+        points = [[NSMutableArray alloc] init];
+    }
+    
+    return self;
+}
+
 - (void)addPoint:(CGPoint)point
 {
+    CGPoint currentPoint = CGPathGetCurrentPoint(_path);
+    if(CGPointZero.x == currentPoint.x && CGPointZero.y == currentPoint.y)
+        CGPathMoveToPoint(_path, NULL, point.x, point.y);
+    
     CGPathAddLineToPoint(_path, NULL, point.x, point.y);
     [points addObject:[[MrkPoint alloc] initWith:point.x And:point.y]];
 }

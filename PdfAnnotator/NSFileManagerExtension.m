@@ -14,6 +14,12 @@
 
 @implementation NSFileManager (NSFileManagerExtension)
 
+
+- (NSString*)documentsPath
+{
+    return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+}
+
 - (NSEnumerator *)tx_enumeratorAtURL:(NSURL *)url includingPropertiesForKeys:(NSArray *)keys options:(NSDirectoryEnumerationOptions)mask errorHandler:(BOOL (^)(NSURL *, NSError *))handler
 {
     NSAssert(mask == 0, @"We don't handle masks");

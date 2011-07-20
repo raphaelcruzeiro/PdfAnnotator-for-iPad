@@ -13,6 +13,7 @@
 #import "Annotation.h"
 #import "PageAnnotation.h"
 #import "DocumentSerializer.h"
+#import "DocumentDeserializer.h"
 
 @implementation PDFPageViewController
 
@@ -97,6 +98,8 @@
     if(self._document) {
         DocumentSerializer *serializer = [[[DocumentSerializer alloc] init] autorelease];
         [serializer serialize:self._document];
+        //DocumentDeserializer *deserializer = [[[DocumentDeserializer alloc] init] autorelease];
+        //[deserializer readAnnotation:[[self._document.name stringByDeletingPathExtension] stringByAppendingPathExtension:@"mrk"]];
     }
     
     CGRect pageRect = CGRectIntegral(CGPDFPageGetBoxRect(self._document.page, kCGPDFCropBox));

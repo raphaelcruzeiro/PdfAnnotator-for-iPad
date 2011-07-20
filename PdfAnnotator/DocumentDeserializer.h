@@ -9,10 +9,12 @@
 #import <Foundation/Foundation.h>
 #import <libxml/xmlreader.h>
 
-@class PDFDocument;
+@class Annotation;
 
 @interface DocumentDeserializer : NSObject {
     
 }
+
+- (Annotation*)readAnnotation:(NSString*)filePath;
 
 @end

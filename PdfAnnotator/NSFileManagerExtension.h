@@ -10,6 +10,8 @@
 
 @interface NSFileManager (NSFileManagerExtension)
 
+- (NSString*)documentsPath;
+
 - (NSEnumerator *)tx_enumeratorAtURL:(NSURL *)url 
 includingPropertiesForKeys:(NSArray *)keys 
 options:(NSDirectoryEnumerationOptions)mask 

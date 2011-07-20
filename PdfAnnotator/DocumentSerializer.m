@@ -11,6 +11,7 @@
 #import "Annotation.h"
 #import "PageAnnotation.h"
 #import "MarkerPath.h"
+#import "NSFileManagerExtension.h"
 
 
 @implementation DocumentSerializer
@@ -54,18 +55,13 @@
     
     xmlDoc = [NSString stringWithFormat:xmlDoc, documentNode];
         
-    NSString *filePath = [[self documentsPath] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.mrk", [document.name stringByDeletingPathExtension]]];
+    NSString *filePath = [[[NSFileManager defaultManager] documentsPath] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.mrk", [document.name stringByDeletingPathExtension]]];
     
     if([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
         [[NSFileManager defaultManager] removeItemAtPath:filePath error:nil];
     }
 
     [xmlDoc writeToFile:filePath atomically:YES encoding:NSStringEncodingConversionAllowLossy error:nil];
-}
-
-- (NSString*)documentsPath
-{
-    return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
 }
 
 @end

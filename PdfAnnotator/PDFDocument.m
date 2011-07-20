@@ -9,6 +9,7 @@
 #import "PDFDocument.h"
 #import "Annotation.h"
 #import "HashExtensions.h"
+#import "DocumentDeserializer.h"
 
 
 @implementation PDFDocument
@@ -30,7 +31,9 @@
         
         self.page = CGPDFPageRetain(CGPDFDocumentGetPage(document, 1));
         
-        self.annotation = [[Annotation alloc] init];
+        
+        DocumentDeserializer *deserializer = [[[DocumentDeserializer alloc] init] autorelease];
+        self.annotation = [deserializer readAnnotation:[self.name stringByDeletingPathExtension]];
     }
     
     return self;
