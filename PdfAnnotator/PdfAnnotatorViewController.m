@@ -24,6 +24,7 @@
 @synthesize toolbar;
 @synthesize load;
 @synthesize hand;
+@synthesize saveButton;
 @synthesize textMarker;
 @synthesize document;
 
@@ -59,6 +60,9 @@
     
     self.textMarker.target = self;
     self.textMarker.action = @selector(textMarkerClicked:);
+    
+    self.saveButton.target = self;
+    self.saveButton.action = @selector(saveClicked:);
     
     [self.toolbar setBackgroundColor:[UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.5]];
     
@@ -114,6 +118,14 @@
     [self.textMarkerController release];
 }
 
+- (void)saveClicked:(id)sender
+{
+    if([self.document save]) {
+        [self.saveButton setTitle:@"Saved"];
+        [self.saveButton setEnabled:NO];
+    }
+}
+
 - (void)documentChoosen:(NSURL *)_document
 {
     NSLog(@"%s", [[_document absoluteString] UTF8String]);
@@ -130,11 +142,21 @@
     
     self.document = [[[PDFDocument alloc] initWithDocument:_document] autorelease];
     
-    pageViewController = [[PDFPageViewController alloc] initWithNibName:Nil bundle:Nil];
+    pageViewController = [[PDFPageViewController alloc] initWithDelegate:self];
     [pageViewController loadDocument:self.document];
     
     [self.view addSubview:[pageViewController view]];
     [self.view bringSubviewToFront:toolbar];
+}
+
+- (void)changed
+{
+    self.document.dirty = YES;
+    
+    if(document.dirty) {
+        [self.saveButton setTitle:@"Save"];
+        [self.saveButton setEnabled:YES];
+    }
 }
 
 @end

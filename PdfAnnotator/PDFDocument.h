@@ -17,11 +17,14 @@
 
 - (NSInteger) pageCount;
 - (void) loadPage:(NSInteger)number;
+- (BOOL)save;
 
 @property (nonatomic, retain) NSString *name;
 @property (nonatomic, retain) NSString *hash;
 @property (readwrite, nonatomic, assign) CGPDFDocumentRef document;
 @property (readwrite, nonatomic, assign) CGPDFPageRef page;
+
+@property (nonatomic, assign) BOOL dirty;
 
 @property (nonatomic, retain) Annotation *annotation;
 

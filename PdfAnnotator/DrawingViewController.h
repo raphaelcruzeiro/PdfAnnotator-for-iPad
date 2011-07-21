@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "MarkerPath.h"
 
+@protocol DrawingViewControllerDelegate;
+
 @interface DrawingViewController : UIViewController {
     BOOL drawable;
     CGPoint lastPoint;
@@ -19,15 +21,23 @@
     MarkerPath *currentPath;
 }
 
+@property (nonatomic, retain) id<DrawingViewControllerDelegate> delegate;
+
 @property (nonatomic, retain) UIImageView *imageView;
 @property (nonatomic, retain) NSMutableArray *_paths;
 
-- (id)initWithFrame:(CGRect)frame AndPaths:(NSMutableArray*)paths;
+- (id)initWithFrame:(CGRect)frame AndPaths:(NSMutableArray*)paths AndDelegate:(id<DrawingViewControllerDelegate>)_delegate;
 - (void)setDrawable:(BOOL)enabled;
 - (void)prepareBrush;
 
 - (void)drawPaths;
 
 - (void)setBrush:(TextMarkerBrush)brush;
+
+@end
+
+@protocol DrawingViewControllerDelegate <NSObject>
+
+- (void)changed;
 
 @end

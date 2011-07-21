@@ -12,13 +12,15 @@
 
 @synthesize imageView;
 @synthesize _paths;
+@synthesize delegate;
 
-- (id)initWithFrame:(CGRect)frame AndPaths:(NSMutableArray*)paths
+- (id)initWithFrame:(CGRect)frame AndPaths:(NSMutableArray*)paths AndDelegate:(id<DrawingViewControllerDelegate>)_delegate
 {
     if((self = [super init])) {
         drawable = NO;
         firstTime = YES;
         viewFrame = frame;
+        self.delegate = _delegate;
         if(paths) {
             self._paths = paths;
         }
@@ -74,6 +76,8 @@
     if(drawable) {
         firstTime = YES;
         [self drawPaths];
+        
+        [delegate changed];
     }
 }
 

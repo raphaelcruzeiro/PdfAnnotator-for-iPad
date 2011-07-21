@@ -10,6 +10,7 @@
 #import "Annotation.h"
 #import "HashExtensions.h"
 #import "DocumentDeserializer.h"
+#import "DocumentSerializer.h"
 
 
 @implementation PDFDocument
@@ -19,6 +20,7 @@
 @synthesize annotation;
 @synthesize name;
 @synthesize hash;
+@synthesize dirty;
 
 - (id)initWithDocument:(NSURL *)documentPath
 {
@@ -47,6 +49,15 @@
 - (void)loadPage:(NSInteger)number
 {
     self.page = CGPDFPageRetain(CGPDFDocumentGetPage(document, number));
+}
+
+- (BOOL)save
+{
+    DocumentSerializer *serializer = [[[DocumentSerializer alloc] init] autorelease];
+    [serializer serialize:self];
+    
+    self.dirty = NO;
+    return !self.dirty;
 }
 
 - (void)dealloc

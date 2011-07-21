@@ -20,13 +20,16 @@
 @synthesize _document;
 @synthesize pagingViewController;
 @synthesize drawingViewController;
+@synthesize delegate;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)initWithDelegate:(id<PDFPageViewControllerDelegate>)_delegate
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
+    self = [super init];
+    
+    if(self) {
+        self.delegate = _delegate;
     }
+    
     return self;
 }
 
@@ -116,7 +119,7 @@
         [self._document.annotation._pageAnnotations addObject:pageAnnotation];
     }
     
-    self.drawingViewController = [[DrawingViewController alloc] initWithFrame:pageRect AndPaths:pageAnnotation._paths];
+    self.drawingViewController = [[DrawingViewController alloc] initWithFrame:pageRect AndPaths:pageAnnotation._paths AndDelegate:self];
     
     pageRect.origin.x = 1;
     pageRect.origin.y = 1;
@@ -196,6 +199,11 @@
 - (void)setBrush:(TextMarkerBrush)brush
 {
     [drawingViewController setBrush:brush];
+}
+
+- (void)changed
+{
+    [delegate changed];
 }
 
 - (void)dealloc

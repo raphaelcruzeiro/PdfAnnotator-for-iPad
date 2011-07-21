@@ -9,28 +9,39 @@
 #import <UIKit/UIKit.h>
 #import "PDFPagingViewController.h"
 #import "TextMarkerSelectorViewController.h"
+#import "DrawingViewController.h"
 
 @class PDFDocument;
 @class PDFPagingViewController;
-@class DrawingViewController;
 
-@interface PDFPageViewController : UIViewController <UIScrollViewDelegate, PDFPagingViewProtocol>
+@protocol PDFPageViewControllerDelegate;
+
+@interface PDFPageViewController : UIViewController <UIScrollViewDelegate, PDFPagingViewProtocol, DrawingViewControllerDelegate>
 {
     UIScrollView *scrollView;
     UIView *contentView;
     CGFloat maximumZoomScale, minimumZoomScale;
 }
 
+@property (nonatomic, retain) id<PDFPageViewControllerDelegate> delegate;
+
 @property (nonatomic, retain) PDFDocument *_document;
 
 @property (nonatomic, retain) PDFPagingViewController *pagingViewController;
 @property (nonatomic, retain) DrawingViewController *drawingViewController;
 
+- (id)initWithDelegate:(id<PDFPageViewControllerDelegate>)_delegate;
 - (void) loadDocument:(PDFDocument *)document;
 - (void) refreshPage;
 - (void)setPenMode:(BOOL)enabled;
 - (void)setHandMode:(BOOL)enabled;
 
 - (void)setBrush:(TextMarkerBrush)brush;
+
+@end
+
+@protocol PDFPageViewControllerDelegate <NSObject>
+
+- (void)changed;
 
 @end
