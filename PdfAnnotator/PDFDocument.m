@@ -22,6 +22,8 @@
 @synthesize hash;
 @synthesize dirty;
 
+@synthesize version;
+
 - (id)initWithDocument:(NSURL *)documentPath
 {
     if((self = [super init]) != NULL) {
@@ -32,6 +34,8 @@
         self.document = CGPDFDocumentCreateWithURL((CFURLRef)documentPath);
         
         self.page = CGPDFPageRetain(CGPDFDocumentGetPage(document, 1));
+        
+        self.version = @"0.5";
         
         
         DocumentDeserializer *deserializer = [[[DocumentDeserializer alloc] init] autorelease];

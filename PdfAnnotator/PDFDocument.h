@@ -24,6 +24,8 @@
 @property (readwrite, nonatomic, assign) CGPDFDocumentRef document;
 @property (readwrite, nonatomic, assign) CGPDFPageRef page;
 
+@property (nonatomic, retain) NSString *version;
+
 @property (nonatomic, assign) BOOL dirty;
 
 @property (nonatomic, retain) Annotation *annotation;

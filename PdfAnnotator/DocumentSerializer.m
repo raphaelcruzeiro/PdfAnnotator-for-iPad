@@ -19,7 +19,7 @@
 - (void)serialize:(PDFDocument *)document
 {
     NSString *xmlDoc = @"<?xml- version=\"1.0\"?>\n%@";
-    NSString *documentNode = @"<Document>\n%@\n</Document>";
+    NSString *documentNode = [NSString stringWithFormat:@"<Document version=\"%@\">\n%@\n</Document>", document.version];
     NSString *fileNode = [NSString stringWithFormat:@"<File name=\"%@\" hash=\"%@\" />", document.name, document.hash];
     
     NSString *pagesNode = @"";
