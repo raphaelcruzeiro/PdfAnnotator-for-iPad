@@ -103,6 +103,9 @@
         }
     }
     
+    xmlFreeTextReader(reader);
+    xmlCleanupParser();
+    
     return annotation;
 }
 
