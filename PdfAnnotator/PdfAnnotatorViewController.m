@@ -61,6 +61,7 @@
     self.hand.target = self;
     self.hand.action = @selector(handClicked:);
     
+    [self.textMarker setImage:[UIImage imageNamed:@"textMarker.png"]];
     self.textMarker.target = self;
     self.textMarker.action = @selector(textMarkerClicked:);
     
