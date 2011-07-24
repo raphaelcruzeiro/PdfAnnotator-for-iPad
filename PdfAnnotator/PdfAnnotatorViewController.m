@@ -57,6 +57,7 @@
     self.load.target = self;
     self.load.action = @selector(loadClicked:);
     
+    [self.hand setImage:[UIImage imageNamed:@"hand.png"]];
     self.hand.target = self;
     self.hand.action = @selector(handClicked:);
     
@@ -66,9 +67,11 @@
     self.saveButton.target = self;
     self.saveButton.action = @selector(saveClicked:);
     
+    [self.undo setImage:[UIImage imageNamed:@"undo.png"]];
     self.undo.target = self;
     self.undo.action = @selector(undoClicked:);
     
+    [self.redo setImage:[UIImage imageNamed:@"redo.png"]];
     self.redo.target = self;
     self.redo.action = @selector(redoClicked:);
     

@@ -75,12 +75,13 @@
     // self.view.alpha = 0.2;
     self.view.frame = collapsedFrame;
     
-    collapseButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [collapseButton setTitle:@"ˆ" forState:UIControlStateNormal];
+    collapseButton = [UIButton buttonWithType:UIButtonTypeInfoDark];
+
+    [collapseButton setImage:[UIImage imageNamed:@"arrowDown.png"] forState:UIControlStateNormal];
     [collapseButton addTarget:self action:@selector(toggle) forControlEvents:UIControlEventTouchDown];
     
-    [collapseButton setFrame:CGRectMake(25, 7, 40, 30)];
-    [collapseButton setAlpha:0.2];
+    [collapseButton setFrame:CGRectMake(25, 7, 30, 30)];
+    [collapseButton setBackgroundColor:[UIColor colorWithRed:173 green:176 blue:183 alpha:0]];
     [self.view addSubview:collapseButton];
     
     CGFloat startingX = 10;
@@ -159,10 +160,14 @@
 
 - (void) toggle
 {
-    if(expanded)
+    if(expanded) {
+        [collapseButton setImage:[UIImage imageNamed:@"arrowUp.png"] forState:UIControlStateNormal];
         [self collapse];
-    else
+    }
+    else {
+        [collapseButton setImage:[UIImage imageNamed:@"arrowDown.png"] forState:UIControlStateNormal];
         [self expand];
+    }
 }
 
 - (void)pageItemClicked:(id)sender
