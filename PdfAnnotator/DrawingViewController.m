@@ -83,17 +83,21 @@
 
 - (void)drawPaths
 {
+    UIGraphicsBeginImageContext(self.view.frame.size);
+    
     for(MarkerPath *path in self._paths) {
-        _brush = [path getBrush];
-        [self prepareBrush];
-        
-        CGContextAddPath(context, [path getPath]);
-        
-        CGContextStrokePath(context);
-        CGContextFillPath(context);
-        
-        self.imageView.image = UIGraphicsGetImageFromCurrentImageContext();
+        if(path.active) {
+            _brush = [path getBrush];
+            [self prepareBrush];
+            
+            CGContextAddPath(context, [path getPath]);
+            
+            CGContextStrokePath(context);
+            CGContextFillPath(context);
+        } 
     }
+    
+    self.imageView.image = UIGraphicsGetImageFromCurrentImageContext();
 }
 
 - (void)prepareBrush
@@ -122,6 +126,48 @@
 	CGContextSetLineWidth(context, 10.0);
     CGContextSetAllowsAntialiasing(context, YES);
     CGContextSetShouldAntialias(context, YES);
+}
+
+- (void)undo
+{
+    NSInteger markerCount = [self._paths count];
+    
+    for(NSInteger i = markerCount - 1 ; i > -1 ; i--) {
+        MarkerPath *path = [self._paths objectAtIndex:i];
+        
+        if(path.active) {
+            path.active = NO;
+            [self drawPaths];
+            [delegate changed];
+            return;
+        }
+    }
+}
+
+- (void)redo
+{
+    NSInteger markerCount = [self._paths count];
+    
+    for(NSInteger i = 0 ; i < markerCount ; i++) {
+        MarkerPath *path = [self._paths objectAtIndex:i];
+        
+        if(!path.active) {
+            path.active = YES;
+            [self drawPaths];
+            [delegate changed];
+            return;
+        }
+    }
+}
+
+- (BOOL)canUndo
+{
+
+}
+
+- (BOOL)canRedo
+{
+
 }
 
 - (void)setBrush:(TextMarkerBrush)brush

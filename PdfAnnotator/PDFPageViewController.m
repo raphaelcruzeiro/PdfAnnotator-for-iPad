@@ -194,6 +194,16 @@
     [drawingViewController setBrush:brush];
 }
 
+- (void)undo
+{
+    [drawingViewController undo];
+}
+
+- (void)redo
+{
+    [drawingViewController redo];
+}
+
 - (void)changed
 {
     [delegate changed];

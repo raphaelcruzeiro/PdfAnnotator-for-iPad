@@ -94,9 +94,21 @@
 								<int key="IBUIStyle">1</int>
 								<reference key="IBUIToolbar" ref="595611173"/>
 							</object>
+							<object class="IBUIBarButtonItem" id="990344068">
+								<string key="IBUITitle">Undo</string>
+								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+								<int key="IBUIStyle">1</int>
+								<reference key="IBUIToolbar" ref="595611173"/>
+							</object>
+							<object class="IBUIBarButtonItem" id="278207695">
+								<string key="IBUITitle">Redo</string>
+								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+								<int key="IBUIStyle">1</int>
+								<reference key="IBUIToolbar" ref="595611173"/>
+							</object>
 							<object class="IBUIBarButtonItem" id="236713798">
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-								<float key="IBUIWidth">483</float>
+								<float key="IBUIWidth">360</float>
 								<reference key="IBUIToolbar" ref="595611173"/>
 								<int key="IBUISystemItemIdentifier">6</int>
 							</object>
@@ -183,6 +195,22 @@
 					</object>
 					<int key="connectionID">25</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">undo</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="990344068"/>
+					</object>
+					<int key="connectionID">28</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">redo</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="278207695"/>
+					</object>
+					<int key="connectionID">29</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -233,6 +261,8 @@
 							<reference ref="472577669"/>
 							<reference ref="236713798"/>
 							<reference ref="260863046"/>
+							<reference ref="990344068"/>
+							<reference ref="278207695"/>
 						</object>
 						<reference key="parent" ref="766721923"/>
 					</object>
@@ -261,6 +291,16 @@
 						<reference key="object" ref="260863046"/>
 						<reference key="parent" ref="595611173"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">26</int>
+						<reference key="object" ref="990344068"/>
+						<reference key="parent" ref="595611173"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">27</int>
+						<reference key="object" ref="278207695"/>
+						<reference key="parent" ref="595611173"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -279,6 +319,8 @@
 					<string>2.IBPluginDependency</string>
 					<string>21.IBPluginDependency</string>
 					<string>24.IBPluginDependency</string>
+					<string>26.IBPluginDependency</string>
+					<string>27.IBPluginDependency</string>
 					<string>7.IBPluginDependency</string>
 				</object>
 				<object class="NSMutableArray" key="dict.values">
@@ -292,6 +334,8 @@
 						<reference key="dict.sortedKeys" ref="0"/>
 						<reference key="dict.values" ref="0"/>
 					</object>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -314,7 +358,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">25</int>
+			<int key="maxID">29</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -329,9 +373,11 @@
 							<string>documentView</string>
 							<string>hand</string>
 							<string>load</string>
+							<string>redo</string>
 							<string>saveButton</string>
 							<string>textMarker</string>
 							<string>toolbar</string>
+							<string>undo</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -340,7 +386,9 @@
 							<string>UIBarButtonItem</string>
 							<string>UIBarButtonItem</string>
 							<string>UIBarButtonItem</string>
+							<string>UIBarButtonItem</string>
 							<string>UIToolbar</string>
+							<string>UIBarButtonItem</string>
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
@@ -350,9 +398,11 @@
 							<string>documentView</string>
 							<string>hand</string>
 							<string>load</string>
+							<string>redo</string>
 							<string>saveButton</string>
 							<string>textMarker</string>
 							<string>toolbar</string>
+							<string>undo</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -369,6 +419,10 @@
 								<string key="candidateClassName">UIBarButtonItem</string>
 							</object>
 							<object class="IBToOneOutletInfo">
+								<string key="name">redo</string>
+								<string key="candidateClassName">UIBarButtonItem</string>
+							</object>
+							<object class="IBToOneOutletInfo">
 								<string key="name">saveButton</string>
 								<string key="candidateClassName">UIBarButtonItem</string>
 							</object>
@@ -379,6 +433,10 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">toolbar</string>
 								<string key="candidateClassName">UIToolbar</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">undo</string>
+								<string key="candidateClassName">UIBarButtonItem</string>
 							</object>
 						</object>
 					</object>

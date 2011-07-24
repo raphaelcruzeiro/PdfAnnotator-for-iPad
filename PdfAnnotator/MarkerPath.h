@@ -34,6 +34,7 @@ typedef enum TextMarkerBrush TextMarkerBrush;
 }
 
 @property (nonatomic, retain) NSMutableArray *points;
+@property (nonatomic, assign) BOOL active;
 
 - (id)initWithPoint:(CGPoint)point AndBrush:(TextMarkerBrush)brush;
 - (id)initWithBrush:(TextMarkerBrush)brush;

@@ -38,6 +38,9 @@
 
 - (void)setBrush:(TextMarkerBrush)brush;
 
+- (void)undo;
+- (void)redo;
+
 @end
 
 @protocol PDFPageViewControllerDelegate <NSObject>

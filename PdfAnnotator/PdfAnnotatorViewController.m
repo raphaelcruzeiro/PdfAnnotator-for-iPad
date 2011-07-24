@@ -25,6 +25,8 @@
 @synthesize load;
 @synthesize hand;
 @synthesize saveButton;
+@synthesize undo;
+@synthesize redo;
 @synthesize textMarker;
 @synthesize document;
 
@@ -63,6 +65,12 @@
     
     self.saveButton.target = self;
     self.saveButton.action = @selector(saveClicked:);
+    
+    self.undo.target = self;
+    self.undo.action = @selector(undoClicked:);
+    
+    self.redo.target = self;
+    self.redo.action = @selector(redoClicked:);
     
     [self.toolbar setBackgroundColor:[UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.5]];
     
@@ -147,6 +155,20 @@
     
     [self.view addSubview:[pageViewController view]];
     [self.view bringSubviewToFront:toolbar];
+}
+
+- (void)undoClicked:(id)sender
+{
+    if(pageViewController) {
+        [pageViewController undo];
+    }
+}
+
+- (void)redoClicked:(id)sender
+{
+    if(pageViewController) {
+        [pageViewController redo];
+    }
 }
 
 - (void)changed

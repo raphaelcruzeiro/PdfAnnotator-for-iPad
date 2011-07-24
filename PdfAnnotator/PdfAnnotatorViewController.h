@@ -21,6 +21,8 @@
 - (void)handClicked:(id)sender;
 - (void)textMarkerClicked:(id)sender;
 - (void)saveClicked:(id)sender;
+- (void)undoClicked:(id)sender;
+- (void)redoClicked:(id)sender;
 
 @property (nonatomic, retain) PDFPageViewController *pageViewController;
 @property (nonatomic, retain) LoadMenuController *loadMenu;
@@ -31,6 +33,8 @@
 @property (nonatomic, retain) IBOutlet UIBarButtonItem *hand;
 @property (nonatomic, retain) IBOutlet UIBarButtonItem *textMarker;
 @property (nonatomic, retain) IBOutlet UIBarButtonItem *saveButton;
+@property (nonatomic, retain) IBOutlet UIBarButtonItem *undo;
+@property (nonatomic, retain) IBOutlet UIBarButtonItem *redo;
 @property (nonatomic, retain) PDFDocument *document;
 
 @property (nonatomic, retain) IBOutlet UIView *documentView;

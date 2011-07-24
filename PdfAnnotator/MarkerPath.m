@@ -28,11 +28,13 @@
 @implementation MarkerPath
 
 @synthesize points;
+@synthesize active;
 
 - (id)initWithPoint:(CGPoint)point AndBrush:(TextMarkerBrush)brush
 {
     self = [super init];
     if (self) {
+        active = YES;
         _brush = brush;
         _path = CGPathCreateMutable();
         CGPathMoveToPoint(_path, NULL, point.x, point.y);
@@ -46,6 +48,7 @@
 {
     self = [super init];
     if(self) {
+        active = YES;
         _brush = brush;
         _path = CGPathCreateMutable();
         points = [[NSMutableArray alloc] init];

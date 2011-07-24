@@ -19,7 +19,6 @@
 - (void)serialize:(PDFDocument *)document
 {
     NSString *xmlDoc = @"<?xml- version=\"1.0\"?>\n%@";
-    NSString *documentNode = [NSString stringWithFormat:@"<Document version=\"%@\">\n%@\n</Document>", document.version];
     NSString *fileNode = [NSString stringWithFormat:@"<File name=\"%@\" hash=\"%@\" />", document.name, document.hash];
     
     NSString *pagesNode = @"";
@@ -30,16 +29,18 @@
         NSString *markers = @"";
         
         for(MarkerPath *path in p._paths) {
-            NSString *mark = @"";
-            NSString *points = @"";
-            
-            for(MrkPoint *pt in path.points) {
-                NSString *mrkPoint = [NSString stringWithFormat:@"<Point x=\"%f\" y=\"%f\"/>", pt.x, pt.y];
-                points = [points stringByAppendingFormat:@"%@\n%@", mrkPoint, @"\n"];
+            if(path.active) {
+                NSString *mark = @"";
+                NSString *points = @"";
+                
+                for(MrkPoint *pt in path.points) {
+                    NSString *mrkPoint = [NSString stringWithFormat:@"<Point x=\"%f\" y=\"%f\"/>", pt.x, pt.y];
+                    points = [points stringByAppendingFormat:@"%@\n%@", mrkPoint, @"\n"];
+                }
+                
+                mark = [NSString stringWithFormat:@"<Marker brush=\"%d\">\n%@\n</Marker>", (int)[path getBrush], points];
+                markers = [markers stringByAppendingFormat:@"%@\n%@", mark, @"\n"];
             }
-            
-            mark = [NSString stringWithFormat:@"<Marker brush=\"%d\">\n%@\n</Marker>", (int)[path getBrush], points];
-            markers = [markers stringByAppendingFormat:@"%@\n%@", mark, @"\n"];
         }
         
         markers = [NSString stringWithFormat:@"<Markers>\n%@\n</Markers>", markers];
@@ -51,7 +52,7 @@
     pagesNode = [NSString stringWithFormat:@"<Pages>\n%@\n</Pages>", pages];
     
     NSString *documentBody = [NSString stringWithFormat:@"%@\n%@", fileNode, pagesNode];
-    documentNode = [NSString stringWithFormat:@"<Document>\n%@\n</Document>", documentBody];
+    NSString *documentNode = [NSString stringWithFormat:@"<Document version=\"%@\">\n%@\n</Document>", document.version, documentBody];
     
     xmlDoc = [NSString stringWithFormat:xmlDoc, documentNode];
         

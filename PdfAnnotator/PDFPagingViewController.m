@@ -28,17 +28,10 @@
         self._document = document;
         currentX = 0;
         self.thumbFactory = [[PDFThumbnailFactory alloc] initWithDocument:self._document];
+        pagePlaceholder = [UIImage imageNamed:@"pagePlaceholder.png"];
+        loading = [UIImage imageNamed:@"progressIndicator_roller.gif"];
     }
     
-    return self;
-}
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
     return self;
 }
 
@@ -95,12 +88,6 @@
     scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 50, 768, 170)];
     scrollView.delegate = self;
     scrollView.contentSize = CGSizeMake([self._document pageCount] * 130, 170);
-    
-    if(!pagePlaceholder)
-        pagePlaceholder = [UIImage imageNamed:@"pagePlaceholder.png"];
-    
-    if(!loading)
-        loading = [UIImage imageNamed:@"progressIndicator_roller.gif"];
     
     for(NSInteger i = 1 ; i <= [self._document pageCount] && i; i++) {
         

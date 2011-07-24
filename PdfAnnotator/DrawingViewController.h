@@ -30,6 +30,12 @@
 - (void)setDrawable:(BOOL)enabled;
 - (void)prepareBrush;
 
+- (void)undo;
+- (void)redo;
+
+- (BOOL)canUndo;
+- (BOOL)canRedo;
+
 - (void)drawPaths;
 
 - (void)setBrush:(TextMarkerBrush)brush;
