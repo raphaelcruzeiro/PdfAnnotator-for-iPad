@@ -78,6 +78,17 @@
         [self drawPaths];
         
         [delegate changed];
+        
+        NSInteger markerCount = [self._paths count];
+        
+        for(NSInteger i = markerCount - 1 ; i > -1 ; i--) {
+            MarkerPath *path = [self._paths objectAtIndex:i];
+            
+            if(!path.active) {
+                [_paths removeObject:path];
+                [path release];
+            }
+        }
     }
 }
 
@@ -135,7 +146,7 @@
     for(NSInteger i = markerCount - 1 ; i > -1 ; i--) {
         MarkerPath *path = [self._paths objectAtIndex:i];
         
-        if(path.active) {
+        if(path.active && !path.loadedFromFile) {
             path.active = NO;
             [self drawPaths];
             [delegate changed];
@@ -151,7 +162,7 @@
     for(NSInteger i = 0 ; i < markerCount ; i++) {
         MarkerPath *path = [self._paths objectAtIndex:i];
         
-        if(!path.active) {
+        if(!path.active && !path.loadedFromFile) {
             path.active = YES;
             [self drawPaths];
             [delegate changed];
@@ -162,12 +173,30 @@
 
 - (BOOL)canUndo
 {
-
+    NSInteger markerCount = [self._paths count];
+    
+    for(NSInteger i = markerCount - 1 ; i > -1 ; i--) {
+        MarkerPath *path = [self._paths objectAtIndex:i];
+        
+        if(path.active && !path.loadedFromFile)
+            return YES;
+    }
+    
+    return NO;
 }
 
 - (BOOL)canRedo
 {
-
+    NSInteger markerCount = [self._paths count];
+    
+    for(NSInteger i = markerCount - 1 ; i > -1 ; i--) {
+        MarkerPath *path = [self._paths objectAtIndex:i];
+        
+        if(!path.active) 
+            return YES;
+    }
+    
+    return NO;
 }
 
 - (void)setBrush:(TextMarkerBrush)brush

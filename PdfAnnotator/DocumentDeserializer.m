@@ -91,6 +91,7 @@
                         temp = (char*)xmlTextReaderConstValue(reader);
                         
                         currentPoint.y = strtof(temp, NULL);
+                        currentMark.loadedFromFile = YES;
                         [currentMark addPoint:currentPoint];
                     }
                     

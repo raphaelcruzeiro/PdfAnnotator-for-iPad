@@ -29,6 +29,7 @@
 
 @synthesize points;
 @synthesize active;
+@synthesize loadedFromFile;
 
 - (id)initWithPoint:(CGPoint)point AndBrush:(TextMarkerBrush)brush
 {
@@ -81,8 +82,6 @@
 {
     [super dealloc];
     [points release];
-    
-    CGPathRelease(_path);
 }
 
 @end
