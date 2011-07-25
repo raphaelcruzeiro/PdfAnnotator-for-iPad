@@ -24,6 +24,8 @@
 - (void)undoClicked:(id)sender;
 - (void)redoClicked:(id)sender;
 
+- (void)resetButtonStates;
+
 @property (nonatomic, retain) PDFPageViewController *pageViewController;
 @property (nonatomic, retain) LoadMenuController *loadMenu;
 @property (nonatomic, retain) TextMarkerSelectorViewController *textMarkerController;

@@ -79,6 +79,17 @@
     [self.toolbar setBackgroundColor:[UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.5]];
     
     self.documentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundTile"]];
+    
+    [self resetButtonStates];
+}
+
+- (void)resetButtonStates
+{
+    [self.hand setEnabled:NO];
+    [self.textMarker setEnabled:NO];
+    [self.saveButton setEnabled:NO];
+    [self.undo setEnabled:NO];
+    [self.redo setEnabled:NO];
 }
 
 - (void)viewDidUnload
@@ -106,6 +117,9 @@
     if(pageViewController) {
         NSLog(@"Entering hand mode");
         [pageViewController setHandMode:YES];
+        
+        [self.hand setEnabled:NO];
+        [self.textMarker setEnabled:YES];
     }
 }
 
@@ -128,6 +142,9 @@
     [self.popOver dismissPopoverAnimated:YES];
     [self.popOver release];
     [self.textMarkerController release];
+    
+    [self.hand setEnabled:YES];
+    [self.textMarker setEnabled:NO];
 }
 
 - (void)saveClicked:(id)sender
@@ -141,6 +158,8 @@
 - (void)documentChoosen:(NSURL *)_document
 {
     NSLog(@"%s", [[_document absoluteString] UTF8String]);
+    
+    [self resetButtonStates];
     
     [self.popOver dismissPopoverAnimated:YES];
     
@@ -159,6 +178,8 @@
     
     [self.view addSubview:[pageViewController view]];
     [self.view bringSubviewToFront:toolbar];
+    
+    [self.textMarker setEnabled:YES];
 }
 
 - (void)undoClicked:(id)sender
