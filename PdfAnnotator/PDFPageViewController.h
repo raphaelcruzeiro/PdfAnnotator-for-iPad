@@ -46,5 +46,6 @@
 @protocol PDFPageViewControllerDelegate <NSObject>
 
 - (void)changed;
+- (void)canUndo:(BOOL)value;
 
 @end

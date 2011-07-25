@@ -45,5 +45,6 @@
 @protocol DrawingViewControllerDelegate <NSObject>
 
 - (void)changed;
+- (void)canUndo:(BOOL)value;
 
 @end

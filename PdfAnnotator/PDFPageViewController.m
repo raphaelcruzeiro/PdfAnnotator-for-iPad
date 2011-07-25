@@ -209,6 +209,11 @@
     [delegate changed];
 }
 
+- (void)canUndo:(BOOL)value;
+{
+    [delegate canUndo:value];
+}
+
 - (void)dealloc
 {
     [pagingViewController release];

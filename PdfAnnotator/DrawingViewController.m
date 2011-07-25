@@ -89,6 +89,8 @@
                 [path release];
             }
         }
+        
+        [delegate canUndo:[self canUndo]];
     }
 }
 

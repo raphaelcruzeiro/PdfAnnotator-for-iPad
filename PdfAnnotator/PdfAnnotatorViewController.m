@@ -186,6 +186,7 @@
 {
     if(pageViewController) {
         [pageViewController undo];
+        [self.redo setEnabled:YES];
     }
 }
 
@@ -204,6 +205,11 @@
         [self.saveButton setTitle:@"Save"];
         [self.saveButton setEnabled:YES];
     }
+}
+
+- (void)canUndo:(BOOL)value
+{
+    [self.undo setEnabled:value];
 }
 
 @end
