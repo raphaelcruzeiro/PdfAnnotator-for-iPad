@@ -152,6 +152,8 @@
             path.active = NO;
             [self drawPaths];
             [delegate changed];
+            [delegate canUndo:[self canUndo]];
+            [delegate canRedo:[self canRedo]];
             return;
         }
     }
@@ -168,6 +170,8 @@
             path.active = YES;
             [self drawPaths];
             [delegate changed];
+            [delegate canUndo:[self canUndo]];
+            [delegate canRedo:[self canRedo]];
             return;
         }
     }

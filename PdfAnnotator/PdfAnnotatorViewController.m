@@ -212,6 +212,11 @@
     [self.undo setEnabled:value];
 }
 
+- (void)canRedo:(BOOL)value
+{
+    [self.redo setEnabled:value];
+}
+
 @end
 
 

@@ -46,5 +46,6 @@
 
 - (void)changed;
 - (void)canUndo:(BOOL)value;
+- (void)canRedo:(BOOL)value;
 
 @end
