@@ -30,6 +30,8 @@
         
         for(MarkerPath *path in p._paths) {
             if(path.active) {
+                path.loadedFromFile = YES;
+                
                 NSString *mark = @"";
                 NSString *points = @"";
                 

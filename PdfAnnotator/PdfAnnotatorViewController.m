@@ -197,6 +197,12 @@
     }
 }
 
+- (void)switchToHandMode
+{
+    [self.textMarker setEnabled:YES];
+    [self.hand setEnabled:NO];
+}
+
 - (void)changed
 {
     self.document.dirty = YES;

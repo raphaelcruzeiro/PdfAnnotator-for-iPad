@@ -81,6 +81,12 @@
 
 - (void)refreshPage
 {  
+    [self._document save];
+    
+    [delegate canRedo:NO];
+    [delegate canUndo:NO];
+    [delegate switchToHandMode];
+    
     if(contentView) {
         [pagingViewController.view retain]; 
         
