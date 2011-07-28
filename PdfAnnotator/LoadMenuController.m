@@ -36,7 +36,14 @@
             }
         }
         
-        self.files = [fileManager contentsOfDirectoryAtURL:documents includingPropertiesForKeys:NULL options:0 error:NULL];
+        self.files = [[NSMutableArray alloc] init];
+        
+        NSArray *_files = [fileManager contentsOfDirectoryAtURL:documents includingPropertiesForKeys:NULL options:0 error:NULL];
+        
+        for(NSString *url in _files) {
+            if(![[url pathExtension] compare:@"pdf"])
+                [self.files addObject:url];
+        }
             
         count = [self.files count];
         

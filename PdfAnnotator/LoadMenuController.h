@@ -14,7 +14,7 @@
     NSInteger count;
 }
 
-@property (readwrite, nonatomic, retain) NSArray *files;
+@property (readwrite, nonatomic, retain) NSMutableArray *files;
 @property (readwrite, nonatomic, retain) id<LoadMenuDelegate> delegate;
 
 - (id)initWithObserver:(id<LoadMenuDelegate>)observer;
