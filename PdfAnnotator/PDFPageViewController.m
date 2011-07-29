@@ -88,21 +88,13 @@
     [delegate switchToHandMode];
     
     if(contentView) {
-        [pagingViewController.view retain]; 
-        
         for(UIView *v in self.view.subviews) {
             [v removeFromSuperview];
-            [v release];
         }
     }
     
-    if(drawingViewController) {
-        [drawingViewController release];
-    }
-    
-    if(!pagingViewController) {
+    if(!pagingViewController)
         pagingViewController = [[PDFPagingViewController alloc] initWithDocument:self._document AndObserver:self];
-    }
         
     CGRect pageRect = CGRectIntegral(CGPDFPageGetBoxRect(self._document.page, kCGPDFCropBox));
     
@@ -114,11 +106,11 @@
     PageAnnotation *pageAnnotation = [self._document.annotation annotationForPage:pageNumber];
     
     if(!pageAnnotation) {
-        pageAnnotation = [[PageAnnotation alloc] initWithPageNumber:pageNumber];
+        pageAnnotation = [[[PageAnnotation alloc] initWithPageNumber:pageNumber] autorelease];
         [self._document.annotation._pageAnnotations addObject:pageAnnotation];
     }
     
-    self.drawingViewController = [[DrawingViewController alloc] initWithFrame:pageRect AndPaths:pageAnnotation._paths AndDelegate:self];
+    self.drawingViewController = [[[DrawingViewController alloc] initWithFrame:pageRect AndPaths:pageAnnotation._paths AndDelegate:self] autorelease];
     
     pageRect.origin.x = 1;
     pageRect.origin.y = 1;

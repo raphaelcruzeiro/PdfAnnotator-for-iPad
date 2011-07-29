@@ -25,7 +25,7 @@
             self._paths = paths;
         }
         else
-            self._paths = [[NSMutableArray alloc] init];
+            self._paths = [[[NSMutableArray alloc] init] autorelease];
     }
     
     return self;
@@ -238,7 +238,7 @@
     frame.origin.x = 0;
     frame.origin.y = 0;
     
-    self.imageView = [[UIImageView alloc] initWithFrame:frame];
+    self.imageView = [[[UIImageView alloc] initWithFrame:frame] autorelease];
     
     [self.view addSubview:self.imageView];
    
@@ -250,7 +250,6 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     
-    [imageView release];
     [_paths release];
 }
 

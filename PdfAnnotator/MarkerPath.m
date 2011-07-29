@@ -65,7 +65,7 @@
         CGPathMoveToPoint(_path, NULL, point.x, point.y);
     
     CGPathAddLineToPoint(_path, NULL, point.x, point.y);
-    [points addObject:[[MrkPoint alloc] initWith:point.x And:point.y]];
+    [points addObject: [[[MrkPoint alloc] initWith:point.x And:point.y] autorelease]];
 }
 
 - (TextMarkerBrush)getBrush

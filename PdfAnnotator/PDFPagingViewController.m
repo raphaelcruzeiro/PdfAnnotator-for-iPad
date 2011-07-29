@@ -27,9 +27,9 @@
         expanded = false;
         self._document = document;
         currentX = 0;
-        self.thumbFactory = [[PDFThumbnailFactory alloc] initWithDocument:self._document];
-        pagePlaceholder = [UIImage imageNamed:@"pagePlaceholder.png"];
-        loading = [UIImage imageNamed:@"progressIndicator_roller.gif"];
+        self.thumbFactory = [[[PDFThumbnailFactory alloc] initWithDocument:self._document] autorelease];
+        pagePlaceholder = [[UIImage imageNamed:@"pagePlaceholder.png"] autorelease];
+        loading = [[UIImage imageNamed:@"progressIndicator_roller.gif"] autorelease];
     }
     
     return self;
@@ -67,7 +67,7 @@
     collapsedFrame = CGRectMake(0, 962, 768, 270);
     
     self.view.backgroundColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.5];
-    UIView *gradient = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 768, 270)];
+    UIView *gradient = [[[UIView alloc] initWithFrame:CGRectMake(0, 0, 768, 270)] autorelease];
     [gradient setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"gradient.png"]]];
     [gradient setAlpha:0.5f];
     [self.view addSubview:gradient];
@@ -119,6 +119,8 @@
         [thumbButton addTarget:self action:@selector(pageItemClicked:) forControlEvents:UIControlEventTouchDown];
         
         [thumbButton setFrame:CGRectMake(startingX, 0, 120, 160)];
+        
+        NSLog(@"%@", thumbButton);
         
         [scrollView addSubview:thumbButton];
         

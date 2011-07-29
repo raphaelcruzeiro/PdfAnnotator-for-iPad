@@ -52,6 +52,7 @@
 
 - (void)loadPage:(NSInteger)number
 {
+    CGPDFPageRelease(self.page);
     self.page = CGPDFPageRetain(CGPDFDocumentGetPage(document, number));
 }
 

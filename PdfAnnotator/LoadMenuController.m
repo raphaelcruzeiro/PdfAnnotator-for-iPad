@@ -36,7 +36,7 @@
             }
         }
         
-        self.files = [[NSMutableArray alloc] init];
+        self.files = [[[NSMutableArray alloc] init] autorelease];
         
         NSArray *_files = [fileManager contentsOfDirectoryAtURL:documents includingPropertiesForKeys:NULL options:0 error:NULL];
         

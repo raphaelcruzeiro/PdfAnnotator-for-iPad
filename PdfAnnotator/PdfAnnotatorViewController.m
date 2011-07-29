@@ -34,9 +34,7 @@
 
 - (void)dealloc
 {
-    [pageViewController release];
-    
-    [super dealloc];
+    [pageViewController release];    [super dealloc];
 }
 
 - (void)didReceiveMemoryWarning
@@ -106,8 +104,8 @@
 
 - (void)loadClicked:(id)sender
 {
-    self.loadMenu = [[LoadMenuController alloc] initWithObserver:self];
-    self.popOver = [[UIPopoverController alloc] initWithContentViewController:loadMenu];
+    self.loadMenu = [[[LoadMenuController alloc] initWithObserver:self] autorelease];
+    self.popOver = [[[UIPopoverController alloc] initWithContentViewController:loadMenu] autorelease];
     
     [self.popOver presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
 }
@@ -126,7 +124,7 @@
 - (void)textMarkerClicked:(id)sender
 {
     textMarkerController = [[TextMarkerSelectorViewController alloc] initWithObserver:self];
-    self.popOver = [[UIPopoverController alloc] initWithContentViewController:textMarkerController];
+    self.popOver = [[[UIPopoverController alloc] initWithContentViewController:textMarkerController] autorelease];
     popOver.popoverContentSize = CGSizeMake(215, 46);
         
     [self.popOver presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
@@ -140,8 +138,6 @@
     }
     
     [self.popOver dismissPopoverAnimated:YES];
-    [self.popOver release];
-    [self.textMarkerController release];
     
     [self.hand setEnabled:YES];
     [self.textMarker setEnabled:NO];
@@ -162,9 +158,6 @@
     [self resetButtonStates];
     
     [self.popOver dismissPopoverAnimated:YES];
-    
-    [self.loadMenu release];
-    [self.popOver release];
     
     if(self.document != NULL) {
         [pageViewController.view removeFromSuperview];

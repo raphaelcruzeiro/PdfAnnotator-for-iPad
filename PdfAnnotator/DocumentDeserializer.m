@@ -32,7 +32,7 @@
     
     if(!reader) {
         NSLog(@"Unable to load xmlreader.");
-        return annotation;
+        return [annotation autorelease];
     }
     
     BOOL fileNode = false;
@@ -107,7 +107,7 @@
     xmlFreeTextReader(reader);
     xmlCleanupParser();
     
-    return annotation;
+    return [annotation autorelease];
 }
 
 @end

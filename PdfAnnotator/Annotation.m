@@ -17,7 +17,7 @@
 {
     self = [super init];
     if (self) {
-        self._pageAnnotations = [[NSMutableArray alloc] init];
+        self._pageAnnotations = [[[NSMutableArray alloc] init] autorelease];
     }
     
     return self;
