@@ -16,7 +16,7 @@
 
 @property (nonatomic, retain) PDFDocument *_document;
 
-- (id)initWithDocument:(PDFDocument*)document;
+- (id)initWithPDFDocument:(PDFDocument*)document;
 
 - (UIImage*)generateThumbnailForPage:(NSInteger)page withSize:(CGSize)size;
 

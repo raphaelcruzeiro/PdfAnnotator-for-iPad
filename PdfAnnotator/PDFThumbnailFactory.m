@@ -13,7 +13,7 @@
 
 @synthesize _document;
 
-- (id)initWithDocument:(PDFDocument*)document;
+- (id)initWithPDFDocument:(PDFDocument*)document;
 {
     self = [super init];
     if (self) {

@@ -27,7 +27,7 @@
         expanded = false;
         self._document = document;
         currentX = 0;
-        self.thumbFactory = [[[PDFThumbnailFactory alloc] initWithDocument:self._document] autorelease];
+        self.thumbFactory = [[[PDFThumbnailFactory alloc] initWithPDFDocument:self._document] autorelease];
         pagePlaceholder = [[UIImage imageNamed:@"pagePlaceholder.png"] autorelease];
         loading = [[UIImage imageNamed:@"progressIndicator_roller.gif"] autorelease];
     }
