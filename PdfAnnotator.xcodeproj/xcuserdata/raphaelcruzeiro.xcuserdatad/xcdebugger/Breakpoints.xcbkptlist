@@ -88,20 +88,6 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "PdfAnnotator/PdfAnnotatorViewController.m"
-         timestampString = "333694753.79729"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "183"
-         endingLineNumber = "183"
-         landmarkName = "-documentChoosen:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
          filePath = "PdfAnnotator/Annotation.m"
          timestampString = "332488463.084527"
          startingColumnNumber = "9223372036854775807"
