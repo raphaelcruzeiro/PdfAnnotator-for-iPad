@@ -33,41 +33,54 @@
 
 - (void)setDrawable:(BOOL)enabled
 {
+    eraserMode = !enabled;
     drawable = enabled;
+}
+
+- (void)setEraserMode:(BOOL)enabled
+{
+    drawable = !enabled;
+    eraserMode = enabled;
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    if(drawable) {
+    if(drawable || eraserMode) {
         UITouch *touch = [touches anyObject];
         lastPoint = [touch locationInView:self.view];
         
-        NSLog(@"Writing paths on path array with count%d", [self._paths count]);
-        
-        currentPath = [[MarkerPath alloc] initWithPoint:lastPoint AndBrush:_brush];
-        [self._paths addObject:currentPath];
-        
-        [self prepareBrush];
+        if(drawable) {
+            currentPath = [[MarkerPath alloc] initWithPoint:lastPoint AndBrush:_brush];
+            [self._paths addObject:currentPath];
+            
+            [self prepareBrush];
+        } else {
+            [self eraseAtPoint:&lastPoint];
+        }
     }
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    if(drawable) {
+    if(drawable || eraserMode) {
         UITouch *touch = [touches anyObject];
         CGPoint currentPoint = [touch locationInView:self.view];
         
-        CGContextMoveToPoint(context, lastPoint.x, lastPoint.y);
-        CGContextAddLineToPoint(context, currentPoint.x, currentPoint.y);
-        
-        CGContextStrokePath(context);
-        CGContextFillPath(context);
-        
-        self.imageView.image = UIGraphicsGetImageFromCurrentImageContext();
-        
-        [currentPath addPoint:currentPoint];
-        
-        lastPoint = currentPoint;
+        if(drawable) {
+            CGContextMoveToPoint(context, lastPoint.x, lastPoint.y);
+            CGContextAddLineToPoint(context, currentPoint.x, currentPoint.y);
+            
+            CGContextStrokePath(context);
+            CGContextFillPath(context);
+            
+            self.imageView.image = UIGraphicsGetImageFromCurrentImageContext();
+            
+            [currentPath addPoint:currentPoint];
+            
+            lastPoint = currentPoint;
+        } else {
+            [self eraseAtPoint:&currentPoint];
+        }
     }
 }
 
@@ -92,6 +105,31 @@
         
         [delegate canUndo:[self canUndo]];
     }
+}
+
+- (void)eraseAtPoint:(CGPoint*)point
+{
+    for(MarkerPath *path in self._paths) {
+        for(MrkPoint *pt in path.points) {
+            CGPoint point2 = CGPointMake(pt.x, pt.y);
+            
+            if ([self calculateDistanceBetween:point And:&point2] < 10) {
+                
+                path.active = NO;
+                [self drawPaths];
+                [delegate changed];
+                [delegate canUndo:[self canUndo]];
+                [delegate canRedo:[self canRedo]];
+                
+                return;
+            }
+        }
+    }
+}
+
+- (CGFloat)calculateDistanceBetween:(CGPoint*)point1 And:(CGPoint*)point2
+{
+    return sqrt(pow(point2->x - point1->x, 2) + pow(point2->y - point1->y, 2));
 }
 
 - (void)drawPaths

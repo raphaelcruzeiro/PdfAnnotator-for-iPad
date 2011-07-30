@@ -23,6 +23,7 @@
 - (void)saveClicked:(id)sender;
 - (void)undoClicked:(id)sender;
 - (void)redoClicked:(id)sender;
+- (void)eraserClicked:(id)sender;
 
 - (void)resetButtonStates;
 
@@ -37,6 +38,7 @@
 @property (nonatomic, retain) IBOutlet UIBarButtonItem *saveButton;
 @property (nonatomic, retain) IBOutlet UIBarButtonItem *undo;
 @property (nonatomic, retain) IBOutlet UIBarButtonItem *redo;
+@property (nonatomic, retain) IBOutlet UIBarButtonItem *eraser;
 @property (nonatomic, retain) PDFDocument *document;
 
 @property (nonatomic, retain) IBOutlet UIView *documentView;

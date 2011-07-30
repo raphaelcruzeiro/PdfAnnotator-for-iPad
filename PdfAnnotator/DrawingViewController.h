@@ -13,6 +13,7 @@
 
 @interface DrawingViewController : UIViewController {
     BOOL drawable;
+    BOOL eraserMode;
     CGPoint lastPoint;
     CGContextRef context;
     CGRect viewFrame;
@@ -28,6 +29,7 @@
 
 - (id)initWithFrame:(CGRect)frame AndPaths:(NSMutableArray*)paths AndDelegate:(id<DrawingViewControllerDelegate>)_delegate;
 - (void)setDrawable:(BOOL)enabled;
+- (void)setEraserMode:(BOOL)enabled;
 - (void)prepareBrush;
 
 - (void)undo;
@@ -39,6 +41,10 @@
 - (void)drawPaths;
 
 - (void)setBrush:(TextMarkerBrush)brush;
+
+- (void)eraseAtPoint:(CGPoint*)point;
+
+- (CGFloat)calculateDistanceBetween:(CGPoint*)point1 And:(CGPoint*)point2;
 
 @end
 

@@ -27,6 +27,7 @@
 @synthesize saveButton;
 @synthesize undo;
 @synthesize redo;
+@synthesize eraser;
 @synthesize textMarker;
 @synthesize document;
 
@@ -74,6 +75,10 @@
     self.redo.target = self;
     self.redo.action = @selector(redoClicked:);
     
+    [self.eraser setImage:[UIImage imageNamed:@"eraser.png"]];
+    self.eraser.target = self;
+    self.eraser.action = @selector(eraserClicked:);
+    
     [self.toolbar setBackgroundColor:[UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.5]];
     
     self.documentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"backgroundTile"]];
@@ -88,6 +93,7 @@
     [self.saveButton setEnabled:NO];
     [self.undo setEnabled:NO];
     [self.redo setEnabled:NO];
+    [self.eraser setEnabled:NO];
 }
 
 - (void)viewDidUnload
@@ -173,6 +179,7 @@
     [self.view bringSubviewToFront:toolbar];
     
     [self.textMarker setEnabled:YES];
+    [self.eraser setEnabled:YES];
 }
 
 - (void)undoClicked:(id)sender
@@ -190,8 +197,19 @@
     }
 }
 
+- (void)eraserClicked:(id)sender
+{
+    [eraser setEnabled:NO];
+    [hand setEnabled:YES];
+    
+    if(pageViewController) {
+        [pageViewController setEraserMode:YES];
+    }
+}
+
 - (void)switchToHandMode
 {
+    [self.eraser setEnabled:YES];
     [self.textMarker setEnabled:YES];
     [self.hand setEnabled:NO];
 }

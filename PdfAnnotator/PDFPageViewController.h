@@ -35,6 +35,7 @@
 - (void) refreshPage;
 - (void)setPenMode:(BOOL)enabled;
 - (void)setHandMode:(BOOL)enabled;
+- (void)setEraserMode:(BOOL)enabled;
 
 - (void)setBrush:(TextMarkerBrush)brush;
 

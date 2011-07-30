@@ -40,6 +40,9 @@
     // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
     
+    if([scrollView.subviews count] < 6)
+        return;
+    
     for(UIButton *btn in scrollView.subviews) {
         if([btn isKindOfClass:[UIButton class]]){
             [btn setImage:loading forState:UIControlStateNormal];

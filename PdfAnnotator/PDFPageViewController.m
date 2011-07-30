@@ -187,6 +187,12 @@
     [drawingViewController setDrawable:!enabled];
 }
 
+- (void)setEraserMode:(BOOL)enabled
+{
+    [scrollView setScrollEnabled:!enabled];
+    [drawingViewController setEraserMode:enabled];
+}
+
 - (void)setBrush:(TextMarkerBrush)brush
 {
     [drawingViewController setBrush:brush];
