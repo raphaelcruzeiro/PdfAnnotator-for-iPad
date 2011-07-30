@@ -33,7 +33,7 @@
         
         self.document = CGPDFDocumentCreateWithURL((CFURLRef)documentPath);
         
-        self.page = CGPDFPageRetain(CGPDFDocumentGetPage(document, 1));
+        self.page = CGPDFDocumentGetPage(document, 1);
         
         self.version = @"0.5";
         
@@ -53,7 +53,7 @@
 - (void)loadPage:(NSInteger)number
 {
     CGPDFPageRelease(self.page);
-    self.page = CGPDFPageRetain(CGPDFDocumentGetPage(document, number));
+    self.page = CGPDFDocumentGetPage(document, number);
 }
 
 - (BOOL)save
