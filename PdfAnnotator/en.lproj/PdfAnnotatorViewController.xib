@@ -71,7 +71,7 @@
 								<int key="IBUIStyle">1</int>
 								<reference key="IBUIToolbar" ref="595611173"/>
 							</object>
-							<object class="IBUIBarButtonItem" id="72658898">
+							<object class="IBUIBarButtonItem" id="166611209">
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<int key="IBUIStyle">1</int>
 								<reference key="IBUIToolbar" ref="595611173"/>
@@ -86,11 +86,10 @@
 								<int key="IBUIStyle">1</int>
 								<reference key="IBUIToolbar" ref="595611173"/>
 							</object>
-							<object class="IBUIBarButtonItem" id="236713798">
+							<object class="IBUIBarButtonItem" id="865668771">
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-								<float key="IBUIWidth">311</float>
 								<reference key="IBUIToolbar" ref="595611173"/>
-								<int key="IBUISystemItemIdentifier">6</int>
+								<int key="IBUISystemItemIdentifier">5</int>
 							</object>
 							<object class="IBUIBarButtonItem" id="260863046">
 								<string key="IBUITitle">Save</string>
@@ -189,7 +188,7 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">eraser</string>
 						<reference key="source" ref="841351856"/>
-						<reference key="destination" ref="72658898"/>
+						<reference key="destination" ref="166611209"/>
 					</object>
 					<int key="connectionID">31</int>
 				</object>
@@ -231,17 +230,17 @@
 							<reference ref="501250508"/>
 							<reference ref="417445454"/>
 							<reference ref="472577669"/>
-							<reference ref="236713798"/>
 							<reference ref="260863046"/>
 							<reference ref="450382276"/>
 							<reference ref="556150928"/>
-							<reference ref="72658898"/>
+							<reference ref="166611209"/>
+							<reference ref="865668771"/>
 						</object>
 						<reference key="parent" ref="766721923"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">30</int>
-						<reference key="object" ref="72658898"/>
+						<reference key="object" ref="166611209"/>
 						<reference key="parent" ref="595611173"/>
 					</object>
 					<object class="IBObjectRecord">
@@ -260,11 +259,6 @@
 						<reference key="parent" ref="595611173"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">21</int>
-						<reference key="object" ref="236713798"/>
-						<reference key="parent" ref="595611173"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">19</int>
 						<reference key="object" ref="472577669"/>
 						<reference key="parent" ref="595611173"/>
@@ -277,6 +271,11 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">12</int>
 						<reference key="object" ref="501250508"/>
+						<reference key="parent" ref="595611173"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">35</int>
+						<reference key="object" ref="865668771"/>
 						<reference key="parent" ref="595611173"/>
 					</object>
 				</object>
@@ -295,11 +294,11 @@
 					<string>15.IBPluginDependency</string>
 					<string>19.IBPluginDependency</string>
 					<string>2.IBPluginDependency</string>
-					<string>21.IBPluginDependency</string>
 					<string>24.IBPluginDependency</string>
 					<string>26.IBPluginDependency</string>
 					<string>27.IBPluginDependency</string>
 					<string>30.IBPluginDependency</string>
+					<string>35.IBPluginDependency</string>
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
@@ -336,7 +335,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">34</int>
+			<int key="maxID">35</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -348,7 +347,6 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>banner</string>
 							<string>documentView</string>
 							<string>eraser</string>
 							<string>hand</string>
@@ -361,7 +359,6 @@
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>AdBannerView</string>
 							<string>UIView</string>
 							<string>UIBarButtonItem</string>
 							<string>UIBarButtonItem</string>
@@ -377,7 +374,6 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>banner</string>
 							<string>documentView</string>
 							<string>eraser</string>
 							<string>hand</string>
@@ -390,10 +386,6 @@
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<object class="IBToOneOutletInfo">
-								<string key="name">banner</string>
-								<string key="candidateClassName">AdBannerView</string>
-							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">documentView</string>
 								<string key="candidateClassName">UIView</string>
