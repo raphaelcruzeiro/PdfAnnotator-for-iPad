@@ -39,8 +39,6 @@
     BOOL pageNode = false;
     BOOL markerNode = false;
     BOOL pointNode = false;
-    NSString *fileName;
-    NSString *hash;
     PageAnnotation *currentPageAnnotation = nil;
     MarkerPath *currentMark = nil;
     CGPoint currentPoint = CGPointMake(0, 0);
@@ -62,15 +60,7 @@
                 
                     temp = (char*)xmlTextReaderConstName(reader);
                 
-                    if(!strcmp(temp, "name") && fileNode) {
-                        temp = (char*)xmlTextReaderConstValue(reader);
-                        fileName = [NSString stringWithCString:temp encoding:NSStringEncodingConversionAllowLossy];
-                    }
-                    else if(!strcmp(temp, "hash") && fileNode) {
-                        temp = (char*)xmlTextReaderConstValue(reader);
-                        hash = [NSString stringWithCString:temp encoding:NSStringEncodingConversionAllowLossy];
-                    } 
-                    else if(!strcmp(temp, "number") && pageNode) {
+                    if(!strcmp(temp, "number") && pageNode) {
                         temp = (char*)xmlTextReaderConstValue(reader);
                         
                         currentPageAnnotation = [[PageAnnotation alloc] initWithPageNumber:strtol(temp, NULL, 10)];
