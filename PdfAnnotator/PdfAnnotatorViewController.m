@@ -124,6 +124,7 @@
         
         [self.hand setEnabled:NO];
         [self.textMarker setEnabled:YES];
+        [self.eraser setEnabled:YES];
     }
 }
 
@@ -132,7 +133,6 @@
     textMarkerController = [[TextMarkerSelectorViewController alloc] initWithObserver:self];
     self.popOver = [[[UIPopoverController alloc] initWithContentViewController:textMarkerController] autorelease];
     popOver.popoverContentSize = CGSizeMake(215, 46);
-        
     [self.popOver presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
 }
 
@@ -146,6 +146,7 @@
     [self.popOver dismissPopoverAnimated:YES];
     
     [self.hand setEnabled:YES];
+    [self.eraser setEnabled:YES];
     [self.textMarker setEnabled:NO];
 }
 
