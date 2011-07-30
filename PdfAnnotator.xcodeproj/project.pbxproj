@@ -10,6 +10,7 @@
 		A035598E13B6C405007AAD33 /* NSFileManagerExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = A035598D13B6C405007AAD33 /* NSFileManagerExtension.m */; };
 		A03DFC1713CEAAA8006680DF /* DrawingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A03DFC1613CEAAA8006680DF /* DrawingViewController.m */; };
 		A050EF0913E3C48C005CB9F4 /* eraser.png in Resources */ = {isa = PBXBuildFile; fileRef = A050EF0813E3C48C005CB9F4 /* eraser.png */; };
+		A050EF0B13E3D1CA005CB9F4 /* appicon.png in Resources */ = {isa = PBXBuildFile; fileRef = A050EF0A13E3D1CA005CB9F4 /* appicon.png */; };
 		A0675D0D13CEC5590006D4EC /* TextMarkerSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0675D0C13CEC5590006D4EC /* TextMarkerSelectorViewController.m */; };
 		A0675D1013CEC91A0006D4EC /* yellowMarker.png in Resources */ = {isa = PBXBuildFile; fileRef = A0675D0F13CEC91A0006D4EC /* yellowMarker.png */; };
 		A0675D1413CECD510006D4EC /* blueMarker.png in Resources */ = {isa = PBXBuildFile; fileRef = A0675D1113CECD510006D4EC /* blueMarker.png */; };
@@ -71,6 +72,7 @@
 		A03DFC1513CEAAA8006680DF /* DrawingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawingViewController.h; sourceTree = "<group>"; };
 		A03DFC1613CEAAA8006680DF /* DrawingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawingViewController.m; sourceTree = "<group>"; };
 		A050EF0813E3C48C005CB9F4 /* eraser.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eraser.png; sourceTree = "<group>"; };
+		A050EF0A13E3D1CA005CB9F4 /* appicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appicon.png; sourceTree = "<group>"; };
 		A0675D0B13CEC5590006D4EC /* TextMarkerSelectorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextMarkerSelectorViewController.h; sourceTree = "<group>"; };
 		A0675D0C13CEC5590006D4EC /* TextMarkerSelectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextMarkerSelectorViewController.m; sourceTree = "<group>"; };
 		A0675D0F13CEC91A0006D4EC /* yellowMarker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yellowMarker.png; sourceTree = "<group>"; };
@@ -314,6 +316,7 @@
 		A0BBCABF13CA9FD300522A1A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A050EF0A13E3D1CA005CB9F4 /* appicon.png */,
 				A050EF0813E3C48C005CB9F4 /* eraser.png */,
 				A0B6EA8413DCE48700350121 /* textMarker.png */,
 				A0B6EA8013DCD76500350121 /* arrowDown.png */,
@@ -430,6 +433,7 @@
 				A0B6EA8313DCD76500350121 /* arrowUp.png in Resources */,
 				A0B6EA8513DCE48700350121 /* textMarker.png in Resources */,
 				A050EF0913E3C48C005CB9F4 /* eraser.png in Resources */,
+				A050EF0B13E3D1CA005CB9F4 /* appicon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
