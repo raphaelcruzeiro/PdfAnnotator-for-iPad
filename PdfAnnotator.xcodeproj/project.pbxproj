@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A0139AE513E4D55A008FAF35 /* memoryreport.c in Sources */ = {isa = PBXBuildFile; fileRef = A0139AE413E4D55A008FAF35 /* memoryreport.c */; };
 		A035598E13B6C405007AAD33 /* NSFileManagerExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = A035598D13B6C405007AAD33 /* NSFileManagerExtension.m */; };
 		A03DFC1713CEAAA8006680DF /* DrawingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A03DFC1613CEAAA8006680DF /* DrawingViewController.m */; };
 		A050EF0913E3C48C005CB9F4 /* eraser.png in Resources */ = {isa = PBXBuildFile; fileRef = A050EF0813E3C48C005CB9F4 /* eraser.png */; };
@@ -67,6 +68,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A0139AE413E4D55A008FAF35 /* memoryreport.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = memoryreport.c; sourceTree = "<group>"; };
+		A0139AE613E4D56B008FAF35 /* memoryreport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = memoryreport.h; sourceTree = "<group>"; };
 		A035598C13B6C405007AAD33 /* NSFileManagerExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSFileManagerExtension.h; sourceTree = "<group>"; };
 		A035598D13B6C405007AAD33 /* NSFileManagerExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSFileManagerExtension.m; sourceTree = "<group>"; };
 		A03DFC1513CEAAA8006680DF /* DrawingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawingViewController.h; sourceTree = "<group>"; };
@@ -161,6 +164,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A0139AE213E4D532008FAF35 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				A0139AE413E4D55A008FAF35 /* memoryreport.c */,
+				A0139AE613E4D56B008FAF35 /* memoryreport.h */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 		A035598A13B6C3EB007AAD33 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -209,6 +221,7 @@
 		A0AD30A113B59AC500FCC8F2 = {
 			isa = PBXGroup;
 			children = (
+				A0139AE213E4D532008FAF35 /* Helpers */,
 				A0A6D59613D6201C00473462 /* Libs */,
 				A0AD30B613B59AC600FCC8F2 /* PdfAnnotator */,
 				A0AD30D613B59AC600FCC8F2 /* PdfAnnotatorTests */,
@@ -486,6 +499,7 @@
 				A0F93B6413D4A798001C7694 /* HashExtensions.m in Sources */,
 				A0A6D59313D61EA800473462 /* DocumentSerializer.m in Sources */,
 				A0A6D59913D621D700473462 /* DocumentDeserializer.m in Sources */,
+				A0139AE513E4D55A008FAF35 /* memoryreport.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

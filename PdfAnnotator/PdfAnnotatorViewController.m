@@ -35,7 +35,8 @@
 
 - (void)dealloc
 {
-    [pageViewController release];    [super dealloc];
+    [pageViewController release];    
+    [super dealloc];
 }
 
 - (void)didReceiveMemoryWarning

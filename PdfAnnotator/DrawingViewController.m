@@ -7,6 +7,7 @@
 //
 
 #import "DrawingViewController.h"
+#import "memoryreport.h"
 
 @implementation DrawingViewController
 
@@ -250,10 +251,23 @@
 
 - (void)didReceiveMemoryWarning
 {
+    memoryReport();
+    
     // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
     
     // Release any cached data, images, etc that aren't in use.
+    for(MarkerPath *path in _paths) {
+        if(!path.active) {
+            [_paths removeObject:path];
+            [path release];
+        }
+    }
+    
+    [delegate canRedo:[self canRedo]];
+    [delegate canUndo:[self canUndo]];
+    
+    memoryReport();
 }
 
 #pragma mark - View lifecycle
