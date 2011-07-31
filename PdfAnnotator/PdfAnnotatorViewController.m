@@ -111,10 +111,12 @@
 
 - (void)loadClicked:(id)sender
 {
-    self.loadMenu = [[[LoadMenuController alloc] initWithObserver:self] autorelease];
-    self.popOver = [[[UIPopoverController alloc] initWithContentViewController:loadMenu] autorelease];
-    
-    [self.popOver presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+    if(!self.popOver) {
+        self.loadMenu = [[[LoadMenuController alloc] initWithObserver:self] autorelease];
+        self.popOver = [[[UIPopoverController alloc] initWithContentViewController:loadMenu] autorelease];
+        
+        [self.popOver presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+    }
 }
 
 - (void)handClicked:(id)sender
@@ -166,6 +168,8 @@
     [self resetButtonStates];
     
     [self.popOver dismissPopoverAnimated:YES];
+    
+    self.popOver = nil;
     
     if(self.document != NULL) {
         [pageViewController.view removeFromSuperview];

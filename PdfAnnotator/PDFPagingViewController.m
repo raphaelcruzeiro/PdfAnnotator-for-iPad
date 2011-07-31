@@ -131,8 +131,6 @@
         
         [self setLabel:startingX forIndex:i AndButtonWidth:thumbButton.frame.size.width];
         
-        NSLog(@"%@", thumbButton);
-        
         [scrollView addSubview:thumbButton];
         [buttons addObject:buttons];
         
