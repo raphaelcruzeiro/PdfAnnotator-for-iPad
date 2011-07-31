@@ -45,7 +45,7 @@
     if([scrollView.subviews count] < 6)
         return;
     
-    for(UIButton *btn in scrollView.subviews) {
+    for(UIButton *btn in buttons) {
         if([btn isKindOfClass:[UIButton class]]){
             [btn setImage:loading forState:UIControlStateNormal];
         }
@@ -219,17 +219,19 @@
     if(startingPage < 1) startingPage = 1;
     
     NSInteger endPage = startingPage +  7;
+    
+    NSInteger currentPage = startingPage;
+    
+    //if(currentPage < 7) return;
 
-    for(NSInteger currentPage = startingPage ; currentPage <= endPage && (currentPage - 1) < [buttons count] ;) {
-        UIButton *currentButton = [buttons objectAtIndex:currentPage - 1];
+    for(NSInteger i = startingPage ; currentPage <= endPage && i < endPage * 2 ; i++) {
+        UIButton *currentButton = [buttons objectAtIndex:i - 1];
         
         if([currentButton isKindOfClass:[UIButton class]]) {
             UIImage * thumb = [thumbFactory generateThumbnailForPage:currentPage withSize:(CGSize){116, 156}];
-            
             [currentButton setImage:thumb forState:UIControlStateNormal];
+            currentPage++;
         }
-            
-        currentPage++;
     }
 
 }
