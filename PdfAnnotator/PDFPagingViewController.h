@@ -29,6 +29,8 @@
 
 @property (nonatomic, retain) UIScrollView *scrollView;
 
+@property (nonatomic, retain) NSMutableArray * buttons;
+
 @property (nonatomic, retain) UIImage *pagePlaceholder;
 @property (nonatomic, retain) UIImage *loading;
 
@@ -37,6 +39,7 @@
 - (void)collapse;
 - (void)toggle;
 - (void)loadThumbs;
+- (void)setLabel:(CGFloat)x forIndex:(NSInteger)i AndButtonWidth:(CGFloat)width;
 
 - (void)pageItemClicked:(id)sender;
 

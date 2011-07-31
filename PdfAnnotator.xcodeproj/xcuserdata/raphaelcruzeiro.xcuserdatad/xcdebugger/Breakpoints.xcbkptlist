@@ -117,26 +117,12 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "PdfAnnotator/PDFPagingViewController.m"
-         timestampString = "333693289.533369"
+         timestampString = "333795408.294786"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "180"
-         endingLineNumber = "180"
+         startingLineNumber = "200"
+         endingLineNumber = "200"
          landmarkName = "-pageItemClicked:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "PdfAnnotator/PDFPagingViewController.m"
-         timestampString = "333693289.533369"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "233"
-         endingLineNumber = "233"
-         landmarkName = "-viewDidUnload"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint

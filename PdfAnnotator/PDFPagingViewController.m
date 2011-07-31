@@ -19,6 +19,7 @@
 @synthesize scrollView;
 @synthesize pagePlaceholder;
 @synthesize loading;
+@synthesize buttons;
 
 - (id)initWithDocument:(PDFDocument *)document AndObserver:(id<PDFPagingViewProtocol>)observer
 {
@@ -30,6 +31,7 @@
         self.thumbFactory = [[[PDFThumbnailFactory alloc] initWithPDFDocument:self._document] autorelease];
         pagePlaceholder = [[UIImage imageNamed:@"pagePlaceholder.png"] autorelease];
         loading = [[UIImage imageNamed:@"progressIndicator_roller.gif"] autorelease];
+        self.buttons = [[NSMutableArray alloc] init];
     }
     
     return self;
@@ -89,7 +91,7 @@
     
     CGFloat startingX = 10;
     
-    scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 50, 768, 170)];
+    scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 50, 768, 190)];
     scrollView.delegate = self;
     scrollView.contentSize = CGSizeMake([self._document pageCount] * 130, 170);
     
@@ -106,6 +108,10 @@
             [thumbButton setFrame:CGRectMake(startingX, 0, 120, 160)];
             
             [scrollView addSubview:thumbButton];
+            [buttons addObject:thumbButton];
+            
+            [self setLabel:startingX forIndex:i AndButtonWidth:thumbButton.frame.size.width];
+            
             
             startingX += 130;
             
@@ -123,9 +129,12 @@
         
         [thumbButton setFrame:CGRectMake(startingX, 0, 120, 160)];
         
+        [self setLabel:startingX forIndex:i AndButtonWidth:thumbButton.frame.size.width];
+        
         NSLog(@"%@", thumbButton);
         
         [scrollView addSubview:thumbButton];
+        [buttons addObject:buttons];
         
         startingX += thumb.size.width + 10;
     }
@@ -133,6 +142,17 @@
     [self.view addSubview:scrollView];
     
     [self expand];
+}
+
+- (void)setLabel:(CGFloat)x forIndex:(NSInteger)i AndButtonWidth:(CGFloat)width
+{
+    UILabel *label = [[UILabel alloc] init];
+    [label setTextColor:[UIColor whiteColor]];
+    [label setText:[NSString stringWithFormat:@"%d", i]];
+    [label setBackgroundColor:[UIColor clearColor]];
+    CGSize textSize = [[label text] sizeWithFont:[label font]];
+    [label setFrame:CGRectMake(x + (width / 2) - (textSize.width / 2), 155, 40, 40)];
+    [scrollView addSubview:label];
 }
 
 - (void)expand
@@ -202,19 +222,16 @@
     
     NSInteger endPage = startingPage +  7;
 
-    for(NSInteger currentPage = startingPage ; currentPage <= endPage && (currentPage - 1) < [scrollView.subviews count] ;) {
-        UIButton *currentButton = [scrollView.subviews objectAtIndex:currentPage - 1];
+    for(NSInteger currentPage = startingPage ; currentPage <= endPage && (currentPage - 1) < [buttons count] ;) {
+        UIButton *currentButton = [buttons objectAtIndex:currentPage - 1];
         
-        // Since we're interating on the subviews we HAVE to check the class of the subview to ensure we're dealing with a button
         if([currentButton isKindOfClass:[UIButton class]]) {
-            
             UIImage * thumb = [thumbFactory generateThumbnailForPage:currentPage withSize:(CGSize){116, 156}];
             
             [currentButton setImage:thumb forState:UIControlStateNormal];
-            
-            currentPage++;
         }
-        
+            
+        currentPage++;
     }
 
 }
