@@ -28,7 +28,7 @@ void memoryReport()
         int greatest_diff = greatest - last_greatest;
         int last_greatest_diff = latest - greatest;
         
-        printf("Mem: %10u (%10d) : %10d : greatest: %10u (%d)", info.resident_size, diff, last_greatest_diff, greatest, greatest_diff);
+        printf("Mem: %10u (%10d) : %10d : greatest: %10u (%d)\n", info.resident_size, diff, last_greatest_diff, greatest, greatest_diff);
     }
     
     last_resident_size = info.resident_size;

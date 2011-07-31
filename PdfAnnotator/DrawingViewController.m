@@ -257,12 +257,20 @@
     [super didReceiveMemoryWarning];
     
     // Release any cached data, images, etc that aren't in use.
+    NSMutableArray *toBeDeleted = [[NSMutableArray alloc] init];
+    
     for(MarkerPath *path in _paths) {
         if(!path.active) {
-            [_paths removeObject:path];
-            [path release];
+            [toBeDeleted addObject:path];
         }
     }
+    
+    for(MarkerPath *path in toBeDeleted) {
+        [_paths removeObject:path];
+        [path release];
+    }
+    
+    [toBeDeleted release];
     
     [delegate canRedo:[self canRedo]];
     [delegate canUndo:[self canUndo]];
