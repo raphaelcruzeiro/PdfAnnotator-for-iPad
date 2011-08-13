@@ -161,7 +161,7 @@
     }
 }
 
-- (void)documentChoosen:(NSURL *)_document
+- (void)documentChoosen:(NSString *)_document
 {
     //NSLog(@"%s", [[_document absoluteString] UTF8String]);
     

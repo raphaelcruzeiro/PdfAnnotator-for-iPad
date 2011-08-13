@@ -23,6 +23,6 @@
 
 @protocol LoadMenuDelegate <NSObject>
 
-- (void)documentChoosen:(NSURL *)document;
+- (void)documentChoosen:(NSString *)document;
 
 @end

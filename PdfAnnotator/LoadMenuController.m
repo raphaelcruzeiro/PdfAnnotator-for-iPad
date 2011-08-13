@@ -90,7 +90,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSURL *selectedUrl = [self.files objectAtIndex:indexPath.row];
+    NSString *selectedUrl = [self.files objectAtIndex:indexPath.row];
     [delegate documentChoosen:selectedUrl];
 }
 
