@@ -17,11 +17,11 @@
 		<string>appicon.png</string>
 	</array>
 	<key>CFBundleIdentifier</key>
-	<string>Raphael-Cruzeiro.${PRODUCT_NAME:rfc1034identifier}</string>
+	<string>com.raphaelcruzeiro.pdfmarker</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>${PRODUCT_NAME}</string>
+	<string>PDF Marker</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>

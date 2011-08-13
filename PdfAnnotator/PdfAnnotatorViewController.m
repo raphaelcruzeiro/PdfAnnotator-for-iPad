@@ -207,6 +207,7 @@
 {
     [eraser setEnabled:NO];
     [hand setEnabled:YES];
+    [textMarker setEnabled:YES];
     
     if(pageViewController) {
         [pageViewController setEraserMode:YES];
