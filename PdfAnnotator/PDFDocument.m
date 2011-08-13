@@ -24,14 +24,22 @@
 
 @synthesize version;
 
-- (id)initWithDocument:(NSURL *)documentPath
+- (id)initWithDocument:(NSString *)documentPath
 {
     if((self = [super init]) != NULL) {
-        NSLog(@"Opening: %@", documentPath);
         
         self.name = [documentPath lastPathComponent];
         
-        self.document = CGPDFDocumentCreateWithURL((CFURLRef)documentPath);
+        NSURL *_documentPath = nil;
+        
+        if([documentPath rangeOfString:@"PdfAnnotator.app/"].location != NSNotFound)
+            _documentPath = [NSURL  fileURLWithPath:documentPath];
+        else
+            _documentPath = [NSURL URLWithString:documentPath];
+        
+        NSLog(@"Opening: %@", _documentPath);
+        
+        self.document = CGPDFDocumentCreateWithURL((CFURLRef)_documentPath);
         
         self.page = CGPDFDocumentGetPage(document, 1);
         

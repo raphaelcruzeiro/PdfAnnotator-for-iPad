@@ -13,7 +13,7 @@
 @interface PDFDocument : NSObject {
 }
 
-- (id)initWithDocument:(NSURL *)documentPath;
+- (id)initWithDocument:(NSString *)documentPath;
 
 - (NSInteger) pageCount;
 - (void) loadPage:(NSInteger)number;

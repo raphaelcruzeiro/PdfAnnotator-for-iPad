@@ -17,6 +17,7 @@
 		A0675D1413CECD510006D4EC /* blueMarker.png in Resources */ = {isa = PBXBuildFile; fileRef = A0675D1113CECD510006D4EC /* blueMarker.png */; };
 		A0675D1513CECD510006D4EC /* greenMarker.png in Resources */ = {isa = PBXBuildFile; fileRef = A0675D1213CECD510006D4EC /* greenMarker.png */; };
 		A0675D1613CECD510006D4EC /* redMarker.png in Resources */ = {isa = PBXBuildFile; fileRef = A0675D1313CECD510006D4EC /* redMarker.png */; };
+		A072CD9A13F7206C00EE7D72 /* Pdf Marker Manual.pdf in Resources */ = {isa = PBXBuildFile; fileRef = A072CD9913F7206C00EE7D72 /* Pdf Marker Manual.pdf */; };
 		A079489013BFBC1200431BBF /* PDFPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A079488F13BFBC1200431BBF /* PDFPageViewController.m */; };
 		A092D36713CBCD4700E8F4AD /* backgroundTile.png in Resources */ = {isa = PBXBuildFile; fileRef = A092D36613CBCD4700E8F4AD /* backgroundTile.png */; };
 		A0A6D59313D61EA800473462 /* DocumentSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A6D59213D61EA800473462 /* DocumentSerializer.m */; };
@@ -82,6 +83,7 @@
 		A0675D1113CECD510006D4EC /* blueMarker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blueMarker.png; sourceTree = "<group>"; };
 		A0675D1213CECD510006D4EC /* greenMarker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greenMarker.png; sourceTree = "<group>"; };
 		A0675D1313CECD510006D4EC /* redMarker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redMarker.png; sourceTree = "<group>"; };
+		A072CD9913F7206C00EE7D72 /* Pdf Marker Manual.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Pdf Marker Manual.pdf"; sourceTree = "<group>"; };
 		A079488E13BFBC1200431BBF /* PDFPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFPageViewController.h; sourceTree = "<group>"; };
 		A079488F13BFBC1200431BBF /* PDFPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFPageViewController.m; sourceTree = "<group>"; };
 		A092D36613CBCD4700E8F4AD /* backgroundTile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backgroundTile.png; sourceTree = "<group>"; };
@@ -329,6 +331,7 @@
 		A0BBCABF13CA9FD300522A1A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A072CD9913F7206C00EE7D72 /* Pdf Marker Manual.pdf */,
 				A050EF0A13E3D1CA005CB9F4 /* appicon.png */,
 				A050EF0813E3C48C005CB9F4 /* eraser.png */,
 				A0B6EA8413DCE48700350121 /* textMarker.png */,
@@ -447,6 +450,7 @@
 				A0B6EA8513DCE48700350121 /* textMarker.png in Resources */,
 				A050EF0913E3C48C005CB9F4 /* eraser.png in Resources */,
 				A050EF0B13E3D1CA005CB9F4 /* appicon.png in Resources */,
+				A072CD9A13F7206C00EE7D72 /* Pdf Marker Manual.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

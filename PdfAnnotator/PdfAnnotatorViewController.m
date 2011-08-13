@@ -163,7 +163,7 @@
 
 - (void)documentChoosen:(NSURL *)_document
 {
-    NSLog(@"%s", [[_document absoluteString] UTF8String]);
+    //NSLog(@"%s", [[_document absoluteString] UTF8String]);
     
     [self resetButtonStates];
     

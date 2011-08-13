@@ -38,11 +38,14 @@
         
         self.files = [[[NSMutableArray alloc] init] autorelease];
         
+        NSString *defaultDoc = [[NSBundle mainBundle] pathForResource:@"Pdf Marker Manual" ofType:@"pdf"];
+        [self.files addObject:defaultDoc];
+        
         NSArray *_files = [fileManager contentsOfDirectoryAtURL:documents includingPropertiesForKeys:NULL options:0 error:NULL];
         
-        for(NSString *url in _files) {
+        for(NSURL *url in _files) {
             if(![[url pathExtension] compare:@"pdf"])
-                [self.files addObject:url];
+                [self.files addObject:[url absoluteString]];
         }
             
         count = [self.files count];
