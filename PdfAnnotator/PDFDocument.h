@@ -18,11 +18,16 @@
 - (NSInteger) pageCount;
 - (void) loadPage:(NSInteger)number;
 - (BOOL)save;
+- (void) releaseDocumentRef;
+- (void) loadDocumentRef;
 
 @property (nonatomic, retain) NSString *name;
 @property (nonatomic, retain) NSString *hash;
 @property (readwrite, nonatomic, assign) CGPDFDocumentRef document;
 @property (readwrite, nonatomic, assign) CGPDFPageRef page;
+@property (nonatomic, retain) NSURL *_documentPath;
+@property (nonatomic, retain) NSString *rawDocumentPath;
+@property (nonatomic, assign) NSInteger currentPage;
 
 @property (nonatomic, retain) NSString *version;
 

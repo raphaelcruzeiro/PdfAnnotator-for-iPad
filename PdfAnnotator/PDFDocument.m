@@ -21,6 +21,9 @@
 @synthesize name;
 @synthesize hash;
 @synthesize dirty;
+@synthesize _documentPath;
+@synthesize rawDocumentPath;
+@synthesize currentPage;
 
 @synthesize version;
 
@@ -30,21 +33,11 @@
         
         self.name = [documentPath lastPathComponent];
         
-        NSURL *_documentPath = nil;
-        
-        if([documentPath rangeOfString:@"PdfAnnotator.app/"].location != NSNotFound)
-            _documentPath = [NSURL  fileURLWithPath:documentPath];
-        else
-            _documentPath = [NSURL URLWithString:documentPath];
-        
-        NSLog(@"Opening: %@", _documentPath);
-        
-        self.document = CGPDFDocumentCreateWithURL((CFURLRef)_documentPath);
-        
-        self.page = CGPDFDocumentGetPage(document, 1);
+        _documentPath = nil;
+        rawDocumentPath = documentPath;
         
         self.version = @"0.5";
-        
+        self.currentPage = 1;
         
         DocumentDeserializer *deserializer = [[[DocumentDeserializer alloc] init] autorelease];
         self.annotation = [deserializer readAnnotation:[self.name stringByDeletingPathExtension]];
@@ -55,13 +48,21 @@
 
 - (NSInteger)pageCount
 {
-    return CGPDFDocumentGetNumberOfPages(self.document);
+    [self loadDocumentRef];
+    NSInteger result = CGPDFDocumentGetNumberOfPages(self.document);
+    [self releaseDocumentRef];
+    
+    return result;
 }
 
 - (void)loadPage:(NSInteger)number
 {
-    CGPDFPageRelease(self.page);
-    self.page = CGPDFDocumentGetPage(document, number);
+    if(self.document != nil){
+        CGPDFPageRelease(self.page);
+        self.page = CGPDFDocumentGetPage(document, number);
+    } 
+    
+    self.currentPage = number;
 }
 
 - (BOOL)save
@@ -73,10 +74,34 @@
     return !self.dirty;
 }
 
+- (void)loadDocumentRef
+{
+    if(self.document == nil){
+        if([rawDocumentPath rangeOfString:@"PdfAnnotator.app/"].location != NSNotFound)
+            _documentPath = [NSURL  fileURLWithPath:rawDocumentPath];
+        else
+            _documentPath = [NSURL URLWithString:rawDocumentPath];
+    
+        NSLog(@"Opening: %@", _documentPath);
+    
+        self.document = CGPDFDocumentCreateWithURL((CFURLRef)_documentPath);
+        
+        self.page = CGPDFDocumentGetPage(self.document, self.currentPage);
+    }
+}
+
+- (void)releaseDocumentRef
+{
+    if(self.document != nil){
+        CGPDFDocumentRelease(self.document);
+        self.document = nil;
+    }
+}
+
 - (void)dealloc
 {
     NSLog(@"Cleaning doc...");
-    CGPDFDocumentRelease(self.document);
+    [self releaseDocumentRef];
     
     [super dealloc];
 }

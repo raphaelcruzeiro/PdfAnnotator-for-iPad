@@ -68,6 +68,8 @@
 {
     [super viewDidLoad];
     
+    [self._document loadDocumentRef];
+    
     expandedFrame = CGRectMake(0, 754, 768, 270);
     collapsedFrame = CGRectMake(0, 962, 768, 270);
     
@@ -136,6 +138,8 @@
         
         startingX += thumb.size.width + 10;
     }
+    
+    [self._document releaseDocumentRef];
     
     [self.view addSubview:scrollView];
     
@@ -223,6 +227,7 @@
     NSInteger currentPage = startingPage;
     
     //if(currentPage < 7) return;
+    [self._document loadDocumentRef];
 
     for(NSInteger i = startingPage ; currentPage <= endPage && i < endPage * 2 ; i++) {
         UIButton *currentButton = [buttons objectAtIndex:i - 1];
@@ -234,6 +239,7 @@
         }
     }
 
+    [self._document releaseDocumentRef];
 }
 
 - (void)viewDidUnload

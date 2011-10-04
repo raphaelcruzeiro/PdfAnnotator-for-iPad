@@ -93,6 +93,8 @@
         }
     }
     
+    [self._document loadDocumentRef];
+    
     if(!pagingViewController)
         pagingViewController = [[PDFPagingViewController alloc] initWithDocument:self._document AndObserver:self];
         
@@ -150,6 +152,8 @@
     
     [self.view addSubview:scrollView];   
     [self.view addSubview:pagingViewController.view];
+    
+    [self._document releaseDocumentRef];
 }
 
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
@@ -166,12 +170,14 @@
 - (void)drawLayer:(CALayer *)layer inContext:(CGContextRef)ctx
 {
     if(self._document) {
+        [self._document loadDocumentRef];
         CGContextSetRGBFillColor(ctx, 1.0, 1.0, 1.0, 1.0);
         CGContextFillRect(ctx, CGContextGetClipBoundingBox(ctx));
         CGContextTranslateCTM(ctx, 0.0, layer.bounds.size.height);
         CGContextScaleCTM(ctx, 1.0, -1.0);
         CGContextConcatCTM(ctx, CGPDFPageGetDrawingTransform(self._document.page, kCGPDFCropBox, layer.bounds, 0, true));
         CGContextDrawPDFPage(ctx, self._document.page);
+        [self._document releaseDocumentRef];
     }
 }
 
