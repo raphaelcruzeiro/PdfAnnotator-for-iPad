@@ -261,6 +261,16 @@
 {
     NSLog(@"%s", "Cleaning paging view...");
     
+    [self.buttons release];
+    
+    for(UIView *v in self.scrollView.subviews){
+        [v release];
+    }
+    
+    for(UIView *v in self.view.subviews){
+        [v release];
+    }
+    
     [super dealloc];
 }
 @end
