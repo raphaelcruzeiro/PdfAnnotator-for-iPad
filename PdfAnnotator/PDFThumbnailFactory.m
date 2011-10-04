@@ -25,6 +25,8 @@
 
 - (UIImage*)generateThumbnailForPage:(NSInteger)page withSize:(CGSize)size
 {
+    [self._document loadDocumentRef];
+    
     UIGraphicsBeginImageContext(size);
     
     CGContextRef ctx = UIGraphicsGetCurrentContext();
@@ -49,6 +51,8 @@
     UIImage * image = UIGraphicsGetImageFromCurrentImageContext();
     
     UIGraphicsEndImageContext();
+    
+    [self._document releaseDocumentRef];
     
     return image;
 }

@@ -26,7 +26,7 @@
     if((self = [super init])){
         self.delegate = observer;
         expanded = false;
-        self._document = document;
+        self._document = [[PDFDocument alloc] initWithDocument:document.rawDocumentPath];
         currentX = 0;
         self.thumbFactory = [[[PDFThumbnailFactory alloc] initWithPDFDocument:self._document] autorelease];
         pagePlaceholder = [[UIImage imageNamed:@"pagePlaceholder.png"] autorelease];
@@ -230,6 +230,10 @@
     [self._document loadDocumentRef];
 
     for(NSInteger i = startingPage ; currentPage <= endPage && i < endPage * 2 ; i++) {
+        if ([buttons count] <= i - 1) {
+            break;
+        }
+        
         UIButton *currentButton = [buttons objectAtIndex:i - 1];
         
         if([currentButton isKindOfClass:[UIButton class]]) {
@@ -268,6 +272,7 @@
     NSLog(@"%s", "Cleaning paging view...");
     
     [self.buttons release];
+    [self._document release];
     
     for(UIView *v in self.scrollView.subviews){
         [v release];
